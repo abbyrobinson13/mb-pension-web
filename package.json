@@ -8,10 +8,16 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "firebase": "^9.15.0",
+=======
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.1",
+>>>>>>> 0cd152002b9e56fabee35e63283c5b9b180f1c07
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
@@ -19,6 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "devStart": "nodemon server.js",
+    "start-server": " node backend/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
