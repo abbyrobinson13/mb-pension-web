@@ -1,7 +1,9 @@
-import firebase from "firebase/app";
-import "firebase/auth";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
 
-export const app = firebase.initializeApp({
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "project-doe-authentication.firebaseapp.com",
   projectId: "project-doe-authentication",
@@ -9,6 +11,7 @@ export const app = firebase.initializeApp({
   messagingSenderId: "659678341564",
   appId: "1:659678341564:web:a26360b31776e1e88ae3b9",
   measurementId: "G-0P6TBCHYTG",
-});
+};
 
-export const auth = app.auth();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
