@@ -13,8 +13,6 @@ app.listen(PORT, () => {
 // MONGODB SETUP
 dotenv.config();
 async function main() {
-  
-
   await mongoose.connect(
     process.env.MONGODB_URI,
 
@@ -26,7 +24,7 @@ async function main() {
       pass: process.env.MONGODB_PASSWORD,
     }
   );
-  console.log(`Connected to Database :  ${process.env.MONGODB_DBNAME}`)
+  console.log(`Connected to Database :  ${process.env.MONGODB_DBNAME}`);
 }
 
 main().catch((err) => console.log(err));
