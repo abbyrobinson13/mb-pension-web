@@ -30,12 +30,13 @@ function main() {
 
   const Employee = new mongoose.model("Employee", employeeSchema);
 
+  // posting an employee object to MongoDB
   const employee = new Employee({
     firstName: "Afshin",
     lastName: "Sharifnia",
     email: " afshin.sharifnia@gmail.com",
   });
-  console.log("hello");
+  console.log("Employee info sent to database");
   employee.save();
 }
 main();
