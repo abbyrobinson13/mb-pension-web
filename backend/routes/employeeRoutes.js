@@ -3,10 +3,15 @@ import { createEmployee } from "../models/employeeModels";
 
 const router = Router();
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const employee = req.body;
-  const newEmployee = createEmployee(employee);
-  res.send(newEmployee);
+  try {
+    const newEmployee = await createEmployee(employee);
+    res.send(newEmployee);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 });
 
 export default router;
