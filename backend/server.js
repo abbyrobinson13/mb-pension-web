@@ -3,24 +3,25 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import colors from "colors";
+import employeeRouter from "../routes/employeeRoutes.js";
+import myConfig from "dotenv";
 
 const app = express();
+app.use(express.json());
 
-dotenv.config();
+app.use("/api/employee", employeeRouter);
+
+myConfig.config();
 
 const PORT = process.env.PORT || 5000;
-
 connectDB();
-
-app.use(express.json());
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
-// employee schema set up
-
-function main() {
+// Testing connection to MongoDB
+/*function main() {
 
   const employeeSchema = new mongoose.Schema({
     firstName: String,
@@ -40,3 +41,5 @@ function main() {
   employee.save();
 }
 main();
+
+*/
