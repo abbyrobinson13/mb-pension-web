@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import colors from "colors";
+import employeeRouter from "./routes/employeeRoutes";
 
 const app = express();
 
@@ -14,6 +15,8 @@ connectDB();
 
 app.use(express.json());
 
+app.use("/api/employee", employeeRouter);
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
@@ -21,7 +24,6 @@ app.listen(PORT, () => {
 // employee schema set up
 
 function main() {
-
   const employeeSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
