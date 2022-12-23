@@ -17,3 +17,9 @@ const userSchema = new mongoose.Schema({
 });
 
 export const Employee = mongoose.model("Employee", employeeSchema);
+
+//Add a new employee to database
+export const createEmployee = async (employee) => {
+  const newEmployee = await Employee.create(employee);
+  return newEmployee;
+};
