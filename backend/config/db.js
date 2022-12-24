@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+import colors from "colors"
+
 const connectDB = async () => {
   try {
     mongoose.connect(process.env.MONGODB_URI, () =>
