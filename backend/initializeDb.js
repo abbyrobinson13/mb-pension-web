@@ -1,4 +1,4 @@
-import { createEmployee } from "./backend/db/models/employeeModel.js";
+import { createEmployee } from "./db/models/employeeModel.js";
 
 import myConfig from "dotenv";
 
