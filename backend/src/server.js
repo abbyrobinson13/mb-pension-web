@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/employees", employeeRouter)
+app.use("/api/employee", employeeRouter);
 
 dotenv.config();
 
