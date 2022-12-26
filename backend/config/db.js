@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import myConfig from "dotenv"
 myConfig.config()
-
 import colors from "colors"
 
 const connectDB = async () => {
