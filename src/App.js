@@ -71,7 +71,7 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route
-          path="/login"
+          path="/"
           element={
             <Form
               title="Log In"
