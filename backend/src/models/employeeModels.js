@@ -67,3 +67,9 @@ export const createEmployee = async (employee) => {
   const newEmployee = await Employee.create(employee);
   return newEmployee;
 };
+
+//list all employees
+export const getAllEmployees = async () => {
+  const employees = await Employee.find();
+  return employees;
+};
