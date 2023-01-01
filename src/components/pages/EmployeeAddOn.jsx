@@ -92,7 +92,7 @@ const SuperheroForm = () => {
       <label>
       Employment Date:
         <input
-          onChange={(event) => setEmployeeDate(event.target.value)}
+          onChange={(event) => setEmploymentDate(event.target.value)}
           value={employmentDate}
         />
       </label>
