@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "../config/db.js";
 import { employeeRouter } from "./routes/employeeRoute.js";
-import { csvRouter } from "./routes/csvRoutes.js";
+import { csvRouter } from "./routes/csvRoute.js";
 
 const app = express();
 
