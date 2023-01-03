@@ -13,8 +13,8 @@ export const NavBar = () => {
         </li>
         <li className="Nav-Page">
           <div className="dropdown">
-            <NavLink to="/parks">
-              <span>Parks</span>
+            <NavLink to="/companies">
+              <span>Companies</span>
             </NavLink>
             <div className="dropdown-content">
               <div className="first-dropdown">
@@ -25,15 +25,15 @@ export const NavBar = () => {
         </li>
         <li className="Nav-Page">
           <div className="dropdown">
-            <NavLink to="/fun">
-              <span> Fun </span>
+            <NavLink to="/employees">
+              <span> Employees </span>
             </NavLink>
           </div>
         </li>
         <li className="Nav-Page">
           <div className="dropdown">
-            <NavLink to="/events">
-              <span> Events</span>
+            <NavLink to="/profile">
+              <span> Profile </span>
             </NavLink>
           </div>
         </li>
