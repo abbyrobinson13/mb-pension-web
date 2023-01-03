@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const EmployeeForm = () => {
+const EmployeeAddOn = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -150,4 +150,4 @@ const EmployeeForm = () => {
   );
 };
 
-export default EmployeeForm;
+export default EmployeeAddOn;
