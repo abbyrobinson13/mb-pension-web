@@ -5,18 +5,14 @@ const EmployeeAddOn = () => {
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
   const [birthDate, setBirthDate] = useState("");
-  const [department, setDepartment] = useState("");
-  const [position, setPosition] = useState("");
-  const [employmentDate,setEmploymentDate,] = useState("");
-  const [dependents, setDependents] = useState("");
   const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [street, setStreet] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [province, setProvince] = useState("");
 
 
+const options = [
+  {label:"Female", value:"apple"},
+  {label:"Male", value:"male"},
+  {label:"Other", value:"other",}
+];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,16 +21,7 @@ const EmployeeAddOn = () => {
       lastName,
       gender,
       birthDate,
-      department,
-      position,
-      employmentDate,
-      dependents,
-      email,
-      mobile,
-      street,
-      postalCode,
-      city,
-      province,
+    
 
 
     };
@@ -46,108 +33,45 @@ const EmployeeAddOn = () => {
       body: JSON.stringify(employee),
     });
     const newEmployee = await response.json();
-    console.log(employee);
+    console.log(newEmployee);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        first Name:
-        <input onChange={(event) => setFirstName(event.target.value)} value={firstName} />
-      </label>
-      <label>
-      Last Name:
-        <input
-          onChange={(event) => setLastName(event.target.value)}
+    <form className ="form" onSubmit={handleSubmit}>
+      <div className="form-body">
+        <div className="firstName">
+      <label className="form_label" for="firstName">First Name</label>
+        <input className="form_input" onChange={(event) => setFirstName(event.target.value)} 
+        value={firstName} />
+        </div>
+        <div className="lastName">
+        <label className="form-label" for="firstName">Last Name</label>
+        <input className="form_input" onChange={(event) => setLastName(event.target.value)}
           value={lastName}
         />
-      </label>
-      <label>
-      Gender:
-        <input
-          onChange={(event) => setGender(event.target.value)}
+        </div>
+        <div className="gender">
+        <label className="form-label" for="gender">Gender</label>
+        <input className="form_input" onChange={(event) => setGender(event.target.value)}
           value={gender}
         />
-      </label>
-      <label>
-      Birth Date:
-        <input
-          onChange={(event) => setBirthDate(event.target.value)}
-          value={birthDate}
+      </div>
+       <div className="birthDate">
+       <label className="form-label" for="birthDate">Birth Date:</label>
+        <input className="form_input" type="birthDate" id="birthDate" onChange={(event) => setBirthDate(event.target.value)}
+         value={birthDate}
         />
-      </label>
-      <label>
-      Department:
-        <input
-          onChange={(event) => setDepartment(event.target.value)}
-          value={department}
-        />
-      </label>
-      <label>
-      Position:
-        <input
-          onChange={(event) => setPosition(event.target.value)}
-          value={position}
-        />
-      </label>
-      <label>
-      Employment Date:
-        <input
-          onChange={(event) => setEmploymentDate(event.target.value)}
-          value={employmentDate}
-        />
-      </label>
-      <label>
-      Dependents:
-        <input
-          onChange={(event) => setDependents(event.target.value)}
-          value={dependents}
-        />
-      </label>
-      <label>
-      Email:
-        <input
-          onChange={(event) => setEmail(event.target.value)}
+      </div>
+      <div className="email">
+        <label className="form-label" for="email">Email</label>
+        <input className="form_input" onChange={(event) => setEmail(event.target.value)}
           value={email}
         />
-      </label>
-      <label>
-      Mobile:
-        <input
-          onChange={(event) => setMobile(event.target.value)}
-          value={mobile}
-        />
-      </label>
-      <label>
-      Street:
-        <input
-          onChange={(event) => setStreet(event.target.value)}
-          value={street}
-        />
-      </label>
-      <label>
-      Postal Code:
-        <input
-          onChange={(event) => setPostalCode(event.target.value)}
-          value={postalCode}
-        />
-      </label>
-      <label>
-      City:
-        <input
-          onChange={(event) => setCity(event.target.value)}
-          value={city}
-        />
-      </label>
-      <label>
-      Province:
-        <input
-          onChange={(event) => setProvince(event.target.value)}
-          value={province}
-        />
-      </label>
-      <button type="submit">Add New Employee</button>
+      </div>
+      <div class="footer">
+      <button type="submit"> Add New Employee</button>
+      </div>
+      </div>
     </form>
   );
 };
-
 export default EmployeeAddOn;
