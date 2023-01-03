@@ -60,7 +60,7 @@ const employeeSchema = new mongoose.Schema({
   },
 });
 
-const Employee = mongoose.model("Employee", employeeSchema);
+export const Employee = mongoose.model("Employee", employeeSchema);
 
 // create employee
 export const createEmployee = async (employee) => {
