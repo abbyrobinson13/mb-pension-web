@@ -29,7 +29,7 @@
   },
   "scripts": {
     "devStart": "nodemon server.js",
-    "start-server": " node backend/src/server.js",
+    "start-server": " nodemon backend/src/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
