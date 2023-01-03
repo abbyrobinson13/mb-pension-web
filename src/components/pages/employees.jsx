@@ -1,7 +1,11 @@
 import React from 'react';
-
 function employees() {
-  return <h1>hello world</h1>;
+  return (
+    <div>
+      <input type="file" />
+      <input id="upload" type="button" value="Upload" disabled />
+    </div>
+  );
 }
 
 export default employees;
