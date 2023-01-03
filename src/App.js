@@ -13,6 +13,7 @@ import Home from './components/Home.jsx';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import WelcomePage from './components/WelcomePage.jsx';
+import Employees from './components/pages/employees.jsx';
 
 //router added at root level so in can be used in the entire application
 
@@ -95,6 +96,7 @@ function App() {
           }
         />
         <Route path="/home" element={<Home />} />
+        <Route path="/employees" element={<Employees />} />
       </Routes>
     </div>
   );
