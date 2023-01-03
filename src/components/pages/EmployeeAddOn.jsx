@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SuperheroForm = () => {
+const EmployeeForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -150,4 +150,4 @@ const SuperheroForm = () => {
   );
 };
 
-export default SuperheroForm;
+export default EmployeeForm;
