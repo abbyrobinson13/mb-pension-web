@@ -64,11 +64,20 @@ const EmployeeForm = () => {
             <label className="form-label" for="gender">
               Gender
             </label>
-            <input
+            {/* <input
               className="form_input"
               onChange={(event) => setGender(event.target.value)}
               value={gender}
-            />
+            /> */}
+            <select
+              onChange={(event) => setGender(event.target.value)}
+              value={gender}
+              style={{ width: 480, display: 'block' }}
+            >
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
+            </select>
           </div>
           <div className="dateOfBirth">
             <label className="form-label" for="dateOfBirth">
@@ -76,7 +85,7 @@ const EmployeeForm = () => {
             </label>
             <input
               className="form_input"
-              type="dateOfBirth"
+              type="date"
               id="dateOfBirth"
               onChange={(event) => setDateOfBirth(event.target.value)}
               value={dateOfBirth}
@@ -92,6 +101,7 @@ const EmployeeForm = () => {
               value={email}
             />
           </div>
+          <br/>
           <div class="submit">
             <button type="submit"> Add New Employee</button>
           </div>
