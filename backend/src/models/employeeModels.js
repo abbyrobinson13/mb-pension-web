@@ -38,3 +38,9 @@ export const getAllEmployees = async () => {
   const employees = await Employee.find();
   return employees;
 };
+
+ //get an employee by Id
+ export const getEmployeeById = async (id) => {
+  const employee = await Employee.findById();
+  return employee;
+};

@@ -14,6 +14,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import WelcomePage from './components/WelcomePage.jsx';
 import Employees from './components/pages/employees.jsx';
+import EmployeeList from './components/pages/EmployeeList.jsx';
+import EmployeeForm from './components/pages/EmployeeForm.jsx';
 
 //router added at root level so in can be used in the entire application
 
@@ -97,6 +99,8 @@ function App() {
         />
         <Route path="/home" element={<Home />} />
         <Route path="/employees" element={<Employees />} />
+        <Route path="/employeelist" element={<EmployeeList />} />
+        <Route path="/employeeform" element={<EmployeeForm />} />
       </Routes>
     </div>
   );
