@@ -4,7 +4,7 @@ const EmployeeForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
-  const [birthDate, setBirthDate] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
   const [email, setEmail] = useState("");
 
 
@@ -20,7 +20,7 @@ const options = [
       firstName,
       lastName,
       gender,
-      birthDate,
+      dateOfBirth,
     
 
 
@@ -61,10 +61,10 @@ const options = [
           value={gender}
         />
       </div>
-       <div className="birthDate">
-       <label className="form-label" for="birthDate">Birth Date:</label>
-        <input className="form_input" type="birthDate" id="birthDate" onChange={(event) => setBirthDate(event.target.value)}
-         value={birthDate}
+       <div className="dateOfBirth">
+       <label className="form-label" for="dateOfBirth">Date Of Birth:</label>
+        <input className="form_input" type="dateOfBirth" id="dateOfBirth" onChange={(event) => dateOfBirth(event.target.value)}
+         value={dateOfBirth}
         />
       </div>
       <div className="email">
