@@ -3,7 +3,7 @@ function employees() {
   return (
     <div>
       <input type="file" />
-      <input id="upload" type="button" value="Upload" disabled />
+      <input id="upload" type="button" value="Upload to Database"/>
     </div>
   );
 }
