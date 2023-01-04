@@ -35,6 +35,7 @@ export const getAllEmployees = async () => {
 
 //get an employee by Id
 export const getEmployeeById = async (id) => {
-  const employee = await Employee.findById();
+  console.log('trying to get employee', id);
+  const employee = await Employee.findById(id);
   return employee;
 };

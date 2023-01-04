@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     const newEmployee = await createEmployee(employee);
     res.send(newEmployee);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).send(error);
   }
 });
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
     if (!employee) {
       return res.status(404).send('Invalid employee id');
     }
-      res.send(employee);
+    res.send(employee);
   } catch (error) {
     res.status(500).send(error);
   }
