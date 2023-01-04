@@ -67,7 +67,7 @@ const options = [
           value={email}
         />
       </div>
-      <div class="footer">
+      <div class="submit">
       <button type="submit"> Add New Employee</button>
       </div>
       </div>
