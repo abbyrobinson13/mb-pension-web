@@ -36,6 +36,12 @@ const options = [
     console.log(newEmployee);
   };
   return (
+    <>
+    <nav className= "bg-dark navbar-dark navbar">
+        <div className ="row col-12 d-flex justify-content-center text-white">
+            <h2>Employee Form</h2>
+        </div>
+    </nav>
     <form className ="form" onSubmit={handleSubmit}>
       <div className="form-body">
         <div className="firstName">
@@ -72,6 +78,7 @@ const options = [
       </div>
       </div>
     </form>
+    </>
   );
 };
 export default EmployeeForm;
