@@ -1,0 +1,13 @@
+{
+  "name": "mb-pension-web",
+  "scripts": {
+    "start-client": "cd frontend && npm run start",
+    "start-server": "cd backend && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abbyrobinson13/mb-pension-web.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
