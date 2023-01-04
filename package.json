@@ -2,15 +2,13 @@
   "name": "mb-pension-web",
   "scripts": {
     "start-client": "cd frontend && npm run start",
-    "start-server": "cd backend && npm run start"
+    "start-server": "cd backend && npm run start",
+    "update": "cd frontend && npm install && cd .. && cd backend && npm install"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abbyrobinson13/mb-pension-web.git"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "firebase": "^9.15.0"
-  }
+  "license": "ISC"
 }
