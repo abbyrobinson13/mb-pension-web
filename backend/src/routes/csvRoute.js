@@ -6,7 +6,7 @@ export const csvRouter = express.Router();
 
 csvRouter.post('/add', async (req, res) => {
   csvtojson()
-    .fromFile('EmployeeTemplateSample1.csv')
+    .fromFile('EmployeeTemplateSample.csv')
     .then((csvData) => {
       console.log(csvData);
       Employee.insertMany(csvData)
