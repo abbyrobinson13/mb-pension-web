@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 
 const EmployeeDetail = (props) => {
   const employee = props.employee;
-  const { firstName, lastName, gender, birthDate,email, } = employee;
+  const { firstName, lastName, gender, dateOfBirth, email, } = employee;
   return (
     <div>
       <p>First Name:</p>
@@ -18,8 +18,8 @@ const EmployeeDetail = (props) => {
       <p>{lastName}</p>
       <p>Gender:</p>
       <p>{gender}</p>
-      <p>Birth Date</p>
-      <p>{birthDate}</p>
+      <p>Date Of Birth</p>
+      <p>{dateOfBirth}</p>
       <p>Email:</p>
       <p>{email}</p>
       </div>
@@ -50,7 +50,7 @@ const EmployeeList = () => {
             <TableCell>First Name</TableCell>
             <TableCell >Last Name</TableCell>
             <TableCell >Gender</TableCell>
-            <TableCell >Birth Date</TableCell>
+            <TableCell >Date Of Birth</TableCell>
             <TableCell align="right">Email</TableCell>
           </TableRow>
         </TableHead>
@@ -65,7 +65,7 @@ const EmployeeList = () => {
               </TableCell>
               <TableCell >{employee.lastName}</TableCell>
               <TableCell >{employee.gender}</TableCell>
-              <TableCell >{employee.birthDate}</TableCell>
+              <TableCell >{employee.dateOfBirth}</TableCell>
               <TableCell >{employee.department}</TableCell>
               <TableCell align="left">{employee.email}</TableCell>
       
