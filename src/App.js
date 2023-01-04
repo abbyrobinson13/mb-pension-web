@@ -3,7 +3,6 @@ import './App.css';
 import Form from './components/common/Form.js';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { app } from './firebase-config.js';
 import {
   getAuth,
   signInWithEmailAndPassword,
