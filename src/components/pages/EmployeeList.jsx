@@ -38,7 +38,11 @@ const EmployeeList = () => {
   }, []);
   return (
     <div>
-      <h2>List of Employees</h2>
+      <nav className= "bg-dark navbar-dark navbar">
+        <div className ="row col-12 d-flex justify-content-center text-white">
+            <h2>List Of Employees</h2>
+        </div>
+    </nav>
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
