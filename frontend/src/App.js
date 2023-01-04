@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Form from './components/common/Form.js';
+import { app } from './firebase-config.js';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {
@@ -32,7 +33,7 @@ function App() {
   }, []);
 
   const handleAction = (id) => {
-    const authentication = getAuth();
+    const authentication = getAuth(app);
     if (id === 1) {
       signInWithEmailAndPassword(authentication, email, password)
         .then((response) => {
