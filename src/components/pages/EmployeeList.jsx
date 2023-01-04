@@ -47,7 +47,7 @@ const EmployeeList = () => {
             <TableCell >Last Name</TableCell>
             <TableCell >Gender</TableCell>
             <TableCell >Birth Date</TableCell>
-            <TableCell >Email</TableCell>
+            <TableCell align="right">Email</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -63,7 +63,7 @@ const EmployeeList = () => {
               <TableCell >{employee.gender}</TableCell>
               <TableCell >{employee.birthDate}</TableCell>
               <TableCell >{employee.department}</TableCell>
-              <TableCell >{employee.email}</TableCell>
+              <TableCell align="left">{employee.email}</TableCell>
       
             </TableRow>
           ))}
