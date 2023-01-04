@@ -9,5 +9,8 @@
     "url": "git+https://github.com/abbyrobinson13/mb-pension-web.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^9.15.0"
+  }
 }
