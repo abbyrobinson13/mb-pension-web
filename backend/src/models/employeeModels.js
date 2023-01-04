@@ -2,24 +2,20 @@ import mongoose from 'mongoose';
 
 const employeeSchema = new mongoose.Schema({
   firstName: {
-    type: String,
-   
+    type: String
   },
   lastName: {
-    type: String,
- 
+    type: String
   },
   gender: {
-    type: String,
-    
+    type: String
   },
-  DateOfBirth: {
-    type: String,
-    
+  dateOfBirth: {
+    type: String
   },
 
   email: {
-    type: String,
+    type: String
   }
 });
 
@@ -37,8 +33,8 @@ export const getAllEmployees = async () => {
   return employees;
 };
 
- //get an employee by Id
- export const getEmployeeById = async (id) => {
+//get an employee by Id
+export const getEmployeeById = async (id) => {
   const employee = await Employee.findById();
   return employee;
 };
