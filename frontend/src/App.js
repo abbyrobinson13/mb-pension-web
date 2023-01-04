@@ -13,7 +13,7 @@ import Home from './components/Home.jsx';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import WelcomePage from './components/WelcomePage.jsx';
-import Employees from './components/pages/employees.jsx';
+import Employees from './components/pages/Employees.jsx';
 import EmployeeList from './components/pages/EmployeeList.jsx';
 import EmployeeForm from './components/pages/EmployeeForm.jsx';
 
