@@ -9,19 +9,18 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add a last name']
   },
-  gender: {
-    type: String,
-    required: [true, 'Please add a gender']
-  },
-  birthDate: {
-    type: String,
-    required: [true, 'Please add a birthdate']
-  },
-
   email: {
     type: String,
     required: [true, 'Please add an email'],
     unique: true
+  },
+  department: {
+    type: String,
+    required: [true, 'Please add a place of work ']
+  },
+  birthDate: {
+    type: String,
+    required: [true, 'Please add a birthdate']
   }
 });
 
