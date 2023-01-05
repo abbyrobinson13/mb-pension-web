@@ -24,13 +24,12 @@ function Employees() {
     }
   };
   return (
-    
     <div>
-      <nav className= "bg-dark navbar-dark navbar">
-        <div className ="row col-12 d-flex justify-content-center text-white">
-            <h2>Upload CSV File</h2>
+      <nav className="bg-dark navbar-dark navbar">
+        <div className="row col-12 d-flex justify-content-center text-white">
+          <h2>Upload CSV File</h2>
         </div>
-    </nav>
+      </nav>
       <input
         type="file"
         onChange={(e) => {
@@ -44,6 +43,8 @@ function Employees() {
         onClick={handleSubmit}
       />
       {status}
+
+      <p className="uploadStatus">{status}</p>
     </div>
   );
 }
