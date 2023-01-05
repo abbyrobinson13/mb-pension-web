@@ -48,6 +48,7 @@ const EmployeeForm = () => {
               className="form_input"
               onChange={(event) => setFirstName(event.target.value)}
               value={firstName}
+              placeholder="Enter first name...."
             />
           </div>
           <div className="lastName">
@@ -58,6 +59,7 @@ const EmployeeForm = () => {
               className="form_input"
               onChange={(event) => setLastName(event.target.value)}
               value={lastName}
+              placeholder="Enter last name...."
             />
           </div>
           <div className="gender">
@@ -74,6 +76,9 @@ const EmployeeForm = () => {
               value={gender}
               style={{ width: 480, display: 'block' }}
             >
+              <option value="" hidden>
+                Select....
+              </option>
               <option value="female">Female</option>
               <option value="male">Male</option>
               <option value="other">Other</option>
@@ -99,9 +104,10 @@ const EmployeeForm = () => {
               className="form_input"
               onChange={(event) => setEmail(event.target.value)}
               value={email}
+              placeholder="Enter your email...."
             />
           </div>
-          <br/>
+          <br />
           <div class="submit">
             <button type="submit"> Add New Employee</button>
           </div>
