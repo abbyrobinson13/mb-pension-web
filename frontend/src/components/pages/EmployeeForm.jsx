@@ -15,6 +15,7 @@ const EmployeeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    alert('Form submitted');
     const employee = {
       firstName,
       lastName,
