@@ -255,3 +255,8 @@ body{
 .submit{
   text-align: center;
 }
+
+.uploadStatus{
+  color:greenyellow;
+  font-size: calc(10px + 2vmin);
+}
