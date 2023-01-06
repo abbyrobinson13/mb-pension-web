@@ -217,9 +217,9 @@ margin-right: 7px;
   background-color: #B1CA94;
 }
 
-body{
+/*body{
   background: linear-gradient(to right, #2c3e50, #bdc3c7); 
-}
+}*/
 
 .form{
   background-color: white;
@@ -228,6 +228,7 @@ body{
   margin: 20px auto;
   padding: 20px;
   /* height: 600px; */
+  background: linear-gradient(to right, #2c3e50, #bdc3c7);
 }
 
 .form-body{
