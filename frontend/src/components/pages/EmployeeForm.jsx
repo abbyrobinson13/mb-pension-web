@@ -19,6 +19,7 @@ const EmployeeForm = () => {
     const employee = {
       firstName,
       lastName,
+      email,
       gender,
       dateOfBirth
     };
