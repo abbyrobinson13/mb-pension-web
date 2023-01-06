@@ -255,3 +255,8 @@ body{
 .submit{
   text-align: center;
 }
+
+/* employees upload csv file page  */
+.upload-csv{
+  color: white;
+}

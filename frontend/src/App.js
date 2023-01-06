@@ -74,6 +74,8 @@ function App() {
     <div className="App">
       <ToastContainer />
       <Routes>
+        <Route path="/employeelist" element={<EmployeeList />} />
+        <Route path="/employeeform" element={<EmployeeForm />} />
         <Route path="/" element={<WelcomePage />} />
         <Route
           path="/login"
@@ -99,8 +101,6 @@ function App() {
         />
         <Route path="/home" element={<Home />} />
         <Route path="/employees" element={<Employees />} />
-        <Route path="/employeelist" element={<EmployeeList />} />
-        <Route path="/employeeform" element={<EmployeeForm />} />
       </Routes>
     </div>
   );
