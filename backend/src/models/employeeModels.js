@@ -15,7 +15,9 @@ const employeeSchema = new mongoose.Schema({
   },
 
   email: {
-    type: String
+    type: String,
+    required: [true, 'Please add an email'],
+    unique: true
   }
 });
 
