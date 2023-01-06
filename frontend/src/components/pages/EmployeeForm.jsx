@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const EmployeeForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -6,12 +7,6 @@ const EmployeeForm = () => {
   const [gender, setGender] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [email, setEmail] = useState('');
-
-  const options = [
-    { label: 'Female', value: 'apple' },
-    { label: 'Male', value: 'male' },
-    { label: 'Other', value: 'other' }
-  ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -111,7 +106,14 @@ const EmployeeForm = () => {
           </div>
           <br />
           <div class="submit">
-            <button type="submit"> Add New Employee</button>
+            <button
+              type="submit"
+              disabled={
+                !firstName || !lastName || !gender || !dateOfBirth || !email
+              }
+            >
+              Add New Employee
+            </button>
           </div>
         </div>
       </form>
