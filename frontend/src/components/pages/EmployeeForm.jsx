@@ -7,10 +7,14 @@ const EmployeeForm = () => {
   const [gender, setGender] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [email, setEmail] = useState('');
+  const [confirmSubmit, setConfirmSubmit] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     alert('Form submitted');
+    setConfirmSubmit(true);
+    navigate('/employeelist');
     const employee = {
       firstName,
       lastName,
