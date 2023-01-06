@@ -17,12 +17,21 @@ const EmployeeList = () => {
 
   return (
     <>
-      <nav className="bg-dark navbar-dark navbar">
-        <div className="row col-12 d-flex justify-content-center text-white">
-          <h2>List Of Employees</h2>
-        </div>
-        //{' '}
-      </nav>
+      <div className="position-absolute mid-left">
+        <Link to="/employeeform">
+          <Button
+            className="btn btn-success"
+            size="md"
+            textAlign="left"
+            aria-pressed="true"
+          >
+            CREATE
+          </Button>
+        </Link>
+      </div>
+      <div>
+        <h2>List Of Employees</h2>
+      </div>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -44,16 +53,32 @@ const EmployeeList = () => {
                 <td>{employee.dateOfBirth} </td>
                 <td>{employee.email} </td>
                 <td>
-                  <Button onClick={() => alert(employee.firstName)}>
+                  <Button
+                    className="btn btn-primary"
+                    aria-pressed="true"
+                    size="sm"
+                    onClick={() => alert(employee.firstName)}
+                  >
                     EDIT
                   </Button>
                   &nbsp;
-                  <Button onClick={() => alert(employee.firstName)}>
+                  <Button
+                    className="btn btn-danger"
+                    aria-pressed="true"
+                    size="sm"
+                    onClick={() => alert(employee.firstName)}
+                  >
                     DELETE
                   </Button>
                   &nbsp;
                   <Link to={`/detail/${employee._id}`}>
-                    <Button>DETAIL</Button>
+                    <Button
+                      className="btn btn-info"
+                      aria-pressed="true"
+                      size="sm"
+                    >
+                      DETAILS
+                    </Button>
                   </Link>
                 </td>
               </tr>
@@ -61,10 +86,6 @@ const EmployeeList = () => {
           })}
         </tbody>
       </Table>
-      <br></br>
-      <Link to="/employeeform">
-        <Button size="lg">Employee Form</Button>
-      </Link>
     </>
   );
 };

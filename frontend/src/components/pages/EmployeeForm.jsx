@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import Button from 'react-bootstrap/esm/Button';
 const EmployeeForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -34,12 +34,12 @@ const EmployeeForm = () => {
   };
   return (
     <>
-      <nav className="bg-dark navbar-dark navbar">
+      <form className="form" onSubmit={handleSubmit}>
+        <nav className="bg-dark navbar-dark navbar">
         <div className="row col-12 d-flex justify-content-center text-white">
           <h2>Employee Form</h2>
         </div>
       </nav>
-      <form className="form" onSubmit={handleSubmit}>
         <div className="form-body">
           <div className="firstName">
             <label className="form_label" for="firstName">
@@ -121,7 +121,8 @@ const EmployeeForm = () => {
           </div>
         </div>
       </form>
-    </>
+      </>
+   
   );
 };
 export default EmployeeForm;
