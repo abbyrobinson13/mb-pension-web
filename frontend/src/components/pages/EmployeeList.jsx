@@ -59,22 +59,20 @@ const EmployeeList = () => {
           <TableBody>
             {employees.map((employee) => (
               <TableRow
-                key={employee.firstName} 
+                key={employee.firstName}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell
-                  component="th"
-                  scope="row"
-                  
-                >
-                  {employee.firstName} <Link to={`/detail/${employee._id}`}>Go to Detail</Link>
+                <TableCell component="th" scope="row">
+                  {employee.firstName}
                 </TableCell>
                 <TableCell>{employee.lastName}</TableCell>
                 <TableCell>{employee.gender}</TableCell>
                 <TableCell>{employee.dateOfBirth}</TableCell>
                 <TableCell>{employee.department}</TableCell>
                 <TableCell align="left">{employee.email}</TableCell>
-                
+                <TableCell align="left">
+                  <Link to={`/detail/${employee._id}`}>Go to Detail</Link>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
