@@ -44,6 +44,8 @@ function Employees() {
         onClick={handleSubmit}
       />
       {status}
+
+      <p className="uploadStatus">{status}</p>
     </div>
   );
 }
