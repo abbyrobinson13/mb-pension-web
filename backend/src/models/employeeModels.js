@@ -41,3 +41,10 @@ export const getEmployeeById = async (id) => {
   const employee = await Employee.findById(id);
   return employee;
 };
+
+//edit/update employee
+export const updateEmployee = async (id, employeeValues) => {
+  const updatedEmployee = await Employee.findOneAndUpdate(
+    {_id: id}, employeeValues);
+  return updatedEmployee;
+};
