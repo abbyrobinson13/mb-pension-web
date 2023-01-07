@@ -25,11 +25,11 @@ const EmployeeList = () => {
             textAlign="left"
             aria-pressed="true"
           >
-            CREATE
+            Add New (+)
           </Button>
         </Link>
       </div>
-      <div>
+      <div className="col-lg-12">
         <h2>List Of Employees</h2>
       </div>
       <Table striped bordered hover>
@@ -53,14 +53,16 @@ const EmployeeList = () => {
                 <td>{employee.dateOfBirth} </td>
                 <td>{employee.email} </td>
                 <td>
-                  <Button
-                    className="btn btn-primary"
-                    aria-pressed="true"
-                    size="sm"
-                    onClick={() => alert(employee.firstName)}
-                  >
-                    EDIT
-                  </Button>
+                  <Link to={`/update/${employee._id}`}>
+                    <Button
+                      className="btn btn-success"
+                      aria-pressed="true"
+                      size="sm"
+                      onClick={() =>{LoadEdit(employee.firstName)}}
+                    >
+                      Edit
+                    </Button>
+                  </Link>
                   &nbsp;
                   <Button
                     className="btn btn-danger"
@@ -68,16 +70,16 @@ const EmployeeList = () => {
                     size="sm"
                     onClick={() => alert(employee.firstName)}
                   >
-                    DELETE
+                    Delete
                   </Button>
                   &nbsp;
                   <Link to={`/detail/${employee._id}`}>
                     <Button
-                      className="btn btn-info"
+                      className="btn btn-primary"
                       aria-pressed="true"
                       size="sm"
                     >
-                      DETAILS
+                      Details
                     </Button>
                   </Link>
                 </td>
