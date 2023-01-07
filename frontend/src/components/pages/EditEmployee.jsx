@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const EditEmployee = () => {
- //const [employee, setEmployee] = useState();
+ const [employee, setEmployee] = useState();
   const params = useParams();
   const id = params.id;
   console.log('id is', id);
