@@ -6,6 +6,15 @@ import Button from 'react-bootstrap/Button';
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
 
+  const LoadEdit = (id)=>{
+
+  };
+
+  const RemoveEmployee=(id)=>{
+
+  };
+
+
   useEffect(() => {
     const getEmployees = async () => {
       const response = await fetch('/api/employee');
