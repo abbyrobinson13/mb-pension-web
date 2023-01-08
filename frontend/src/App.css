@@ -217,59 +217,49 @@ margin-right: 7px;
   background-color: #B1CA94;
 }
 
-/*body{
-  background: linear-gradient(to right, #2c3e50, #bdc3c7); 
-}*/
-
-.form{
-  background-color: white;
-  border-radius: 5px;
-  width: 550px;
-  margin: 20px auto;
-  padding: 20px;
-  /* height: 600px; */
-  background: linear-gradient(to right, #2c3e50, #bdc3c7);
-}
-
-.form-body{
-  text-align: left;
-  padding: 20px 10px;
-}
-
-.form-body > *{
-  padding: 5px;
-}
-
-.form__label{
-  /*width: 40%;*/
-  width:180px;
-  clear:left;
-  text-align:right;
-  padding-right:10px;
-
-}
-
-.form_input{
-  width: 100%;
-  float:right;
-}
-.submit{
-  text-align: center;
-  background-color: rgb(53, 50, 50);
-  color: white;
-  font-size: 20px;
-  padding: 10px 60px;
-  border-radius: 5px;
-  margin: 10px 0px;
-  cursor: pointer;
-}
 
 .uploadStatus{
   color:greenyellow;
   font-size: calc(10px + 2vmin);
 }
 
-/* employees upload csv file page  */
+ employees upload csv file page  
 .upload-csv{
   color: white;
+}
+
+form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.form {
+  width: 420px;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
 }
