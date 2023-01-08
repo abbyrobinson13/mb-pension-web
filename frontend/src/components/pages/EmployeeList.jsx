@@ -6,14 +6,9 @@ import Button from 'react-bootstrap/Button';
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
 
-  const LoadEdit = (id)=>{
+  //const LoadEdit = (id) => {};
 
-  };
-
-  const RemoveEmployee=(id)=>{
-
-  };
-
+  const RemoveEmployee = (id) => {};
 
   useEffect(() => {
     const getEmployees = async () => {
@@ -55,7 +50,7 @@ const EmployeeList = () => {
         <tbody>
           {employees.map((employee) => {
             return (
-              <tr>
+              <tr key={employee.firstName}>
                 <td>{employee.firstName} </td>
                 <td>{employee.lastName} </td>
                 <td>{employee.gender} </td>
@@ -67,7 +62,6 @@ const EmployeeList = () => {
                       className="btn btn-success"
                       aria-pressed="true"
                       size="sm"
-                      onClick={() =>{LoadEdit(employee.firstName)}}
                     >
                       Edit
                     </Button>
@@ -82,7 +76,7 @@ const EmployeeList = () => {
                     Delete
                   </Button>
                   &nbsp;
-                  <Link to={`/detail/${employee._id}`}>
+                  <Link to="/update/:id">
                     <Button
                       className="btn btn-primary"
                       aria-pressed="true"
