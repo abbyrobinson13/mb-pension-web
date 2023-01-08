@@ -22,7 +22,7 @@ const EmployeeList = () => {
   return (
     <>
       <div className="position-absolute mid-left">
-        <Link to="/employeeform">
+        <Link to="/create">
           <Button
             className="btn btn-success"
             size="md"

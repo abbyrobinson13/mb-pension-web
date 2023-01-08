@@ -104,7 +104,7 @@ const EmployeeForm = (props) => {
                 !firstName || !lastName || !gender || !dateOfBirth || !email
               }
             >
-              Save
+            {buttonText}
             </button>
           </div>
         </div>

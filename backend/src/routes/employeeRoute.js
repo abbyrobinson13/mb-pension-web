@@ -42,13 +42,12 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
 router.put('/:id', async (req, res) => {
   const id = req.params.id;
-  const employeeValues = req.body
+  const employeeValues = req.body;
   try {
-    const updatedEmployee = await updateEmployee(employeeValues);
-    console.log('updatedEmployee is', updateEmployee)
+    const updatedEmployee = await updateEmployee(id, employeeValues);
+    console.log('updatedEmployee is', updateEmployee);
     res.send(updatedEmployee);
   } catch (error) {
     res.status(500).send(error);

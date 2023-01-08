@@ -14,7 +14,7 @@ function EmployeeUpdate() {
 
   useEffect(() => {
     const getEmployee = async () => {
-      const response = await fetch(`/api/employee/${id}`); 
+      const response = await fetch(`/api/employee/${id}`);
       const data = await response.json();
       setEmployee(data);
       console.log(data);
@@ -24,20 +24,19 @@ function EmployeeUpdate() {
 
   const handleSubmit = async (employee) => {
     //setConfirmSubmit(true);
-    navigate('/employeelist');
-
-  const response = await fetch(`/api/employee/${id}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(employee)
-  });
-  const newEmployee = await response.json();
-  console.log(newEmployee);
+    const response = await fetch(`/api/employee/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(employee)
+    });
+    const newEmployee = await response.json();
+    console.log(newEmployee);
+    navigate('/employeelist')
   };
 
-  return <EmployeeForm employee = {employee}  buttonText="Save" className="btn btn-danger"  />
+  return <EmployeeForm employee={employee} buttonText="Edit" handleSubmit={handleSubmit}/>;
 }
 
 export default EmployeeUpdate;

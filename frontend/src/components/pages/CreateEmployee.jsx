@@ -25,7 +25,7 @@ function CreateEmployee() {
     console.log(newEmployee);
   };
   return (
-    <EmployeeForm handleSubmit={handleSubmit} buttonText="Add New Employee"  className="btn btn-success"/>
+    <EmployeeForm handleSubmit={handleSubmit} buttonText="Add New Employee"   />
   )
 }
 
