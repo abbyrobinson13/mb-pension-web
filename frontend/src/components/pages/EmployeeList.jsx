@@ -76,7 +76,7 @@ const EmployeeList = () => {
                     Delete
                   </Button>
                   &nbsp;
-                  <Link to="/update/:id">
+                  <Link to="/detail/:id">
                     <Button
                       className="btn btn-primary"
                       aria-pressed="true"
