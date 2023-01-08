@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 
-const EmployeeForm = ( props) => {
-  const {employee, buttonText, handleSubmit} = props;
+const EmployeeForm = (props) => {
+  const { employee, buttonText, handleSubmit } = props;
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [gender, setGender] = useState('');
@@ -12,29 +12,32 @@ const EmployeeForm = ( props) => {
   const [confirmSubmit, setConfirmSubmit] = useState(false);
   const navigate = useNavigate();
 
- useEffect(() => {
-  if (employee) {
-  setFirstName(employee.firstName)
-  setLastName(employee.lastName)
-  setGender(employee.gender)
-  setDateOfBirth(employee.dateOfBirth)
-  setEmail(employee.email)
-  }
- }, [employee]);
+  useEffect(() => {
+    if (employee) {
+      setFirstName(employee.firstName);
+      setLastName(employee.lastName);
+      setGender(employee.gender);
+      setDateOfBirth(employee.dateOfBirth);
+      setEmail(employee.email);
+    }
+  }, [employee]);
 
   return (
     <div className="form-container">
-      <form className="form" onSubmit={(e) => {
-        e.preventDefault();
-        const employeeValues = {
-          firstName,
-          lastName,
-          gender,
-          dateOfBirth,
-          email,
-        };
-        handleSubmit(employeeValues);
-      }}>
+      <form
+        className="form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const employeeValues = {
+            firstName,
+            lastName,
+            gender,
+            dateOfBirth,
+            email
+          };
+          handleSubmit(employeeValues);
+        }}
+      >
         <div className="form-content">
           <h3 className="form-title"></h3>
           <div className="form-group mt-3">
@@ -44,7 +47,7 @@ const EmployeeForm = ( props) => {
               className="form-control mt-1"
               onChange={(event) => setFirstName(event.target.value)}
               value={firstName}
-              placeholder= "Enter first name...."
+              placeholder="Enter first name...."
             />
           </div>
           <div className="form-group mt-3">
@@ -73,7 +76,6 @@ const EmployeeForm = ( props) => {
               <option value="male">Male</option>
               <option value="other">Other</option>
             </select>
-            
           </div>
           <div className="form-group mt-3">
             <label>Date Of Birth</label>
@@ -95,16 +97,19 @@ const EmployeeForm = ( props) => {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary" disabled={
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={
                 !firstName || !lastName || !gender || !dateOfBirth || !email
-              }>
-              Add New Employee
+              }
+            >
+              Save
             </button>
           </div>
         </div>
       </form>
-      </div>
-   
+    </div>
   );
 };
 export default EmployeeForm;
