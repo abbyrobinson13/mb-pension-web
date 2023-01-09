@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
+  const params = useParams();
+  const navigate = useNavigate();
+  const id = params.id;
+  console.log('id is', id);
 
-  //const LoadEdit = (id) => {};
-
-  const RemoveEmployee = (id) => {};
+  const handleDelete = async (id) => {
+    if (window.confirm(`Are sure you want to delete ?`)) {
+      const response = await fetch(`/api/employee/${id}`, {
+        method: 'DELETE'
+      });
+      const deletedEmployee = await response.json();
+      console.log(deletedEmployee);
+      navigate(0);
+    }
+  };
 
   useEffect(() => {
     const getEmployees = async () => {
       const response = await fetch('/api/employee');
       const employeesData = await response.json();
+      console.log(employeesData);
       setEmployees(employeesData);
     };
     getEmployees();
@@ -71,7 +83,9 @@ const EmployeeList = () => {
                     className="btn btn-danger"
                     aria-pressed="true"
                     size="sm"
-                    onClick={() => alert(employee.firstName)}
+                    onClick={() => {
+                      handleDelete(employee._id);
+                    }}
                   >
                     Delete
                   </Button>
