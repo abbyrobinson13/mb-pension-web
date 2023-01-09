@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const bull = (
   <Box
@@ -44,28 +46,30 @@ const EmployeeDetail = () => {
       <Card variant="outlined" sx={{ minWidth: 275, maxWidth: 500 }}>
         <CardContent sx={{ textAlign: 'left' }}>
           <Typography variant="h5" sx={{ mb: 1.5 }}>
-            {bull}
-            {employee.firstName}
+            {bull}Employee's First Name is : {employee.firstName}
           </Typography>
           <br />
           <Typography variant="h5" sx={{ mb: 1.5 }}>
-            {bull}
-            {employee.lastName}
+            {bull}Employee's Last Name is : {employee.lastName}
           </Typography>
           <br />
           <Typography variant="h5" sx={{ mb: 1.5 }}>
-            {bull}
-            {employee.gender}
+            {bull}Gender is : {employee.gender}
           </Typography>
           <br />
           <Typography variant="h5" sx={{ mb: 1.5 }}>
-            {bull}
-            {employee.dateOfBirth}
+            {bull} Date Of Birth is : {employee.dateOfBirth}
           </Typography>
           <br />
           <Typography variant="h5" sx={{ mb: 1.5 }}>
-            {bull}
-            {employee.email}
+            {bull} Email is : {employee.email}
+          </Typography>
+          <Typography variant="h5" sx={{ mb: 1.5 }}>
+            <Link to="/employeelist">
+              <Button className="btn btn-primary" aria-pressed="true" size="sm">
+                Back to List
+              </Button>
+            </Link>
           </Typography>
         </CardContent>
       </Card>

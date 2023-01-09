@@ -15,7 +15,9 @@ const employeeSchema = new mongoose.Schema({
   },
 
   email: {
-    type: String
+    type: String,
+    required: [true, 'Please add an email'],
+    unique: true
   }
 });
 
@@ -38,4 +40,17 @@ export const getEmployeeById = async (id) => {
   console.log('trying to get employee', id);
   const employee = await Employee.findById(id);
   return employee;
+};
+
+//edit/update employee
+export const updateEmployee = async (id, employeeValues) => {
+  const updatedEmployee = await Employee.findOneAndUpdate(
+    {_id: id}, employeeValues);
+  return updatedEmployee;
+};
+
+//delete an employee
+export const deleteEmployee = async (id) => {
+  const deletedEmployee = await Employee.findByIdAndDelete(id);
+  return deletedEmployee;
 };

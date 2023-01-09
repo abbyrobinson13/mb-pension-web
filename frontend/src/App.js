@@ -15,8 +15,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import WelcomePage from './components/WelcomePage.jsx';
 import Employees from './components/pages/employees.jsx';
 import EmployeeList from './components/pages/EmployeeList.jsx';
-import EmployeeForm from './components/pages/EmployeeForm.jsx';
+import EmployeeForm from './shared/EmployeeForm.jsx';
 import EmployeeDetail from './components/pages/EmployeeDetail.jsx';
+import CreateEmployee from './components/pages/CreateEmployee.jsx';
+import EmployeeUpdate from './components/pages/EmployeeUpdate.jsx';
 import CompanyList from './components/pages/CompanyList';
 
 //router added at root level so in can be used in the entire application
@@ -104,9 +106,14 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/employees" element={<Employees />} />
         <Route path="/employeelist" element={<EmployeeList />} />
-        <Route path="/employeeform" element={<EmployeeForm />} />
+        <Route path="/create" element={<CreateEmployee />} />
         <Route path="/detail/:id" element={<EmployeeDetail />} />
+<<<<<<< HEAD
         <Route path="/companylist" element={<CompanyList />} />
+=======
+        <Route path="/update/:id" element={<EmployeeUpdate/>} />
+        <Route path="/employeeform" lement={<EmployeeForm/>}/>
+>>>>>>> e5eb52538ad37a8381bafdfb2de19ceb3fa9f50e
       </Routes>
     </div>
   );
