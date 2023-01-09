@@ -158,7 +158,7 @@ nav * {
 }
 
 .Nav-Page:hover{
-  color: hsl(27, 34%, 60%);
+  color: hsl(0, 0, 0, 0.6);
 }
 
 .Nav-Page * {
@@ -181,21 +181,21 @@ margin-right: 7px;
 }
 
 .Nav-Page a:hover {
-  color: hsl(30, 34%, 60%);
+  color: rgba(0, 0, 0, 0.685)
 }
 
 .dropdown-content {
   display: none;
   
   position: absolute;
-  background-color: #DEE1B7;
+  background-color: #8fd4e7;
   color: black;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.685);
   z-index: 1;
 }
 
 .dropdown-content *:hover{
-  color: #9E724D;
+  color: rgba(0, 0, 0, 0.685);
 }
 
 .dropdown:hover .dropdown-content {
@@ -214,7 +214,7 @@ margin-right: 7px;
 }
 
 .dropdown-content div:hover {
-  background-color: #B1CA94;
+  background-color: #6a8d96;
 }
 
 
