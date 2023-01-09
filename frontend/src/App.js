@@ -17,6 +17,7 @@ import Employees from './components/pages/employees.jsx';
 import EmployeeList from './components/pages/EmployeeList.jsx';
 import EmployeeForm from './components/pages/EmployeeForm.jsx';
 import EmployeeDetail from './components/pages/EmployeeDetail.jsx';
+import CompanyList from './components/pages/CompanyList';
 
 //router added at root level so in can be used in the entire application
 
@@ -105,6 +106,7 @@ function App() {
         <Route path="/employeelist" element={<EmployeeList />} />
         <Route path="/employeeform" element={<EmployeeForm />} />
         <Route path="/detail/:id" element={<EmployeeDetail />} />
+        <Route path="/companylist" element={<CompanyList />} />
       </Routes>
     </div>
   );
