@@ -2,6 +2,7 @@ import express from 'express';
 import { Router } from 'express';
 import {
   createEmployee,
+  deleteEmployee,
   getAllEmployees,
   getEmployeeById,
   updateEmployee
@@ -49,6 +50,19 @@ router.put('/:id', async (req, res) => {
     const updatedEmployee = await updateEmployee(id, employeeValues);
     console.log('updatedEmployee is', updateEmployee);
     res.send(updatedEmployee);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+
+
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletedEmployee = await deleteEmployee(id);
+    console.log('deletedEmployee is', deleteEmployee);
+    res.send(deletedEmployee);
   } catch (error) {
     res.status(500).send(error);
   }

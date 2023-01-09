@@ -48,3 +48,9 @@ export const updateEmployee = async (id, employeeValues) => {
     {_id: id}, employeeValues);
   return updatedEmployee;
 };
+
+//delete an employee
+export const deleteEmployee = async (id) => {
+  const deletedEmployee = await Employee.findByIdAndDelete(id);
+  return deletedEmployee;
+};
