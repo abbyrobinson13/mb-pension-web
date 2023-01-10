@@ -3,8 +3,7 @@ import myConfig from 'dotenv';
 myConfig.config ();
 
 function emailNewEmployee (employee) {
-  let recipientEmail = employee.email; //TODO: How to reach the email from employees collection in MONGODB????
-
+  let recipientEmail = employee.email;
   let transporter = nodemailer.createTransport ({
     host: 'smtp.gmail.com',
     port: 465,
