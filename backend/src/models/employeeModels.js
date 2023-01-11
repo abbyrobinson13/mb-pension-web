@@ -18,6 +18,33 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add an email'],
     unique: true
+  },
+  department: {
+    type: String
+  },
+  position: {
+    type: String
+  },
+  employmentDate: {
+    type: String
+  },
+  dependents: {
+    type: String
+  },
+  mobile: {
+    type: String
+  },
+  street: {
+    type: String
+  },
+  postalCode: {
+    type: String
+  },
+  city: {
+    type: String
+  },
+  province: {
+    type: String
   }
 });
 
@@ -45,6 +72,14 @@ export const getEmployeeById = async (id) => {
 //edit/update employee
 export const updateEmployee = async (id, employeeValues) => {
   const updatedEmployee = await Employee.findOneAndUpdate(
-    {_id: id}, employeeValues);
+    { _id: id },
+    employeeValues
+  );
   return updatedEmployee;
+};
+
+//delete an employee
+export const deleteEmployee = async (id) => {
+  const deletedEmployee = await Employee.findByIdAndDelete(id);
+  return deletedEmployee;
 };

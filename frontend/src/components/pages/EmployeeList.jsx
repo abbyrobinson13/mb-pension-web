@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
+  const params = useParams();
+  const navigate = useNavigate();
+  const id = params.id;
+  console.log('id is', id);
 
-  const LoadEdit = (id)=>{
-
+  const handleDelete = async (id) => {
+    if (window.confirm(`Are sure you want to delete ?`)) {
+      const response = await fetch(`/api/employee/${id}`, {
+        method: 'DELETE'
+      });
+      const deletedEmployee = await response.json();
+      console.log(deletedEmployee);
+      navigate(0);
+    }
   };
-
-  const RemoveEmployee=(id)=>{
-
-  };
-
 
   useEffect(() => {
     const getEmployees = async () => {
       const response = await fetch('/api/employee');
       const employeesData = await response.json();
+      console.log(employeesData);
       setEmployees(employeesData);
     };
     getEmployees();
@@ -27,7 +34,7 @@ const EmployeeList = () => {
   return (
     <>
       <div className="position-absolute mid-left">
-        <Link to="/employeeform">
+        <Link to="/createnewemployee">
           <Button
             className="btn btn-success"
             size="md"
@@ -55,7 +62,7 @@ const EmployeeList = () => {
         <tbody>
           {employees.map((employee) => {
             return (
-              <tr>
+              <tr key={employee.firstName}>
                 <td>{employee.firstName} </td>
                 <td>{employee.lastName} </td>
                 <td>{employee.gender} </td>
@@ -67,7 +74,6 @@ const EmployeeList = () => {
                       className="btn btn-success"
                       aria-pressed="true"
                       size="sm"
-                      onClick={() =>{LoadEdit(employee.firstName)}}
                     >
                       Edit
                     </Button>
@@ -77,7 +83,9 @@ const EmployeeList = () => {
                     className="btn btn-danger"
                     aria-pressed="true"
                     size="sm"
-                    onClick={() => alert(employee.firstName)}
+                    onClick={() => {
+                      handleDelete(employee._id);
+                    }}
                   >
                     Delete
                   </Button>
