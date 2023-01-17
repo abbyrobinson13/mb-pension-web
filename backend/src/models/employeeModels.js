@@ -45,6 +45,12 @@ const employeeSchema = new mongoose.Schema({
   },
   province: {
     type: String
+  },
+  policyNumber: {
+    type: String
+  },
+  employeeNumber: {
+    type: String
   }
 });
 
