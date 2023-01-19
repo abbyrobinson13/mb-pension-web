@@ -80,3 +80,15 @@ router.delete ('/:id', async (req, res) => {
   }
 });
 export default router;
+
+router.put ('/:id', async (req, res) => {
+  const id = req.params.id;
+  const employeeValues = req.body;
+  try {
+    const updatedEmployee = await updateByAuthId (id, employeeValues);
+    console.log ('updatedEmployee is', updateEmployee);
+    res.send (updatedEmployee);
+  } catch (error) {
+    res.status (500).send (error);
+  }
+});

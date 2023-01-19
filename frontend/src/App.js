@@ -19,9 +19,9 @@ import EmployeeForm from './shared/EmployeeForm.jsx';
 import EmployeeDetail from './components/pages/EmployeeDetail.jsx';
 import CreateEmployee from './components/pages/CreateEmployee.jsx';
 import EmployeeUpdate from './components/pages/EmployeeUpdate.jsx';
-import CompanyList from './components/pages/CompanyList.jsx';
 import AdminHome from './components/AdminHome.jsx';
 import CompanyHome from './components/CompanyHome.jsx';
+import CompanyList from './components/CompanyList.jsx';
 
 //router added at root level so in can be used in the entire application
 
@@ -115,6 +115,7 @@ function App() {
         <Route path="/employeeform" element={<EmployeeForm />} />
         <Route path="/adminhome" element={<AdminHome />} />
         <Route path="/companyhome" element={<CompanyHome />} />
+        <Route path="/companies" element={<CompanyList />} />
       </Routes>
     </div>
   );

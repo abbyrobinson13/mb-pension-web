@@ -45,6 +45,15 @@ const employeeSchema = new mongoose.Schema({
   },
   province: {
     type: String
+  },
+  policyNumber: {
+    type: String
+  },
+  employeeNumber: {
+    type: String
+  },
+  reasonForTreatment: {
+    type: String
   }
 });
 
@@ -88,4 +97,12 @@ export const updateEmployee = async (id, employeeValues) => {
 export const deleteEmployee = async (id) => {
   const deletedEmployee = await Employee.findByIdAndDelete(id);
   return deletedEmployee;
+};
+
+export const updateByAuthId = async (id, employeeValues) => {
+  const updatedEmployee = await Employee.findOneAndUpdate(
+    { authid: id },
+    employeeValues
+  );
+  return updatedEmployee;
 };

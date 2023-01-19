@@ -24,13 +24,13 @@ function CompanyNavBar() {
             </div>
           </div>
         </li>
-        <li className="Nav-Page">
+        {/* <li className="Nav-Page">
           <div className="dropdown">
             <NavLink to="/createnewemployee">
               <span> Add New Employee </span>
             </NavLink>
           </div>
-        </li>
+        </li> */}
         <li className="Nav-Page">
           <div className="dropdown">
             <NavLink to="/profile">
