@@ -69,6 +69,12 @@ export const getEmployeeById = async (id) => {
   return employee;
 };
 
+export const getEmployeeByEmail = async (email) => {
+  console.log('trying to get employee', email);
+  const employee = await Employee.find({email});
+  return employee;
+};
+
 //edit/update employee
 export const updateEmployee = async (id, employeeValues) => {
   const updatedEmployee = await Employee.findOneAndUpdate(

@@ -31,6 +31,18 @@ router.get ('/', async (req, res) => {
   }
 });
 
+router.get ('/byEmail/:email', async (req, res) => {
+  const email = req.params.email;
+  try {
+    const employee = await getEmployeeByEmail (email);
+    if (!employee) {
+      return res.status (404).send ('Invalid employee email');
+    }
+    res.send (true);
+  } catch (error) {
+    res.status (500).send (error);
+  }
+});
 //identify an employee by ID
 router.get ('/:id', async (req, res) => {
   const id = req.params.id;
