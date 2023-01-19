@@ -5,6 +5,7 @@ import {
   createEmployee,
   deleteEmployee,
   getAllEmployees,
+  getEmployeeByEmail,
   getEmployeeById,
   updateEmployee,
 } from '../models/employeeModels.js';
@@ -32,14 +33,18 @@ router.get ('/', async (req, res) => {
 });
 
 router.get ('/byEmail/:email', async (req, res) => {
+  console.log ('email check');
   const email = req.params.email;
+  console.log (email);
   try {
     const employee = await getEmployeeByEmail (email);
+    console.log(employee);
     if (!employee) {
       return res.status (404).send ('Invalid employee email');
     }
     res.send (true);
   } catch (error) {
+    console.log (error);
     res.status (500).send (error);
   }
 });
