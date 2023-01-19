@@ -1,107 +1,107 @@
 import mongoose from 'mongoose';
 
-const employeeSchema = new mongoose.Schema({
+const employeeSchema = new mongoose.Schema ({
   firstName: {
-    type: String
+    type: String,
   },
   lastName: {
-    type: String
+    type: String,
   },
   gender: {
-    type: String
+    type: String,
   },
   dateOfBirth: {
-    type: String
+    type: String,
   },
 
   email: {
     type: String,
     required: [true, 'Please add an email'],
-    unique: true
+    unique: true,
   },
   department: {
-    type: String
+    type: String,
   },
   position: {
-    type: String
+    type: String,
   },
   employmentDate: {
-    type: String
+    type: String,
   },
   dependents: {
-    type: String
+    type: String,
   },
   mobile: {
-    type: String
+    type: String,
   },
   street: {
-    type: String
+    type: String,
   },
   postalCode: {
-    type: String
+    type: String,
   },
   city: {
-    type: String
+    type: String,
   },
   province: {
-    type: String
+    type: String,
   },
   policyNumber: {
-    type: String
+    type: String,
   },
   employeeNumber: {
-    type: String
+    type: String,
   },
   reasonForTreatment: {
-    type: String
-  }
+    type: String,
+  },
 });
 
-export const Employee = mongoose.model('Employee', employeeSchema);
+export const Employee = mongoose.model ('Employee', employeeSchema);
 
 // create employee
-export const createEmployee = async (employee) => {
-  const newEmployee = await Employee.create(employee);
+export const createEmployee = async employee => {
+  const newEmployee = await Employee.create (employee);
   return newEmployee;
 };
 
 //list all employees
 export const getAllEmployees = async () => {
-  const employees = await Employee.find();
+  const employees = await Employee.find ();
   return employees;
 };
 
 //get an employee by Id
-export const getEmployeeById = async (id) => {
-  console.log('trying to get employee', id);
-  const employee = await Employee.findById(id);
+export const getEmployeeById = async id => {
+  console.log ('trying to get employee', id);
+  const employee = await Employee.findById (id);
   return employee;
 };
 
-export const getEmployeeByEmail = async (email) => {
-  console.log('trying to get employee', email);
-  const employee = await Employee.find({email});
+export const getEmployeeByEmail = async email => {
+  console.log ('trying to get employee', email);
+  const employee = await Employee.findOne ({email});
   return employee;
 };
 
 //edit/update employee
 export const updateEmployee = async (id, employeeValues) => {
-  const updatedEmployee = await Employee.findOneAndUpdate(
-    { _id: id },
+  const updatedEmployee = await Employee.findOneAndUpdate (
+    {_id: id},
     employeeValues
   );
   return updatedEmployee;
 };
 
 //delete an employee
-export const deleteEmployee = async (id) => {
-  const deletedEmployee = await Employee.findByIdAndDelete(id);
+export const deleteEmployee = async id => {
+  const deletedEmployee = await Employee.findByIdAndDelete (id);
   return deletedEmployee;
 };
 
 export const updateByAuthId = async (id, employeeValues) => {
-  const updatedEmployee = await Employee.findOneAndUpdate(
-    { authid: id },
+  const updatedEmployee = await Employee.findOneAndUpdate (
+    {authid: id},
     employeeValues
   );
   return updatedEmployee;
