@@ -93,10 +93,3 @@ export const deleteEmployee = async (id) => {
   return deletedEmployee;
 };
 
-export const updateEmployeeEmail = async (email) => {
-  const updatedEmployeeEmail = await Employee.findOneAndUpdate(
-    { _id: id },
-    employeeValues
-  );
-  return updatedEmployee;
-};
