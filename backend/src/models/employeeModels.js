@@ -51,6 +51,9 @@ const employeeSchema = new mongoose.Schema({
   },
   employeeNumber: {
     type: String
+  },
+  reasonForTreatment: {
+    type: String
   }
 });
 
@@ -88,4 +91,12 @@ export const updateEmployee = async (id, employeeValues) => {
 export const deleteEmployee = async (id) => {
   const deletedEmployee = await Employee.findByIdAndDelete(id);
   return deletedEmployee;
+};
+
+export const updateEmployeeEmail = async (email) => {
+  const updatedEmployeeEmail = await Employee.findOneAndUpdate(
+    { _id: id },
+    employeeValues
+  );
+  return updatedEmployee;
 };
