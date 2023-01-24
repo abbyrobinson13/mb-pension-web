@@ -70,11 +70,11 @@ const EmployeeList = () => {
                 <td>{employee.firstName} </td>
                 <td>{employee.lastName} </td>
                 <td>{employee.gender} </td>
-                {/* <td>{employee.dateOfBirth} </td> */}
-                <td>
+                <td>{employee.dateOfBirth} </td>
+                {/* <td>
                   {employee.dateOfBirth &&
                     format(new Date(employee.dateOfBirth), 'yyyy-MM-dd')}{' '}
-                </td>
+                </td> */}
                 "{console.log('dateofbirth', new Date(employee.dateOfBirth))}
                 <td>{employee.email} </td>
                 <td>{employee.policyNumber} </td>
