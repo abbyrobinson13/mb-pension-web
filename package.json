@@ -10,5 +10,8 @@
     "url": "git+https://github.com/abbyrobinson13/mb-pension-web.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.29.3"
+  }
 }
