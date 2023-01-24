@@ -109,3 +109,16 @@ export const updateByAuthId = async (id, employeeValues) => {
   );
   return updatedEmployee;
 };
+
+export const updateByEmail = async (emails, employeeValues) => {
+  console.log('theemail', emails);
+  console.log(typeof emails);
+  console.log('the value', employeeValues);
+  const updatedEmployee = await Employee.findOneAndUpdate(
+    { email: emails },
+    employeeValues,
+    { new: true }
+  );
+  console.log('updated employ', updateEmployee);
+  return updatedEmployee;
+};
