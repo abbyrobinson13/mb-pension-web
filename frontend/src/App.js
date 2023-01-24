@@ -2,7 +2,12 @@ import React from 'react';
 import './App.css';
 import Form from './components/common/Form.js';
 import { app } from './firebase-config.js';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {
   getAuth,
@@ -22,6 +27,7 @@ import EmployeeUpdate from './components/pages/EmployeeUpdate.jsx';
 import AdminHome from './components/AdminHome.jsx';
 import CompanyHome from './components/CompanyHome.jsx';
 import CompanyList from './components/CompanyList.jsx';
+import { AuthProvider } from './AuthProvider.js';
 
 //router added at root level so in can be used in the entire application
 
@@ -79,44 +85,46 @@ function App() {
   return (
     <div className="App">
       <ToastContainer />
-      <Routes>
-        <Route path="/employeelist" element={<EmployeeList />} />
-        <Route path="/employeeform" element={<EmployeeForm />} />
-        <Route path="/" element={<WelcomePage />} />
-        <Route
-          path="/login"
-          element={
-            <Form
-              title="Log In"
-              setEmail={setEmail}
-              setPassword={setPassword}
-              handleAction={() => handleAction(1)}
-            />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <Form
-              title="Register"
-              setEmail={setEmail}
-              setPassword={setPassword}
-              handleAction={() => handleAction(2)}
-            />
-          }
-        />
-        <Route path="/home" element={<Home />} />
-        <Route path="/employees" element={<Employees />} />
-        <Route path="/employeelist" element={<EmployeeList />} />
-        <Route path="/createnewemployee" element={<CreateEmployee />} />
-        <Route path="/detail/:id" element={<EmployeeDetail />} />
-        <Route path="/companylist" element={<CompanyList />} />
-        <Route path="/update/:id" element={<EmployeeUpdate />} />
-        <Route path="/employeeform" element={<EmployeeForm />} />
-        <Route path="/adminhome" element={<AdminHome />} />
-        <Route path="/companyhome" element={<CompanyHome />} />
-        <Route path="/companies" element={<CompanyList />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/employeelist" element={<EmployeeList />} />
+          <Route path="/employeeform" element={<EmployeeForm />} />
+          <Route path="/" element={<WelcomePage />} />
+          <Route
+            path="/login"
+            element={
+              <Form
+                title="Log In"
+                setEmail={setEmail}
+                setPassword={setPassword}
+                handleAction={() => handleAction(1)}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <Form
+                title="Register"
+                setEmail={setEmail}
+                setPassword={setPassword}
+                handleAction={() => handleAction(2)}
+              />
+            }
+          />
+          <Route path="/home" element={<Home />} />
+          <Route path="/employees" element={<Employees />} />
+          <Route path="/employeelist" element={<EmployeeList />} />
+          <Route path="/createnewemployee" element={<CreateEmployee />} />
+          <Route path="/detail/:id" element={<EmployeeDetail />} />
+          <Route path="/companylist" element={<CompanyList />} />
+          <Route path="/update/:id" element={<EmployeeUpdate />} />
+          <Route path="/employeeform" element={<EmployeeForm />} />
+          <Route path="/adminhome" element={<AdminHome />} />
+          <Route path="/companyhome" element={<CompanyHome />} />
+          <Route path="/companies" element={<CompanyList />} />
+        </Routes>
+      </AuthProvider>
     </div>
   );
 }

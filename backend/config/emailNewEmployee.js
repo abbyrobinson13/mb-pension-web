@@ -4,6 +4,7 @@ myConfig.config ();
 
 function emailNewEmployee (employee) {
   let recipientEmail = employee.email;
+  let employeeName = employee.firstName;
   let transporter = nodemailer.createTransport ({
     host: 'smtp.gmail.com',
     port: 465,
@@ -17,8 +18,15 @@ function emailNewEmployee (employee) {
   let mailOptions = {
     from: 'mbgrouptest@gmail.com',
     to: recipientEmail,
-    subject: 'First Registration Link',
-    text: 'Click on the link to register', //TODO: Add the Registration link
+    subject: 'Employee Benefits',
+    text: `Dear ${employeeName},
+    [Company name] is pleased to introduce you to their benefits policy.
+    Please,
+    First read through the Terms and Conditions below.
+    Then, follow the link to download the MB Pension and Benefits Group mobile application.
+    Note: if you download the application this means you have agreed with the Terms and Conditions in this email.
+    [Add the Terms and Conditions here]
+    [Add the link to the mobile application here.]`, //TODO: Add the Registration link
   };
 
   transporter.sendMail (mailOptions, function (err, success) {

@@ -11,7 +11,7 @@ const employeeSchema = new mongoose.Schema({
     type: String
   },
   dateOfBirth: {
-    type: Date
+    type: String
   },
 
   email: {
@@ -26,7 +26,7 @@ const employeeSchema = new mongoose.Schema({
     type: String
   },
   employmentDate: {
-    type: Date
+    type: String
   },
   dependents: {
     type: String
@@ -53,6 +53,9 @@ const employeeSchema = new mongoose.Schema({
     type: String
   },
   reasonForTreatment: {
+    type: String
+  },
+  areasOfConcern: {
     type: String
   }
 });
@@ -104,5 +107,18 @@ export const updateByAuthId = async (id, employeeValues) => {
     { authid: id },
     employeeValues
   );
+  return updatedEmployee;
+};
+
+export const updateByEmail = async (emails, employeeValues) => {
+  console.log('theemail', emails);
+  console.log(typeof emails);
+  console.log('the value', employeeValues);
+  const updatedEmployee = await Employee.findOneAndUpdate(
+    { email: emails },
+    employeeValues,
+    { new: true }
+  );
+  console.log('updated employ', updateEmployee);
   return updatedEmployee;
 };
