@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import { compareAsc, format } from 'date-fns';
+import { format } from 'date-fns';
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
