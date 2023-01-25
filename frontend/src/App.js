@@ -17,6 +17,7 @@ import Login from './components/Login.jsx';
 import SignUp from './components/SignUp.jsx';
 import Profile from './components/Profile.jsx';
 import EditProfile from './components/EditProfile.jsx';
+import PrivateRoute from './PrivateRoute.js';
 
 //router added at root level so in can be used in the entire application
 
@@ -38,7 +39,14 @@ function App() {
           <Route path="/update/:id" element={<EmployeeUpdate />} />
           <Route path="/employeeform" element={<EmployeeForm />} />
           <Route path="/adminhome" element={<AdminHome />} />
-          <Route path="/companyhome" element={<CompanyHome />} />
+          <Route
+            path="/companyhome"
+            element={
+              <PrivateRoute>
+                <CompanyHome />
+              </PrivateRoute>
+            }
+          />
           <Route path="/companies" element={<CompanyList />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/editprofile" element={<EditProfile />} />
