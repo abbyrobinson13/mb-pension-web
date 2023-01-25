@@ -75,7 +75,7 @@ const EmployeeList = () => {
                   {employee.dateOfBirth &&
                     format(new Date(employee.dateOfBirth), 'yyyy-MM-dd')}{' '}
                 </td> */}
-                "{console.log('dateofbirth', new Date(employee.dateOfBirth))}
+                {/* "{console.log('dateofbirth', new Date(employee.dateOfBirth))} */}
                 <td>{employee.email} </td>
                 <td>{employee.policyNumber} </td>
                 <td>
