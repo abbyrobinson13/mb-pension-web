@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { format } from 'date-fns';
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
@@ -70,6 +71,11 @@ const EmployeeList = () => {
                 <td>{employee.lastName} </td>
                 <td>{employee.gender} </td>
                 <td>{employee.dateOfBirth} </td>
+                {/* <td>
+                  {employee.dateOfBirth &&
+                    format(new Date(employee.dateOfBirth), 'yyyy-MM-dd')}{' '}
+                </td> */}
+                {/* "{console.log('dateofbirth', new Date(employee.dateOfBirth))} */}
                 <td>{employee.email} </td>
                 <td>{employee.policyNumber} </td>
                 <td>
@@ -113,5 +119,3 @@ const EmployeeList = () => {
   );
 };
 export default EmployeeList;
-
-

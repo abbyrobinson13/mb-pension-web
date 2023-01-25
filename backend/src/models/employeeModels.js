@@ -52,6 +52,9 @@ const employeeSchema = new mongoose.Schema({
   employeeNumber: {
     type: String
   },
+  authId:{
+    type: String
+  },
   reasonForTreatment: {
     type: String
   },
@@ -119,6 +122,6 @@ export const updateByEmail = async (emails, employeeValues) => {
     employeeValues,
     { new: true }
   );
-  console.log('updated employ', updateEmployee);
+  console.log('updated employ', updatedEmployee);
   return updatedEmployee;
 };
