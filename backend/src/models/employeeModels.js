@@ -122,6 +122,6 @@ export const updateByEmail = async (emails, employeeValues) => {
     employeeValues,
     { new: true }
   );
-  console.log('updated employ', updateEmployee);
+  console.log('updated employ', updatedEmployee);
   return updatedEmployee;
 };

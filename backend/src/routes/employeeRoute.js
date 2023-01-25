@@ -108,8 +108,11 @@ router.put('/byEmail/:email', async (req, res) => {
   try {
     const employee = await updateByEmail(email, employeeValues);
     console.log(employee);
-
-    res.send(employee);
+    if (employee) {
+      res.send(employee);
+    } else {
+      res.status(500).send('Invalid email');
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
