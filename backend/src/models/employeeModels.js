@@ -52,6 +52,9 @@ const employeeSchema = new mongoose.Schema({
   employeeNumber: {
     type: String
   },
+  authId:{
+    type: string
+  },
   reasonForTreatment: {
     type: String
   },
