@@ -263,3 +263,7 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+
+body {
+  background-color: #f5f5f5 !important;
+}
