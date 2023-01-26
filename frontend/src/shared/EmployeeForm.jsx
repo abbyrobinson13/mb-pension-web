@@ -53,7 +53,7 @@ const EmployeeForm = (props) => {
               className="form-control mt-1"
               onChange={(event) => setEmployeeNumber(event.target.value)}
               value={employeeNumber}
-              placeholder="Enter Employee Number...."
+              placeholder="Enter employee number...."
             />
           </div>
           <div className="form-group mt-3">
