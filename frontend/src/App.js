@@ -18,6 +18,7 @@ import SignUp from './components/SignUp.jsx';
 import Profile from './components/Profile.jsx';
 import EditProfile from './components/EditProfile.jsx';
 import PrivateRoute from './PrivateRoute.js';
+import CreateCompany from './components/CreateCompany.jsx';
 
 //router added at root level so in can be used in the entire application
 
@@ -44,6 +45,14 @@ function App() {
             element={
               <PrivateRoute>
                 <CompanyHome />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/createcompany"
+            element={
+              <PrivateRoute>
+                <CreateCompany />
               </PrivateRoute>
             }
           />
