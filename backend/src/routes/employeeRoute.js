@@ -7,6 +7,7 @@ import {
   getAllEmployees,
   getEmployeeByEmail,
   getEmployeeById,
+  updateByAuthId,
   updateByEmail,
   updateEmployee
 } from '../models/employeeModels.js';
@@ -87,13 +88,13 @@ router.delete('/:id', async (req, res) => {
 });
 export default router;
 
-router.put('/:id', async (req, res) => {
+router.put('/byAuthId/:id', async (req, res) => {
   console.log('update by Id endpoint reached');
   const id = req.params.id;
   const employeeValues = req.body;
   try {
     const updatedEmployee = await updateByAuthId(id, employeeValues);
-    console.log('updatedEmployee is', updateEmployee);
+    console.log('updatedEmployee is', updatedEmployee);
     res.send(updatedEmployee);
   } catch (error) {
     res.status(500).send(error);
