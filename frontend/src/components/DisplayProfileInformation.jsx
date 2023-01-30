@@ -31,7 +31,7 @@ function DisplayProfileInformation() {
   };
 
   //BELOW created a variable that references which database collection is being used on firebase - "users"
-  const usersCollectionRef = collection(db, 'users');
+  const usersCollectionRef = collection(db, 'companies');
 
   //addDoc is a function from firebase that is used to create a new user.
   //takes in two things 1. reference to collection (usersCollectionRef, ) and object

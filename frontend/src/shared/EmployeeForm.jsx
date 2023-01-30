@@ -4,25 +4,25 @@ import Button from 'react-bootstrap/esm/Button';
 
 const EmployeeForm = (props) => {
   const { employee, buttonText, handleSubmit } = props;
-  const [employeeNumber, setEmployeeNumber]= useState('');
+  const [employeeNumber, setEmployeeNumber] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [gender, setGender] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [email, setEmail] = useState('');
-  const [policyNumber, setPolicyNumber]= useState('');
+  const [policyNumber, setPolicyNumber] = useState('');
   const [confirmSubmit, setConfirmSubmit] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (employee) {
-      setEmployeeNumber(employee.employeeNumber)
+      setEmployeeNumber(employee.employeeNumber);
       setFirstName(employee.firstName);
       setLastName(employee.lastName);
       setGender(employee.gender);
       setDateOfBirth(employee.dateOfBirth);
       setEmail(employee.email);
-      setPolicyNumber(employee.policyNumber)
+      setPolicyNumber(employee.policyNumber);
     }
   }, [employee]);
 
@@ -39,7 +39,7 @@ const EmployeeForm = (props) => {
             gender,
             dateOfBirth,
             email,
-            policyNumber,
+            policyNumber
           };
           handleSubmit(employeeValues);
         }}
@@ -53,9 +53,10 @@ const EmployeeForm = (props) => {
               className="form-control mt-1"
               onChange={(event) => setEmployeeNumber(event.target.value)}
               value={employeeNumber}
-              placeholder="Enter first name...."
+              placeholder="Enter employee number...."
             />
-          </div><div className="form-group mt-3">
+          </div>
+          <div className="form-group mt-3">
             <label>First Name</label>
             <input
               type="firstName"
@@ -130,7 +131,7 @@ const EmployeeForm = (props) => {
                 !firstName || !lastName || !gender || !dateOfBirth || !email
               }
             >
-            {buttonText}
+              {buttonText}
             </button>
           </div>
         </div>
