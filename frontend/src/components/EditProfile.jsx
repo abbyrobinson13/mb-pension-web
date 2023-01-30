@@ -26,7 +26,7 @@ function EditProfile() {
   const navigate = useNavigate();
 
   //BELOW created a variable that references which database collection is being used on firebase - "users"
-  const usersCollectionRef = collection(db, 'users');
+  const usersCollectionRef = collection(db, 'companies');
 
   const handleLogout = async () => {
     await logOut();
@@ -44,7 +44,7 @@ function EditProfile() {
       docId = doc.id;
     });
     //picks out a single user document
-    const userDoc = doc(db, 'users', docId);
+    const userDoc = doc(db, 'companies', docId);
     //variable updates the field from doc
     const newFields = {
       name: newName,
