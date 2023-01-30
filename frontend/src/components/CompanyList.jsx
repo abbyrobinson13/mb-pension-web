@@ -75,13 +75,25 @@ function CompanyList() {
         }}
       />
       <input
-        placeholder="Company Phone Number"
+        placeholder="Company Password"
         onChange={(event) => {
           setNewPhone(event.target.value);
         }}
       />
       <input
         placeholder="Insurance Broker Name"
+        onChange={(event) => {
+          setNewBroker(event.target.value);
+        }}
+      />
+      <input
+        placeholder="Insurance Broker Email"
+        onChange={(event) => {
+          setNewBroker(event.target.value);
+        }}
+      />
+      <input
+        placeholder="Insurance Broker Password"
         onChange={(event) => {
           setNewBroker(event.target.value);
         }}
