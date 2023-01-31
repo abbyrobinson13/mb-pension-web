@@ -65,19 +65,16 @@ const employeeSchema = new mongoose.Schema({
 
 export const Employee = mongoose.model('Employee', employeeSchema);
 
-// create employee
 export const createEmployee = async (employee) => {
   const newEmployee = await Employee.create(employee);
   return newEmployee;
 };
 
-//list all employees
 export const getAllEmployees = async () => {
   const employees = await Employee.find();
   return employees;
 };
 
-//get an employee by Id
 export const getEmployeeById = async (id) => {
   console.log('trying to get employee', id);
   const employee = await Employee.findById(id);
@@ -89,8 +86,6 @@ export const getEmployeeByEmail = async (email) => {
   const employee = await Employee.findOne({ email });
   return employee;
 };
-
-//edit/update employee
 export const updateEmployee = async (id, employeeValues) => {
   const updatedEmployee = await Employee.findOneAndUpdate(
     { _id: id },
@@ -99,7 +94,6 @@ export const updateEmployee = async (id, employeeValues) => {
   return updatedEmployee;
 };
 
-//delete an employee
 export const deleteEmployee = async (id) => {
   const deletedEmployee = await Employee.findByIdAndDelete(id);
   return deletedEmployee;
