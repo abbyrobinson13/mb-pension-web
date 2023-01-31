@@ -52,7 +52,7 @@ const employeeSchema = new mongoose.Schema({
   employeeNumber: {
     type: String
   },
-  authId:{
+  uid:{
     type: String
   },
   reasonForTreatment: {
@@ -107,7 +107,7 @@ export const deleteEmployee = async (id) => {
 
 export const updateByAuthId = async (id, employeeValues) => {
   const updatedEmployee = await Employee.findOneAndUpdate(
-    { authid: id },
+    { uid: id },
     employeeValues
   );
   return updatedEmployee;
