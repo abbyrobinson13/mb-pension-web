@@ -23,7 +23,34 @@ function SignUp() {
 
   return (
     <>
-      <h2>Sign Up</h2>
+      <h2>Company Sign Up</h2>
+      <div>
+        {error ? <div> {error} </div> : null}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Your Email"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Your Password"
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Submit</button>
+        </form>
+        <p>
+          already registered? <Link to="/login">Log in</Link>
+        </p>
+      </div>
+
+      <h2>Broker Sign Up</h2>
       <div>
         {error ? <div> {error} </div> : null}
         <form onSubmit={handleSubmit}>
