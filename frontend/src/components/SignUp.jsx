@@ -8,6 +8,9 @@ function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, seterror] = useState('');
+  const [emailBroker, setEmailBroker] = useState('');
+  const [passwordBroker, setPasswordBroker] = useState('');
+  const [errorBroker, seterrorBroker] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +21,16 @@ function SignUp() {
       setPassword('');
       const res = await signUp(email, password);
       if (res.error) seterror(res.error);
+    }
+  const handleSubmitBroker = async (e) => {
+    e.preventDefault();
+    if (passwordBroker !== passwordBroker) {
+      seterrorBroker('Passwords do not match');
+    } else {
+      setEmailBroker('');
+      setPasswordBroker('');
+      const res = await signUp(email, password);
+      if (res.errorBroker) seterror(res.errorBroker);
     }
   };
 
@@ -52,23 +65,23 @@ function SignUp() {
 
       <h2>Broker Sign Up</h2>
       <div>
-        {error ? <div> {error} </div> : null}
-        <form onSubmit={handleSubmit}>
+        {error ? <div> {errorBroker} </div> : null}
+        <form onSubmit={handleSubmitBroker}>
           <input
             type="email"
             name="email"
-            value={email}
+            value={emailBroker}
             placeholder="Your Email"
             required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmailBroker(e.target.value)}
           />
           <input
             type="password"
             name="password"
-            value={password}
+            value={passwordBroker}
             placeholder="Your Password"
             required
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPasswordBroker(e.target.value)}
           />
           <button type="submit">Submit</button>
         </form>
