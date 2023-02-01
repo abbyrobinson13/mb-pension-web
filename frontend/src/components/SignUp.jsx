@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
-import { signUp } from '../firebase-config.js';
+import { signUp, signUpBroker } from '../firebase-config.js';
 import { Link } from 'react-router-dom';
 import { Card, Button, Form } from 'react-bootstrap';
 
@@ -14,6 +14,7 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('iam here at company sign up');
     if (password !== password) {
       seterror('Passwords do not match');
     } else {
@@ -22,14 +23,19 @@ function SignUp() {
       const res = await signUp(email, password);
       if (res.error) seterror(res.error);
     }
+  };
+
   const handleSubmitBroker = async (e) => {
     e.preventDefault();
+    console.log('got to handle sumbit broker');
     if (passwordBroker !== passwordBroker) {
+      console.log('passwords error');
       seterrorBroker('Passwords do not match');
     } else {
       setEmailBroker('');
       setPasswordBroker('');
-      const res = await signUp(email, password);
+      console.log('here i am');
+      const res = await signUpBroker(emailBroker, passwordBroker);
       if (res.errorBroker) seterror(res.errorBroker);
     }
   };
@@ -39,7 +45,7 @@ function SignUp() {
       <h2>Company Sign Up</h2>
       <div>
         {error ? <div> {error} </div> : null}
-        <form onSubmit={handleSubmit}>
+        <form id="companyForm" onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"
@@ -66,10 +72,10 @@ function SignUp() {
       <h2>Broker Sign Up</h2>
       <div>
         {error ? <div> {errorBroker} </div> : null}
-        <form onSubmit={handleSubmitBroker}>
+        <form id="brokerForm" onSubmit={handleSubmitBroker}>
           <input
             type="email"
-            name="email"
+            name="emailBroker"
             value={emailBroker}
             placeholder="Your Email"
             required
@@ -77,7 +83,7 @@ function SignUp() {
           />
           <input
             type="password"
-            name="password"
+            name="passwordBroker"
             value={passwordBroker}
             placeholder="Your Password"
             required
@@ -92,5 +98,4 @@ function SignUp() {
     </>
   );
 }
-
 export default SignUp;
