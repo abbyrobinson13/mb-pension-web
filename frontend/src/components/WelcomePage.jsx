@@ -10,7 +10,7 @@ function WelcomePage(props) {
         </a>
         <div>
           <AdminLogin>Admin log In</AdminLogin>
-          <CompanyLogin>Company log In</CompanyLogin>
+          <CompanyLogin>Company/Broker log In</CompanyLogin>
         </div>
       </Nav>
       <Section>
