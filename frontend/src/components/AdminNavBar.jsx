@@ -27,7 +27,7 @@ function AdminNavBar() {
         <li className="Nav-Page">
           <div className="dropdown">
             <NavLink to="/createcompany">
-              <span> Add New Company </span>
+              <span> Add New Company/Broker </span>
             </NavLink>
           </div>
         </li>
