@@ -59,7 +59,7 @@ const employeeSchema = new mongoose.Schema({
     type: String
   },
   areasOfConcern: {
-    type: array
+    type: Array
   }
 });
 
