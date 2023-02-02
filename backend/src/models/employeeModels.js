@@ -60,6 +60,10 @@ const employeeSchema = new mongoose.Schema({
   },
   areasOfConcern: {
     type: Array
+  },
+
+  impactOnMentalHealth :{
+    type: Array
   }
 });
 
