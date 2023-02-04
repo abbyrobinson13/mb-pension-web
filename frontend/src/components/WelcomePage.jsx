@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 function WelcomePage(props) {
@@ -8,10 +9,25 @@ function WelcomePage(props) {
         <a>
           <img src="/images/mbpension-logo.svg" />
         </a>
+
         <div>
-          <AdminLogin>Admin log In</AdminLogin>
-          <CompanyLogin>Company/Broker log In</CompanyLogin>
+
+          <div className="dropdown">
+            <NavLink to="/adminhome">
+              <CompanyLogin>Admin Log In</CompanyLogin>
+            </NavLink>
+          </div>
+
+
+          <div className="dropdown">
+            <NavLink to="/login">
+              <CompanyLogin>Company/Broker Log In</CompanyLogin>
+            </NavLink>
+          </div>
+
         </div>
+
+
       </Nav>
       <Section>
         <Hero>
