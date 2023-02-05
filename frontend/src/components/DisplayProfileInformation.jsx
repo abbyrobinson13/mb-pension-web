@@ -91,6 +91,11 @@ function DisplayProfileInformation() {
     navigate(path);
   };
 
+  const uploadCompanyProfile = () => {
+    let path = '/profile';
+    navigate(path);
+  };
+
   const userProfile =
     users.length > 0 ? users.filter((e) => e.email === user.email)[0] : null;
 
@@ -108,12 +113,22 @@ function DisplayProfileInformation() {
               <img src="/images/user.svg" />
               <p>New image</p>
             </div>
+
+
             <div>
               <h1>{userProfile && userProfile.name}</h1>
               <h3>{user.email}</h3>
               <button onClick={editProfileInfo}>Update Profile</button>
             </div>
+
+
           </ProfileImage>
+
+            <div>
+              <h1>{userProfile && userProfile.CompanyProfile}</h1>
+              <h3>{user.collection}</h3>
+              <button onClick={uploadCompanyProfile}>Upload Company Profile </button>
+            </div>
 
           <ProfileInformation>
             <div>
