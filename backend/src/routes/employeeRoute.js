@@ -7,9 +7,9 @@ import {
   getAllEmployees,
   getEmployeeByEmail,
   getEmployeeById,
-  updateByAuthId,
   updateByEmail,
-  updateEmployee
+  updateEmployee,
+  updateByAuthId
 } from '../models/employeeModels.js';
 
 const router = Router();
@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
     res.status(500).send(error);
   }
 });
+
 router.get('/', async (req, res) => {
   try {
     const employees = await getAllEmployees();
@@ -86,7 +87,6 @@ router.delete('/:id', async (req, res) => {
     res.status(500).send(error);
   }
 });
-export default router;
 
 router.put('/byAuthId/:id', async (req, res) => {
   console.log('update by Id endpoint reached');
@@ -119,3 +119,5 @@ router.put('/byEmail/:email', async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+export default router;
