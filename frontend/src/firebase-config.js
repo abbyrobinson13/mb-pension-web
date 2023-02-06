@@ -47,6 +47,23 @@ export const signUp = async (email, password) => {
     return { error: error.message };
   }
 };
+export const signUpBroker = async (email, password) => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
+    await addDoc(collection(db, 'brokers'), {
+      uid: user.uid,
+      email: user.email
+    });
+    return true;
+  } catch (error) {
+    return { error: error.message };
+  }
+};
 
 //the signIn function takes the email and password for an already registeted email
 
