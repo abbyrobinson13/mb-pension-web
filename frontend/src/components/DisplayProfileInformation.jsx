@@ -54,7 +54,7 @@ function DisplayProfileInformation() {
       docId = doc.id;
     });
     //picks out a single user document
-    const userDoc = doc(db, 'users', docId);
+    const userDoc = doc(db, 'companies', docId);
     //variable updates the field from doc
     const newFields = {
       name: newName,
