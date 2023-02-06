@@ -19,6 +19,7 @@ import Profile from './components/Profile.jsx';
 import EditProfile from './components/EditProfile.jsx';
 import PrivateRoute from './PrivateRoute.js';
 import CreateCompany from './components/CreateCompany.jsx';
+import AddContent from './components/AddContent.jsx';
 
 //router added at root level so in can be used in the entire application
 
@@ -59,6 +60,7 @@ function App() {
           <Route path="/companies" element={<CompanyList />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/editprofile" element={<EditProfile />} />
+          <Route path="/addcontent" element={<AddContent />} />
         </Routes>
       </AuthProvider>
     </div>
