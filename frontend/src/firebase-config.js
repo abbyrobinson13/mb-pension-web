@@ -29,6 +29,7 @@ const auth = getAuth(app);
 //connects to firestore database
 export const db = getFirestore();
 
+//creates a new email and password "sign up"
 export const signUp = async (email, password) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
