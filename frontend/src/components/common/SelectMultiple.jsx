@@ -68,16 +68,19 @@ const symptoms = [
   { title: 'Eating Disorders ' },
   { title: 'Trauma' },
   { title: 'Emotional Regulation Problems' },
-  { title: 'Physical illness/chronic' },
+  { title: 'Physical illness/chronic pain' },
   { title: 'Parenting challenges' },
   { title: 'Relationships' },
   { title: 'Work stress' },
   { title: 'Burnout' },
   { title: 'Systemic discrimination' },
   { title: 'Gastrointestinal/gut issues' },
+  { title: 'Fertility/pregnancy/birth' },
   { title: 'A traumatic experience' },
   { title: 'Weight/body image concerns' },
   { title: 'Attention/focus' },
   { title: 'Perimenopause/menopause' },
-  { title: 'Grief/loss' }
+  { title: 'Grief/loss' },
+  { title: 'Sexual Health' },
+  { title: 'Overwhelm' }
 ];
