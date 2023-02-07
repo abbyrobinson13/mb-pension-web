@@ -18,6 +18,9 @@ const contentSchema = new mongoose.Schema({
   },
   category: {
     type: String
+  },
+  provider: {
+    type: String
   }
 });
 
