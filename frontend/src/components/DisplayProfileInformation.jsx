@@ -5,17 +5,19 @@ import AuthContext from '../AuthContext.js';
 import {
   collection,
   getDocs,
+  getDoc,
   addDoc,
   updateDoc,
   doc,
   deleteDoc,
   where,
-  getDoc,
   query
 } from 'firebase/firestore';
 import styled from 'styled-components';
 
 import { isReactNative } from '@firebase/util';
+import { getCompanyInfo } from '../testcompanyinfo/getCompanyInfo.js';
+// import Test from '../testcompanyinfo/getInfo.jsx';
 
 function DisplayProfileInformation() {
   const { user } = useContext(AuthContext);
@@ -24,6 +26,7 @@ function DisplayProfileInformation() {
   const [newEmail, setNewEmail] = useState('');
   const [newBroker, setNewBroker] = useState('');
   const [users, setUsers] = useState([]);
+  const [brokers, setBrokers] = useState([]);
   let navigate = useNavigate();
 
   const handleClick = () => {
@@ -32,6 +35,8 @@ function DisplayProfileInformation() {
 
   //BELOW created a variable that references which database collection is being used on firebase - "users"
   const usersCollectionRef = collection(db, 'companies');
+
+  const brokerCollectionRef = collection(db, 'brokers');
 
   //addDoc is a function from firebase that is used to create a new user.
   //takes in two things 1. reference to collection (usersCollectionRef, ) and object
@@ -86,18 +91,62 @@ function DisplayProfileInformation() {
     getUsers();
   }, []);
 
+  useEffect(() => {
+    // TODO: only fetch single logged in broker instead of all
+    const getBrokers = async () => {
+      // function imported from firebase that returns all docs from a collection
+      const data = await getDocs(brokerCollectionRef);
+      console.log(data);
+      //data.docs will access the documents inside the data from fire store
+      //...doc.data function will return the doc holding the name and age of user
+      // we are looping through the documents in the collection setting the user arrays to be equal to the doc data and the doc ID
+      setBrokers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getBrokers();
+  }, []);
+
   const editProfileInfo = () => {
     let path = '/editprofile';
     navigate(path);
   };
 
-  const uploadCompanyProfile = () => {
-    let path = '/profile';
-    navigate(path);
+  // let currentDoc = query(usersCollectionRef, where('uid', '==', id));
+  // let docSnapshot = await getDocs(currentDoc);
+
+
+  const getCompanyInfo = async () => {
+    const q = query(usersCollectionRef,
+      where('broker', '==', 'email')
+    );
+    const querySnapshot = await getDocs(q);
+
+    console.log('querySnapshot!!!!!!!!!!!!!!!!', querySnapshot);
   };
 
+  const brokerUser =
+    brokers.length > 0
+      ? brokers.filter((e) => e.email === user.email)[0]
+      : null;
+
+  // When logged in as broker, we expect this to contain the broker
+  // When logged in as company, we expect this to be null
+  console.log(brokerUser);
+
   const userProfile =
-    users.length > 0 ? users.filter((e) => e.email === user.email)[0] : null;
+    users.length > 0
+      ? users.filter((e) => {
+          if (brokerUser) {
+            return e.broker === brokerUser.uid;
+          } else {
+            return e.email === user.email;
+          }
+        })[0]
+      : null;
+
+  // We expect this to be the company if logged in as company
+  // We expect this to be the broker's linked company (via company.broker) if logged in as broker
+  console.log(userProfile);
 
   return (
     <div>
@@ -106,6 +155,7 @@ function DisplayProfileInformation() {
           <CompanyProfile>
             <span>
               <p> Company Profile</p>
+              {/* <Test /> */}
             </span>
           </CompanyProfile>
           <ProfileImage>
@@ -114,21 +164,18 @@ function DisplayProfileInformation() {
               <p>New image</p>
             </div>
 
-
             <div>
               <h1>{userProfile && userProfile.name}</h1>
               <h3>{user.email}</h3>
               <button onClick={editProfileInfo}>Update Profile</button>
             </div>
-
-
           </ProfileImage>
 
-            <div>
-              <h1>{userProfile && userProfile.CompanyProfile}</h1>
-              <h3>{user.collection}</h3>
-              <button onClick={uploadCompanyProfile}>Upload Company Profile </button>
-            </div>
+          <div>
+            <h1>{userProfile && userProfile.broker}</h1>
+            <h3>{user.broker}</h3>
+            <button onClick={getCompanyInfo}>Upload Company Profile </button>
+          </div>
 
           <ProfileInformation>
             <div>

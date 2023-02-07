@@ -19,12 +19,14 @@ import Profile from './components/Profile.jsx';
 import EditProfile from './components/EditProfile.jsx';
 import PrivateRoute from './PrivateRoute.js';
 import CreateCompany from './components/CreateCompany.jsx';
+import Test from './testcompanyinfo/getInfo.jsx';
 
 //router added at root level so in can be used in the entire application
 
 function App() {
   return (
     <div className="App">
+      <Test />
       <AuthProvider>
         <Routes>
           <Route path="/employeelist" element={<EmployeeList />} />
