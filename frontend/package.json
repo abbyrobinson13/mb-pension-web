@@ -8,6 +8,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.7",
     "@mui/styled-engine-sc": "^5.11.0",
@@ -24,11 +25,10 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.5.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.0",
     "react-toastify": "^9.1.1",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4",
-    "@material-ui/lab": "^4.0.0-alpha.61",
-
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
