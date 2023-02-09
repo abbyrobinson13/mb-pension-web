@@ -33,6 +33,13 @@ function AdminNavBar() {
         </li>
         <li className="Nav-Page">
           <div className="dropdown">
+            <NavLink to="/addcontent">
+              <span> Add Content </span>
+            </NavLink>
+          </div>
+        </li>
+        <li className="Nav-Page">
+          <div className="dropdown">
             <NavLink to="/profile">
               <span> Profile </span>
             </NavLink>
