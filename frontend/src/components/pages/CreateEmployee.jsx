@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import EmployeeForm from '../../shared/EmployeeForm';
 import Button from 'react-bootstrap/esm/Button';
-
-
 
 function CreateEmployee() {
   const [confirmSubmit, setConfirmSubmit] = useState(false);
@@ -13,7 +11,6 @@ function CreateEmployee() {
     setConfirmSubmit(true);
     navigate('/employeelist');
 
-   
     const response = await fetch('/api/employee', {
       method: 'POST',
       headers: {
@@ -25,8 +22,8 @@ function CreateEmployee() {
     console.log(newEmployee);
   };
   return (
-    <EmployeeForm handleSubmit={handleSubmit} buttonText="Add New Employee"   />
-  )
+    <EmployeeForm handleSubmit={handleSubmit} buttonText="Add New Employee" />
+  );
 }
 
 export default CreateEmployee;

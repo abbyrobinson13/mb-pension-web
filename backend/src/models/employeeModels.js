@@ -52,7 +52,7 @@ const employeeSchema = new mongoose.Schema({
   employeeNumber: {
     type: String
   },
-  uid:{
+  uid: {
     type: String
   },
   reasonForTreatment: {
@@ -61,8 +61,7 @@ const employeeSchema = new mongoose.Schema({
   areasOfConcern: {
     type: Array
   },
-
-  impactOnMentalHealth :{
+  impactOnMentalHealth: {
     type: Array
   }
 });
