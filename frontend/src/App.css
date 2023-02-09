@@ -72,7 +72,7 @@ nav * {
 
 .Nav-Container {
   display: flex;
-  height: 4vh;
+  height: 8vh;
   align-items: center;
   justify-content: space-between;
   background-color: #4a9ec2d6;
@@ -80,6 +80,7 @@ nav * {
   font-size: 2vmin;
   padding-top: 1vh;
   padding-bottom: 1vh;
+  margin-bottom: 20px;
 }
 
 .nav-title {
@@ -172,7 +173,7 @@ nav * {
 .dropdown {
   position: relative;
   display: inline-block;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .Nav-Page a {
