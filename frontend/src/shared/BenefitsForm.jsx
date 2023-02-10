@@ -40,11 +40,11 @@ const Benefits = () => {
     const newBenefits = await response.json ();
     console.log (newBenefits);
   };
-  console.log (selectedParamedical);
 
   return (
-    <div>
+
       <form onSubmit={handleSubmit}>
+
         <label style={{display: 'flex', margin: 20}}>
           <h2>Benefit Booklet Form for Companies/Employees</h2>
         </label>
@@ -68,13 +68,13 @@ const Benefits = () => {
         </div>
 
         <Button
+        type="submit"
           variant="contained"
           style={{display: 'flex', margin: 20, width: 200}}
         >
           SUBMIT
         </Button>
       </form>
-    </div>
   );
 };
 
