@@ -266,3 +266,8 @@ label {
 body {
   background-color: #f5f5f5 !important;
 }
+
+.Button {
+  color: black;
+  text-decoration-color: black;
+}

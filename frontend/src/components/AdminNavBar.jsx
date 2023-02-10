@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
-function AdminNavBar() {
+function AdminNavBar () {
   return (
     <div className="Nav-Container">
       <ul className="Page-Container">
@@ -35,6 +35,13 @@ function AdminNavBar() {
           <div className="dropdown">
             <NavLink to="/addcontent">
               <span> Add Content </span>
+            </NavLink>
+          </div>
+        </li>
+        <li className="Nav-Page">
+          <div className="dropdown">
+            <NavLink to="/addbenefits">
+              <span> Add Benefits </span>
             </NavLink>
           </div>
         </li>
