@@ -1,29 +1,28 @@
 //For Companies Benefits Form
 import mongoose from 'mongoose';
-
-const benefitsSchema = new mongoose.Schema ({
+const benefitsSchema = new mongoose.Schema({
   paramedicalOptions: {
     type: String,
-    required: true,
+    required: false
   },
   coinsuranceOptions: {
     type: String,
-    required: true,
+    required: false
   },
   coinsuranceOptionsPercent: {
     type: Number,
-    required: true,
-  },
+    required: false
+  }
 });
 
-export const Benefits = mongoose.model ('Benefits', benefitsSchema);
+export const Benefits = mongoose.model('Benefits', benefitsSchema);
 
 export const getAllBenefits = async () => {
-  const allBenefits = await Benefits.find ();
+  const allBenefits = await Benefits.find();
   return allBenefits;
 };
 
-export const createBenefits = async benefits => {
-  const newBenefits = await Benefits.create (benefits);
+export const createBenefits = async (benefits) => {
+  const newBenefits = await Benefits.create(benefits);
   return newBenefits;
 };
