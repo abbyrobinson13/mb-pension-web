@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import WelcomePage from './components/WelcomePage.jsx';
 import Employees from './components/pages/employees.jsx';
@@ -12,7 +12,7 @@ import EmployeeUpdate from './components/pages/EmployeeUpdate.jsx';
 import AdminHome from './components/AdminHome.jsx';
 import CompanyHome from './components/CompanyHome.jsx';
 import CompanyList from './components/CompanyList.jsx';
-import { AuthProvider } from './AuthProvider.js';
+import {AuthProvider} from './AuthProvider.js';
 import Login from './components/Login.jsx';
 import SignUp from './components/SignUp.jsx';
 import Profile from './components/Profile.jsx';
@@ -20,10 +20,11 @@ import EditProfile from './components/EditProfile.jsx';
 import PrivateRoute from './PrivateRoute.js';
 import CreateCompany from './components/CreateCompany.jsx';
 import AddContent from './components/AddContent.jsx';
+import BenefitsForm from './shared/BenefitsForm.jsx';
 
 //router added at root level so in can be used in the entire application
 
-function App() {
+function App () {
   return (
     <div className="App">
       <AuthProvider>
@@ -41,6 +42,7 @@ function App() {
           <Route path="/update/:id" element={<EmployeeUpdate />} />
           <Route path="/employeeform" element={<EmployeeForm />} />
           <Route path="/adminhome" element={<AdminHome />} />
+          <Route path="/addbenefits" element={<BenefitsForm />} />
           <Route
             path="/companyhome"
             element={

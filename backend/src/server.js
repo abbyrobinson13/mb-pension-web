@@ -13,6 +13,7 @@ app.use(express.json());
 app.use('/api/employee', router);
 app.use('/api/csv', csvRouter);
 app.use('/api/content', contentRouter);
+app.use('/api/benefits', contentRouter);
 
 const PORT = process.env.PORT || 4000;
 connectDB();
