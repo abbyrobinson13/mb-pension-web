@@ -1,15 +1,11 @@
 //For Companies Benefits Form
 import mongoose from 'mongoose';
 const benefitsSchema = new mongoose.Schema({
-  paramedicalOptions: {
+  selectedParamedical: {
     type: String,
     required: false
   },
-  coinsuranceOptions: {
-    type: String,
-    required: false
-  },
-  coinsuranceOptionsPercent: {
+  selectedCoinsuranceLevelOptions: {
     type: Number,
     required: false
   }
