@@ -11,6 +11,7 @@ import {
   query
 } from 'firebase/firestore';
 import styled from 'styled-components';
+import { updateCurrentUser } from 'firebase/auth';
 
 function EditProfile() {
   const { user } = useContext(AuthContext);
@@ -36,14 +37,39 @@ function EditProfile() {
     return <Navigate replace to="/login" />;
   }
 
-  const updateUser = async (id) => {
-    let currentDoc = query(usersCollectionRef, where('uid', '==', id));
-    let docSnapshot = await getDocs(currentDoc);
-    let docId;
-    docSnapshot.forEach((doc) => {
-      docId = doc.id;
+  const updateUser = async (email) => {
+    let currentDocBroker = query(
+      usersCollectionRef,
+      where('brokerEmail', '==', email)
+    );
+    console.log(currentDocBroker);
+    let docSnapshotBroker = await getDocs(currentDocBroker);
+    console.log(docSnapshotBroker.size);
+
+    let currentDocCompany = query(
+      usersCollectionRef,
+      where('email', '==', email)
+    );
+    let docSnapshotCompany = await getDocs(currentDocCompany);
+    console.log(docSnapshotCompany.size);
+
+    const docSnapshot = [];
+    docSnapshotBroker.forEach((doc) => {
+      docSnapshot.push(doc.id);
     });
-    //picks out a single user document
+
+    docSnapshotCompany.forEach((doc) => {
+      docSnapshot.push(doc.id);
+    });
+
+    console.log(docSnapshot);
+    let docId;
+
+    docSnapshot.forEach((doc) => {
+      docId = doc;
+    });
+
+    // picks out a single user document
     const userDoc = doc(db, 'companies', docId);
     //variable updates the field from doc
     const newFields = {
@@ -77,12 +103,14 @@ function EditProfile() {
       />
       <Input
         placeholder="Company Phone Number"
+        value={newPhone}
         onChange={(event) => {
           setNewPhone(event.target.value);
         }}
       />
       <Input
         placeholder="Insurance Broker Name"
+        value={newBroker}
         onChange={(event) => {
           setNewBroker(event.target.value);
         }}
@@ -113,7 +141,7 @@ function EditProfile() {
       />
       <Button
         onClick={() => {
-          updateUser(user.uid);
+          updateUser(user.email);
         }}
       >
         {' '}
