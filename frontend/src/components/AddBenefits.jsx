@@ -13,7 +13,7 @@ function AddBenefits({}) {
     const response = await fetch ('/api/benefits', {
       method: 'POST',
       headers: {
-        'Benefits-Type': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify (benefits),
     });
