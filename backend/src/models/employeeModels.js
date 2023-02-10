@@ -13,7 +13,9 @@ const employeeSchema = new mongoose.Schema({
   dateOfBirth: {
     type: String
   },
-
+  companyName: {
+    type: String
+  },
   email: {
     type: String,
     required: [true, 'Please add an email'],
