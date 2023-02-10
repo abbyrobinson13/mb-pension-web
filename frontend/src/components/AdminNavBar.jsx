@@ -40,13 +40,6 @@ function AdminNavBar () {
         </li>
         <li className="Nav-Page">
           <div className="dropdown">
-            <NavLink to="/addbenefits">
-              <span> Add Benefits </span>
-            </NavLink>
-          </div>
-        </li>
-        <li className="Nav-Page">
-          <div className="dropdown">
             <NavLink to="/profile">
               <span> Profile </span>
             </NavLink>
