@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signOut
 } from 'firebase/auth';
+import { set } from 'date-fns';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -30,7 +31,14 @@ const auth = getAuth(app);
 export const db = getFirestore();
 
 //creates a new email and password "sign up"
-export const signUp = async (email, password) => {
+export const signUp = async (
+  email,
+  password,
+  newName,
+  newBroker,
+  brokerEmail,
+  brokerPassword
+) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
@@ -40,7 +48,12 @@ export const signUp = async (email, password) => {
     const user = userCredential.user;
     await addDoc(collection(db, 'companies'), {
       uid: user.uid,
-      email: user.email
+      email: user.email,
+      name: newName,
+      password: password,
+      broker: newBroker,
+      brokerEmail: brokerEmail,
+      brokerPassword: brokerPassword
     });
     return true;
   } catch (error) {
@@ -54,11 +67,7 @@ export const signUpBroker = async (email, password) => {
       email,
       password
     );
-    const user = userCredential.user;
-    await addDoc(collection(db, 'brokers'), {
-      uid: user.uid,
-      email: user.email
-    });
+
     return true;
   } catch (error) {
     return { error: error.message };
