@@ -15,8 +15,6 @@ import {
 } from 'firebase/firestore';
 import styled from 'styled-components';
 
-import { isReactNative } from '@firebase/util';
-
 function DisplayProfileInformation() {
   const { user } = useContext(AuthContext);
   const [newName, setNewName] = useState('');
@@ -25,6 +23,7 @@ function DisplayProfileInformation() {
   const [newBroker, setNewBroker] = useState('');
   const [users, setUsers] = useState([]);
   let navigate = useNavigate();
+  console.log(user);
 
   const handleClick = () => {
     console.log(userProfile);
@@ -40,8 +39,7 @@ function DisplayProfileInformation() {
     await addDoc(usersCollectionRef, {
       name: newName,
       phone: newPhone,
-      email: user.email,
-      broker: newBroker
+      email: user.email
     });
   };
 
@@ -78,9 +76,10 @@ function DisplayProfileInformation() {
       const data = await getDocs(usersCollectionRef);
       console.log(data);
       //data.docs will access the documents inside the data from fire store
-      //...doc.data function will return the doc holding the name and age of user
+      //...doc.data function will return the doc
       // we are looping through the documents in the collection setting the user arrays to be equal to the doc data and the doc ID
       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log(users);
     };
 
     getUsers();
@@ -92,7 +91,11 @@ function DisplayProfileInformation() {
   };
 
   const userProfile =
-    users.length > 0 ? users.filter((e) => e.email === user.email)[0] : null;
+    users.length > 0
+      ? users.filter(
+          (e) => e.email === user.email || e.brokerEmail === user.email
+        )[0]
+      : null;
 
   return (
     <div>
