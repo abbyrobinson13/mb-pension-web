@@ -8,35 +8,58 @@ import {
   doc,
   deleteDoc
 } from 'firebase/firestore';
+import { signUp, signUpBroker } from '../firebase-config';
 
 function CompanyList() {
   const [newName, setNewName] = useState('');
-  const [newPhone, setNewPhone] = useState('');
-  const [newEmail, setNewEmail] = useState('');
+  const [password, setNewPassword] = useState('');
+  const [error, seterror] = useState('');
+  const [brokerError, setBrokerError] = useState('');
+  const [email, setNewEmail] = useState('');
+  const [brokerEmail, setBrokerEmail] = useState('');
+  const [brokerPassword, setBrokerPassword] = useState('');
   const [newBroker, setNewBroker] = useState('');
   const [users, setUsers] = useState([]);
+
   //created a variable that references which database collection is being used on firebase - "users"
   const usersCollectionRef = collection(db, 'companies');
   //addDoc is a function from firebase that is used to create a new user.
   // takes in two things 1. reference to collection (usersCollectionRef, ) and object
-  const createUser = async () => {
-    await addDoc(usersCollectionRef, {
-      name: newName,
-      phone: newPhone,
-      email: newEmail,
-      broker: newBroker
-    });
+  const createUser = async (e) => {
+    // await addDoc(usersCollectionRef, {
+    //   name: newName,
+    //   password: password,
+    //   email: email,
+    //   broker: newBroker,
+    //   brokerEmail: brokerEmail,
+    //   brokerPassword: brokerPassword
+    // });
+    e.preventDefault();
+    if (password !== password) {
+      seterror('Passwords do not match');
+    } else {
+      setNewEmail('');
+      setNewPassword('');
+      const res = await signUp(
+        email,
+        password,
+        newName,
+        newBroker,
+        brokerEmail,
+        brokerPassword
+      );
+      if (res.error) seterror(res.error);
+    }
+    if (password !== password) {
+      seterror('Passwords do not match');
+    } else {
+      setBrokerEmail('');
+      setBrokerPassword('');
+      const res = await signUpBroker(brokerEmail, brokerPassword);
+      if (res.brokerError) seterror(res.error);
+    }
   };
   //this function ADDS document to USER COLLECTION
-
-  //this function allows you to update a user
-  const updateUser = async (id, age) => {
-    //picks out a single user document
-    const userDoc = doc(db, 'users', id);
-    //variable updates age
-    const newFields = { age: age + 1 };
-    await updateDoc(userDoc, newFields);
-  };
 
   //this function will allow you to delete a user
   const deleteUser = async (id) => {
@@ -77,7 +100,7 @@ function CompanyList() {
       <input
         placeholder="Company Password"
         onChange={(event) => {
-          setNewPhone(event.target.value);
+          setNewPassword(event.target.value);
         }}
       />
       <input
@@ -89,13 +112,13 @@ function CompanyList() {
       <input
         placeholder="Insurance Broker Email"
         onChange={(event) => {
-          setNewBroker(event.target.value);
+          setBrokerEmail(event.target.value);
         }}
       />
       <input
         placeholder="Insurance Broker Password"
         onChange={(event) => {
-          setNewBroker(event.target.value);
+          setBrokerPassword(event.target.value);
         }}
       />
       <button onClick={createUser}> Add New Company </button>
@@ -104,8 +127,7 @@ function CompanyList() {
           <div>
             <h1>Company Name: {user.name}</h1>
             <h1>Company Email: {user.email}</h1>
-            <h1>Phone Number: {user.phone}</h1>
-            <h1>Insurance Broker: {user.broker}</h1>
+            <h1>Insurance Broker: {user.newBroker}</h1>
             {/* <button
               onClick={() => {
                 updateUser(user.id, user.age);
