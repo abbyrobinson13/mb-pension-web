@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
-function CompanyNavBar() {
+function CompanyNavBar () {
   return (
     <div className="Nav-Container">
       <ul className="Page-Container">
@@ -9,6 +9,13 @@ function CompanyNavBar() {
           <div className="dropdown push">
             <NavLink to="/">
               <span> Home </span>
+            </NavLink>
+          </div>
+        </li>
+        <li className="Nav-Page">
+          <div className="dropdown">
+            <NavLink to="/addbenefits">
+              <span> Add Benefits </span>
             </NavLink>
           </div>
         </li>
