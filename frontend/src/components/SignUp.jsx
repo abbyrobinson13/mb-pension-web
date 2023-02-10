@@ -14,7 +14,7 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('iam here at company sign up');
+    console.log('i am here at company sign up');
     if (password !== password) {
       seterror('Passwords do not match');
     } else {
