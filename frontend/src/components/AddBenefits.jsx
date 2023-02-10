@@ -27,4 +27,4 @@ function AddBenefits({}) {
   );
 }
 
-export default AddContent;
+export default AddBenefits;
