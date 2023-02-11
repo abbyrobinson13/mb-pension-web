@@ -18,6 +18,8 @@ export default function BenefitsForm () {
   const [perVisitMaxAmount, setPerVisitMaxAmount] = useState ('');
   const [perVisitMaxToAllServices, setPerVisitMaxToAllServices] = useState ('');
   const [perVisitMaxServices, setPerVisitMaxServices] = useState ('');
+  const [paramedDependent, setParamedDependent] = useState ('');
+  const [familyOrEmployeeOnly, setFamilyOrEmployeeOnly] = useState ('');
 
   //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
@@ -89,6 +91,18 @@ export default function BenefitsForm () {
       {value: 'Psychologist', label: 'Psychologist'},
     ],
   };
+  //Do paramedical benefits extend to all dependents?
+  const paramedicalDependents = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const familyOrEmployeeMax = {
+    No: [
+      {value: 'Family maximum', label: 'Family maximum'},
+      {value: 'Employee only maximum', label: 'Employee only maximum'},
+    ],
+    Yes: [{value: 'N/A', label: 'N/A'}],
+  };
 
   const handleSubmit = async e => {
     e.preventDefault ();
@@ -102,6 +116,8 @@ export default function BenefitsForm () {
       perVisitMaxAmount,
       perVisitMaxToAllServices,
       perVisitMaxServices,
+      paramedDependent,
+      familyOrEmployeeOnly,
     };
 
     try {
@@ -149,6 +165,12 @@ export default function BenefitsForm () {
   const handlePerVisitMaxServicesChoices = selectedPerVisitMaxServices => {
     setPerVisitMaxServices (selectedPerVisitMaxServices);
   };
+  const handleParamedDependentsChange = selectedParamedDependentsOption => {
+    setParamedDependent (selectedParamedDependentsOption);
+  };
+  const handleFamilyOrEmployeeChange = selectedFamilyOrEmployeeOnly => {
+    setFamilyOrEmployeeOnly (selectedFamilyOrEmployeeOnly);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -168,7 +190,6 @@ export default function BenefitsForm () {
           />
         </label>
       </div>
-
       {/* Does the client have paramedical benefits available? */}
       <div>
         <div style={{width: 600, marginBottom: 20, margin: 20}}>
@@ -247,9 +268,31 @@ export default function BenefitsForm () {
               What paramedical services does the per visit maximum apply to? (up to 3)
             </b>
             <Select
-              options={perVisitMaxServicesOptions[perVisitMaxToAllServices.value]}
+              options={
+                perVisitMaxServicesOptions[perVisitMaxToAllServices.value]
+              }
               onChange={handlePerVisitMaxServicesChoices}
               value={perVisitMaxServices}
+            />
+          </div>}
+      </div>
+      {/* Do paramedical benefits extend to all dependents? */}
+      <div>
+        <div style={{width: 600, marginBottom: 20, margin: 20}}>
+          <b>Do paramedical benefits extend to all dependents?</b>
+          <Select
+            options={paramedicalDependents}
+            onChange={handleParamedDependentsChange}
+            value={paramedDependent}
+          />
+        </div>
+        {paramedDependent &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            <b>Family maximum vs Employee only maximum?</b>
+            <Select
+              options={familyOrEmployeeMax[paramedDependent.value]}
+              onChange={handleFamilyOrEmployeeChange}
+              value={familyOrEmployeeOnly}
             />
           </div>}
       </div>

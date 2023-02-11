@@ -37,6 +37,14 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
+  paramedDependent: {
+    type: Object,
+    required: true,
+  },
+  familyOrEmployeeOnly: {
+    type: Object,
+    required: true,
+  },
 });
 
 export const Benefits = mongoose.model ('Benefits', benefitsSchema);
