@@ -21,7 +21,11 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
-  maxPerVisit: {
+  perVisitMax: {
+    type: Object,
+    required: true,
+  },
+  perVisitMaxAmount: {
     type: Object,
     required: true,
   },

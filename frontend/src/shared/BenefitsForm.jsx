@@ -14,7 +14,8 @@ export default function BenefitsForm () {
     practitionerAnnualMaxAmount,
     setPractitionerAnnualMaxAmount,
   ] = useState ('');
-  const [maxPerVisit, setMaxPerVisit] = useState ('');
+  const [perVisitMax, setPerVisitMax] = useState ('');
+  const [perVisitMaxAmount, setPerVisitMaxAmount] = useState ('');
 
   //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
@@ -77,7 +78,8 @@ export default function BenefitsForm () {
       coinsuranceParamedical,
       practitionerAnnualMax,
       practitionerAnnualMaxAmount,
-      maxPerVisit,
+      perVisitMax,
+      perVisitMaxAmount,
     };
 
     try {
@@ -114,7 +116,10 @@ export default function BenefitsForm () {
     setPractitionerAnnualMaxAmount (selectedPractAnnMaxAmountOption);
   };
   const handleMaxPerVisitChange = selectedMaxPerVisitOption => {
-    setMaxPerVisit (selectedMaxPerVisitOption);
+    setPerVisitMax (selectedMaxPerVisitOption);
+  };
+  const handlePerVisitMaxAmountChange = selectedPerVisitMaxAmountOption => {
+    setPerVisitMaxAmount (selectedPerVisitMaxAmountOption);
   };
 
   return (
@@ -185,13 +190,15 @@ export default function BenefitsForm () {
           <Select
             options={areMaxPerVisit}
             onChange={handleMaxPerVisitChange}
-            value={maxPerVisit}
+            value={perVisitMax}
           />
         </div>
-        {maxPerVisit &&
+        {perVisitMax &&
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
             <b>What is the per visit maximum?</b>
-            <Select options={maxAmountPerVisit[maxPerVisit.value]} />
+            <Select options={maxAmountPerVisit[perVisitMax.value]}
+             onChange={handlePerVisitMaxAmountChange}
+             value={perVisitMaxAmount} />
           </div>}
       </div>
 
