@@ -4,43 +4,50 @@ import Button from '@mui/material/Button';
 import '../App.css';
 
 //Does the client have paramedical benefits available?
-const paramedicalOptions = [
-  {value: 'Yes', label: 'Yes'},
-  {value: 'No', label: 'No'},
-];
-const coinsuranceLevelOptions = {
-  Yes: [
-    {value: '100', label: '100'},
-    {value: '90', label: '90'},
-    {value: '80', label: '80'},
-    {value: '70', label: '70'},
-  ],
-  No: [{value: 'N/A', label: 'N/A'}],
-};
 
-const BenefitsForm = () => {
-  const [selectedParamedical, setSelectedParamedical] = useState (null);
-  const [
-    selectedCoinsuranceLevelOptions,
-    setSelectedCoinsuranceLevel,
-  ] = useState (null);
+export default function BenefitsForm () {
+  const [companyName, setCompanyName] = useState ('');
+  const [selectedParamedical, setSelectedParamedical] = useState ('');
+  const [selectedCoinsuranceLevel, setSelectedCoinsuranceLevel] = useState ('');
+
+  const paramedicalOptions = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const coinsuranceLevelOptions = {
+    Yes: [
+      {value: '100', label: '100'},
+      {value: '90', label: '90'},
+      {value: '80', label: '80'},
+      {value: '70', label: '70'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
 
   const handleSubmit = async e => {
     e.preventDefault ();
     const benefits = {
+      companyName,
       selectedParamedical,
-      selectedCoinsuranceLevelOptions,
+      selectedCoinsuranceLevel,
     };
 
-    const response = await fetch ('/api/benefits', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify (benefits),
-    });
-    const newBenefits = await response.json ();
-    console.log (newBenefits);
+    try {
+      const response = await fetch ('/api/benefits', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify (benefits),
+      });
+      if (!response.ok) {
+        throw new Error (response.statusText);
+      }
+      const newBenefits = await response.json ();
+      console.log (newBenefits);
+    } catch (error) {
+      console.error (error);
+    }
   };
 
   const handleParamedicalChange = selectedParamedicalOption => {
@@ -55,9 +62,23 @@ const BenefitsForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label style={{display: 'flex', margin: 20}}>
+      <label style={{display: 'flex', margin: 20, justifyContent: 'center'}}>
+
         <h2>Benefit Booklet Form for Companies/Employees</h2>
       </label>
+      <div>
+        <label>
+          <b>
+            Add Company Name:
+          </b>
+          <input
+            style={{width: 600, height: 30, display: 'flex'}}
+            onChange={event => setCompanyName (event.target.value)}
+            value={companyName}
+          />
+        </label>
+      </div>
+
       {/* Does the client have paramedical benefits available? */}
       <div>
         <div style={{width: 600, marginBottom: 20, margin: 20}}>
@@ -74,7 +95,7 @@ const BenefitsForm = () => {
             <Select
               options={coinsuranceLevelOptions[selectedParamedical.value]}
               onChange={handleSelectedCoinsuranceLevelOptions}
-              value={selectedCoinsuranceLevelOptions}
+              value={selectedCoinsuranceLevel}
             />
           </div>}
       </div>
@@ -88,6 +109,4 @@ const BenefitsForm = () => {
       </Button>
     </form>
   );
-};
-
-export default BenefitsForm;
+}
