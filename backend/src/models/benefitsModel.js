@@ -13,6 +13,14 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
+  practitionerAnnualMax: {
+    type: Object,
+    required: true,
+  },
+  combinedAnnualMax: {
+    type: Object,
+    required: true,
+  },
 });
 
 export const Benefits = mongoose.model ('Benefits', benefitsSchema);

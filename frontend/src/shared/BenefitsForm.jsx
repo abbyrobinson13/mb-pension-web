@@ -9,7 +9,10 @@ export default function BenefitsForm () {
   const [companyName, setCompanyName] = useState ('');
   const [paramedical, setParamedical] = useState ('');
   const [coinsuranceParamedical, setCoinsuranceParamedical] = useState ('');
+  const [practitionerAnnualMax, setPractitionerAnnualMax] = useState ('');
+  const [combinedAnnualMax, setCombinedAnnualMax] = useState ('');
 
+  //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
     {value: 'Yes', label: 'Yes'},
     {value: 'No', label: 'No'},
@@ -24,12 +27,36 @@ export default function BenefitsForm () {
     No: [{value: 'N/A', label: 'N/A'}],
   };
 
+  //Annual Maximums
+  const practitionersAnnualMaximums = [
+    {value: 'Per Practitioner', label: 'Per Practitioner'},
+    {value: 'Combined', label: 'Combined'},
+  ];
+  const practitionersAnnualMaxAmounts = {
+    'Per Practitioner': [
+      {value: '300', label: '300'},
+      {value: '500', label: '500'},
+      {value: '750', label: '750'},
+      {value: '1,000', label: '1,000'},
+      {value: '1,500', label: '1,500'},
+    ],
+    Combined: [
+      {value: '500', label: '500'},
+      {value: '750', label: '750'},
+      {value: '1,000', label: '1,000'},
+      {value: '1,250', label: '1,250'},
+      {value: '1,500', label: '1,500'},
+    ],
+  };
+
   const handleSubmit = async e => {
     e.preventDefault ();
     const benefits = {
       companyName,
       paramedical,
       coinsuranceParamedical,
+      practitionerAnnualMax,
+      combinedAnnualMax,
     };
 
     try {
@@ -58,6 +85,12 @@ export default function BenefitsForm () {
   const handleCoinsuranceParamedicalChange = selectedCoinsuranceParamedicalOptions => {
     setCoinsuranceParamedical (selectedCoinsuranceParamedicalOptions);
     console.log (selectedCoinsuranceParamedicalOptions);
+  };
+  const handlePractAnnualMaxChange = selectedPractAnnualMaxOption => {
+    setPractitionerAnnualMax (selectedPractAnnualMaxOption);
+  };
+  const handleCombinedAnnualMaxChange = selectedCombinedAnnualMaxOption => {
+    setCombinedAnnualMax (selectedCombinedAnnualMaxOption);
   };
 
   return (
@@ -98,6 +131,28 @@ export default function BenefitsForm () {
               value={coinsuranceParamedical}
             />
           </div>}
+        {/* How are the Annual Maximums Structured? */}
+        <div>
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            <b>How are the annual maximums structured?</b>
+            <Select
+              options={practitionersAnnualMaximums}
+              onChange={handlePractAnnualMaxChange}
+              value={practitionerAnnualMax}
+            />
+          </div>
+          {practitionerAnnualMax &&
+            <div style={{width: 600, marginBottom: 20, margin: 20}}>
+              <b>What are the annual maximums ($)?</b>
+              <Select
+                options={
+                  practitionersAnnualMaxAmounts[practitionerAnnualMax.value]
+                }
+                onChange={handleCombinedAnnualMaxChange}
+                value={combinedAnnualMax}
+              />
+            </div>}
+        </div>
       </div>
 
       <Button
