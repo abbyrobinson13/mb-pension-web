@@ -8,13 +8,13 @@ import '../App.css';
 export default function BenefitsForm () {
   const [companyName, setCompanyName] = useState ('');
   const [paramedical, setParamedical] = useState ('');
-  const [selectedCoinsuranceLevel, setSelectedCoinsuranceLevel] = useState ('');
+  const [coinsuranceParamedical, setCoinsuranceParamedical] = useState ('');
 
   const paramedicalOptions = [
     {value: 'Yes', label: 'Yes'},
     {value: 'No', label: 'No'},
   ];
-  const coinsuranceLevelOptions = {
+  const coinsuranceParamedicalOptions = {
     Yes: [
       {value: '100', label: '100'},
       {value: '90', label: '90'},
@@ -29,7 +29,7 @@ export default function BenefitsForm () {
     const benefits = {
       companyName,
       paramedical,
-      selectedCoinsuranceLevel,
+      coinsuranceParamedical,
     };
 
     try {
@@ -55,9 +55,9 @@ export default function BenefitsForm () {
     console.log (selectedParamedicalOption);
   };
 
-  const handleSelectedCoinsuranceLevelOptions = selectedCoinsuranceLevelOptions => {
-    setSelectedCoinsuranceLevel (selectedCoinsuranceLevelOptions);
-    console.log (selectedCoinsuranceLevelOptions);
+  const handleCoinsuranceParamedicalChange = selectedCoinsuranceParamedicalOptions => {
+    setCoinsuranceParamedical (selectedCoinsuranceParamedicalOptions);
+    console.log (selectedCoinsuranceParamedicalOptions);
   };
 
   return (
@@ -93,9 +93,9 @@ export default function BenefitsForm () {
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
             <b>What is the coinsurance level (%)?</b>
             <Select
-              options={coinsuranceLevelOptions[paramedical.value]}
-              onChange={handleSelectedCoinsuranceLevelOptions}
-              value={selectedCoinsuranceLevel}
+              options={coinsuranceParamedicalOptions[paramedical.value]}
+              onChange={handleCoinsuranceParamedicalChange}
+              value={coinsuranceParamedical}
             />
           </div>}
       </div>

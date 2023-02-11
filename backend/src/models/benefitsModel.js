@@ -3,15 +3,15 @@ import mongoose from 'mongoose';
 const benefitsSchema = new mongoose.Schema ({
   companyName: {
     type: String,
-    required: false,
+    required: true,
   },
   paramedical: {
     type: Object,
     required: true,
   },
-  selectedCoinsuranceLevel: {
+  coinsuranceParamedical: {
     type: Object,
-    required: false,
+    required: true,
   },
 });
 
