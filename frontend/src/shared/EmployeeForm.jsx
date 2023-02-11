@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/esm/Button';
 const EmployeeForm = (props) => {
   const { employee, buttonText, handleSubmit } = props;
   const [employeeNumber, setEmployeeNumber] = useState('');
+  const [companyName, setCompanyName] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [gender, setGender] = useState('');
@@ -17,6 +18,7 @@ const EmployeeForm = (props) => {
   useEffect(() => {
     if (employee) {
       setEmployeeNumber(employee.employeeNumber);
+      setCompanyName(employee.companyName);
       setFirstName(employee.firstName);
       setLastName(employee.lastName);
       setGender(employee.gender);
@@ -34,6 +36,7 @@ const EmployeeForm = (props) => {
           e.preventDefault();
           const employeeValues = {
             employeeNumber,
+            companyName,
             firstName,
             lastName,
             gender,
@@ -54,6 +57,16 @@ const EmployeeForm = (props) => {
               onChange={(event) => setEmployeeNumber(event.target.value)}
               value={employeeNumber}
               placeholder="Enter employee number...."
+            />
+          </div>
+          <div className="form-group mt-3">
+            <label>Company Name</label>
+            <input
+              type="companyName"
+              className="form-control mt-1"
+              onChange={(event) => setCompanyName(event.target.value)}
+              value={companyName}
+              placeholder="Enter company name...."
             />
           </div>
           <div className="form-group mt-3">
