@@ -28,10 +28,10 @@ export default function BenefitsForm () {
   ];
   const coinsuranceParamedicalOptions = {
     Yes: [
-      {value: '100', label: '100'},
-      {value: '90', label: '90'},
-      {value: '80', label: '80'},
-      {value: '70', label: '70'},
+      {value: '100', label: '100%'},
+      {value: '90', label: '90%'},
+      {value: '80', label: '80%'},
+      {value: '70', label: '70%'},
     ],
     No: [{value: 'N/A', label: 'N/A'}],
   };
@@ -43,18 +43,18 @@ export default function BenefitsForm () {
   ];
   const practitionersAnnualMaxAmounts = {
     'Per Practitioner': [
-      {value: '300', label: '300'},
-      {value: '500', label: '500'},
-      {value: '750', label: '750'},
-      {value: '1,000', label: '1,000'},
-      {value: '1,500', label: '1,500'},
+      {value: '300', label: '$300'},
+      {value: '500', label: '$500'},
+      {value: '750', label: '$750'},
+      {value: '1,000', label: '$1,000'},
+      {value: '1,500', label: '$1,500'},
     ],
     Combined: [
-      {value: '500', label: '500'},
-      {value: '750', label: '750'},
-      {value: '1,000', label: '1,000'},
-      {value: '1,250', label: '1,250'},
-      {value: '1,500', label: '1,500'},
+      {value: '500', label: '$500'},
+      {value: '750', label: '$750'},
+      {value: '1,000', label: '$1,000'},
+      {value: '1,250', label: '$1,250'},
+      {value: '1,500', label: '$1,500'},
     ],
   };
   //Maximums Per Visit
@@ -64,12 +64,12 @@ export default function BenefitsForm () {
   ];
   const maxAmountPerVisit = {
     Yes: [
-      {value: '$25', label: '$25'},
-      {value: '$30', label: '$30'},
-      {value: '$35', label: '$35'},
-      {value: '$40', label: '$40'},
-      {value: '$45', label: '$45'},
-      {value: '$50', label: '$50'},
+      {value: '25', label: '$25'},
+      {value: '30', label: '$30'},
+      {value: '35', label: '$35'},
+      {value: '40', label: '$40'},
+      {value: '45', label: '$45'},
+      {value: '50', label: '$50'},
     ],
     No: [{value: 'N/A', label: 'N/A'}],
   };
@@ -244,7 +244,7 @@ export default function BenefitsForm () {
         </div>
         {perVisitMax &&
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
-            <b>What is the per visit maximum?</b>
+            <b>What is the per visit maximum ($)?</b>
             <Select
               options={maxAmountPerVisit[perVisitMax.value]}
               onChange={handlePerVisitMaxAmountChange}
