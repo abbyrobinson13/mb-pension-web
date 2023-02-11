@@ -5,7 +5,7 @@ const benefitsSchema = new mongoose.Schema ({
     type: String,
     required: false,
   },
-  selectedParamedical: {
+  paramedical: {
     type: Object,
     required: true,
   },

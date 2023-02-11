@@ -7,7 +7,7 @@ import '../App.css';
 
 export default function BenefitsForm () {
   const [companyName, setCompanyName] = useState ('');
-  const [selectedParamedical, setSelectedParamedical] = useState ('');
+  const [paramedical, setParamedical] = useState ('');
   const [selectedCoinsuranceLevel, setSelectedCoinsuranceLevel] = useState ('');
 
   const paramedicalOptions = [
@@ -28,7 +28,7 @@ export default function BenefitsForm () {
     e.preventDefault ();
     const benefits = {
       companyName,
-      selectedParamedical,
+      paramedical,
       selectedCoinsuranceLevel,
     };
 
@@ -51,7 +51,7 @@ export default function BenefitsForm () {
   };
 
   const handleParamedicalChange = selectedParamedicalOption => {
-    setSelectedParamedical (selectedParamedicalOption);
+    setParamedical (selectedParamedicalOption);
     console.log (selectedParamedicalOption);
   };
 
@@ -86,14 +86,14 @@ export default function BenefitsForm () {
           <Select
             options={paramedicalOptions}
             onChange={handleParamedicalChange}
-            value={selectedParamedical}
+            value={paramedical}
           />
         </div>
-        {selectedParamedical &&
+        {paramedical &&
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
             <b>What is the coinsurance level (%)?</b>
             <Select
-              options={coinsuranceLevelOptions[selectedParamedical.value]}
+              options={coinsuranceLevelOptions[paramedical.value]}
               onChange={handleSelectedCoinsuranceLevelOptions}
               value={selectedCoinsuranceLevel}
             />
