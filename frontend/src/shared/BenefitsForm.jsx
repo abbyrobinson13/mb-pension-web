@@ -14,6 +14,7 @@ export default function BenefitsForm () {
     practitionerAnnualMaxAmount,
     setPractitionerAnnualMaxAmount,
   ] = useState ('');
+  const [maxPerVisit, setMaxPerVisit] = useState ('');
 
   //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
@@ -51,6 +52,22 @@ export default function BenefitsForm () {
       {value: '1,500', label: '1,500'},
     ],
   };
+  //Maximums Per Visit
+  const areMaxPerVisit = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const maxAmountPerVisit = {
+    Yes: [
+      {value: '$25', label: '$25'},
+      {value: '$30', label: '$30'},
+      {value: '$35', label: '$35'},
+      {value: '$40', label: '$40'},
+      {value: '$45', label: '$45'},
+      {value: '$50', label: '$50'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
 
   const handleSubmit = async e => {
     e.preventDefault ();
@@ -60,6 +77,7 @@ export default function BenefitsForm () {
       coinsuranceParamedical,
       practitionerAnnualMax,
       practitionerAnnualMaxAmount,
+      maxPerVisit,
     };
 
     try {
@@ -94,6 +112,9 @@ export default function BenefitsForm () {
   };
   const handlePractAnnMaxAmountChange = selectedPractAnnMaxAmountOption => {
     setPractitionerAnnualMaxAmount (selectedPractAnnMaxAmountOption);
+  };
+  const handleMaxPerVisitChange = selectedMaxPerVisitOption => {
+    setMaxPerVisit (selectedMaxPerVisitOption);
   };
 
   return (
@@ -156,6 +177,22 @@ export default function BenefitsForm () {
               />
             </div>}
         </div>
+      </div>
+      {/* Maximums per Visit */}
+      <div>
+        <div style={{width: 600, marginBottom: 20, margin: 20}}>
+          <b>Are there any maximums per visit?</b>
+          <Select
+            options={areMaxPerVisit}
+            onChange={handleMaxPerVisitChange}
+            value={maxPerVisit}
+          />
+        </div>
+        {maxPerVisit &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            <b>What is the per visit maximum?</b>
+            <Select options={maxAmountPerVisit[maxPerVisit.value]} />
+          </div>}
       </div>
 
       <Button

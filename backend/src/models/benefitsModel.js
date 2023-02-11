@@ -21,6 +21,10 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
+  maxPerVisit: {
+    type: Object,
+    required: true,
+  },
 });
 
 export const Benefits = mongoose.model ('Benefits', benefitsSchema);
