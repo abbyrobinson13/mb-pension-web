@@ -10,7 +10,10 @@ export default function BenefitsForm () {
   const [paramedical, setParamedical] = useState ('');
   const [coinsuranceParamedical, setCoinsuranceParamedical] = useState ('');
   const [practitionerAnnualMax, setPractitionerAnnualMax] = useState ('');
-  const [combinedAnnualMax, setCombinedAnnualMax] = useState ('');
+  const [
+    practitionerAnnualMaxAmount,
+    setPractitionerAnnualMaxAmount,
+  ] = useState ('');
 
   //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
@@ -56,7 +59,7 @@ export default function BenefitsForm () {
       paramedical,
       coinsuranceParamedical,
       practitionerAnnualMax,
-      combinedAnnualMax,
+      practitionerAnnualMaxAmount,
     };
 
     try {
@@ -89,8 +92,8 @@ export default function BenefitsForm () {
   const handlePractAnnualMaxChange = selectedPractAnnualMaxOption => {
     setPractitionerAnnualMax (selectedPractAnnualMaxOption);
   };
-  const handleCombinedAnnualMaxChange = selectedCombinedAnnualMaxOption => {
-    setCombinedAnnualMax (selectedCombinedAnnualMaxOption);
+  const handlePractAnnMaxAmountChange = selectedPractAnnMaxAmountOption => {
+    setPractitionerAnnualMaxAmount (selectedPractAnnMaxAmountOption);
   };
 
   return (
@@ -134,7 +137,7 @@ export default function BenefitsForm () {
         {/* How are the Annual Maximums Structured? */}
         <div>
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
-            <b>How are the annual maximums structured?</b>
+            <b>Annual maximums Per Practitioner or Combined?</b>
             <Select
               options={practitionersAnnualMaximums}
               onChange={handlePractAnnualMaxChange}
@@ -143,13 +146,13 @@ export default function BenefitsForm () {
           </div>
           {practitionerAnnualMax &&
             <div style={{width: 600, marginBottom: 20, margin: 20}}>
-              <b>What are the annual maximums ($)?</b>
+              <b>Practitioner's annual maximums ($)?</b>
               <Select
                 options={
                   practitionersAnnualMaxAmounts[practitionerAnnualMax.value]
                 }
-                onChange={handleCombinedAnnualMaxChange}
-                value={combinedAnnualMax}
+                onChange={handlePractAnnMaxAmountChange}
+                value={practitionerAnnualMaxAmount}
               />
             </div>}
         </div>

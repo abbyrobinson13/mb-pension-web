@@ -17,7 +17,7 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
-  combinedAnnualMax: {
+  practitionerAnnualMaxAmount: {
     type: Object,
     required: true,
   },
