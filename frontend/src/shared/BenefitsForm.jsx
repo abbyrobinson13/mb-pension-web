@@ -16,6 +16,8 @@ export default function BenefitsForm () {
   ] = useState ('');
   const [perVisitMax, setPerVisitMax] = useState ('');
   const [perVisitMaxAmount, setPerVisitMaxAmount] = useState ('');
+  const [perVisitMaxToAllServices, setPerVisitMaxToAllServices] = useState ('');
+  const [perVisitMaxServices, setPerVisitMaxServices] = useState ('');
 
   //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
@@ -69,6 +71,24 @@ export default function BenefitsForm () {
     ],
     No: [{value: 'N/A', label: 'N/A'}],
   };
+  //Does the per visit maximum apply to all services?
+  const doesPerVisitMaxToAllServices = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const perVisitMaxServicesOptions = {
+    Yes: [{value: 'N/A', label: 'N/A'}],
+    No: [
+      {value: 'Acupuncturist', label: 'Acupuncturist'},
+      {value: 'Audiologist', label: 'Audiologist'},
+      {value: 'Chiropractor', label: 'Chiropractor'},
+      {value: 'Dietician', label: 'Dietician'},
+      {value: 'Massage Therapist', label: 'Massage Therapist'},
+      {value: 'Osteopath', label: 'Osteopath'},
+      {value: 'Physiotherapist', label: 'Physiotherapist'},
+      {value: 'Psychologist', label: 'Psychologist'},
+    ],
+  };
 
   const handleSubmit = async e => {
     e.preventDefault ();
@@ -80,6 +100,8 @@ export default function BenefitsForm () {
       practitionerAnnualMaxAmount,
       perVisitMax,
       perVisitMaxAmount,
+      perVisitMaxToAllServices,
+      perVisitMaxServices,
     };
 
     try {
@@ -120,6 +142,12 @@ export default function BenefitsForm () {
   };
   const handlePerVisitMaxAmountChange = selectedPerVisitMaxAmountOption => {
     setPerVisitMaxAmount (selectedPerVisitMaxAmountOption);
+  };
+  const handlePerVisitMaxToAllChange = selectedPerVisitMaxToAllOption => {
+    setPerVisitMaxToAllServices (selectedPerVisitMaxToAllOption);
+  };
+  const handlePerVisitMaxServicesChoices = selectedPerVisitMaxServices => {
+    setPerVisitMaxServices (selectedPerVisitMaxServices);
   };
 
   return (
@@ -196,9 +224,33 @@ export default function BenefitsForm () {
         {perVisitMax &&
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
             <b>What is the per visit maximum?</b>
-            <Select options={maxAmountPerVisit[perVisitMax.value]}
-             onChange={handlePerVisitMaxAmountChange}
-             value={perVisitMaxAmount} />
+            <Select
+              options={maxAmountPerVisit[perVisitMax.value]}
+              onChange={handlePerVisitMaxAmountChange}
+              value={perVisitMaxAmount}
+            />
+          </div>}
+      </div>
+      {/* Does the per visit maximum apply to all services? */}
+      <div>
+        <div style={{width: 600, marginBottom: 20, margin: 20}}>
+          <b>Does the per visit maximum apply to all services?</b>
+          <Select
+            options={doesPerVisitMaxToAllServices}
+            onChange={handlePerVisitMaxToAllChange}
+            value={perVisitMaxToAllServices}
+          />
+        </div>
+        {perVisitMaxToAllServices &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            <b>
+              What paramedical services does the per visit maximum apply to? (up to 3)
+            </b>
+            <Select
+              options={perVisitMaxServicesOptions[perVisitMaxToAllServices.value]}
+              onChange={handlePerVisitMaxServicesChoices}
+              value={perVisitMaxServices}
+            />
           </div>}
       </div>
 
