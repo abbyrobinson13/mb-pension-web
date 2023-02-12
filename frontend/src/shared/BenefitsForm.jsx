@@ -435,6 +435,7 @@ export default function BenefitsForm () {
               options={staggeredMaxServices[staggered.value]}
               onChange={handleStaggeredServicesChange}
               value={staggeredServices}
+              isMulti
             />
           </div>}
       </div>
