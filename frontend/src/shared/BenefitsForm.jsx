@@ -25,18 +25,10 @@ export default function BenefitsForm () {
   const [insuranceCompany, setInsuranceCompany] = useState ('');
   const [spendingAccount, setSpendingAccount] = useState ('');
   const [spendingAccountKind, setSpendingAccountKind] = useState ('');
-  const [healthSpending, setHealthSpending] = useState ('');
-  const [healthSpendingAnnualAmount, setHealthSpendingAnnualAmount] = useState (
-    ''
-  );
-  const [wellnessSpending, setWellnessSpending] = useState ('');
   const [
-    wellnessSpendingAnnualAmount,
-    setWellnessSpendingAnnualAmount,
+    spendingAccountsAnnualAmount,
+    setSpendingAccountsAnnualAmount,
   ] = useState ('');
-  const [flexAccount, setFlexAccount] = useState ('');
-  const [flexAnnualAmount, setFlexAnnualAmount] = useState ('');
-
   const [drugsAnnualMax, setDrugsAnnualMax] = useState ('');
   const [coinsuranceDrugs, setCoinsuranceDrugs] = useState ('');
   const [drugsAnnualMaxAmount, setDrugsAnnualMaxAmount] = useState ('');
@@ -161,16 +153,16 @@ export default function BenefitsForm () {
     Yes: [
       {value: 'Health Spending Account', label: 'Health Spending Account'},
       {value: 'Wellness Spending Account', label: 'Wellness Spending Account'},
+      {
+        value: 'Health & Wellness Spending Account',
+        label: 'Health & Wellness Spending Account',
+      },
       {value: 'Flex Account', label: 'Flex Account'},
     ],
     No: [{value: 'N/A', label: 'N/A'}],
   };
-  const healthSpendingAccount = [
-    {value: 'Yes', label: 'Yes'},
-    {value: 'No', label: 'No'},
-  ];
-  const healthSpendingAnnualAmounts = {
-    Yes: [
+  const spendingAccountsAnnualAmounts = {
+    'Health Spending Account': [
       {value: '300', label: '$300'},
       {value: '500', label: '$500'},
       {value: '1000', label: '$1,000'},
@@ -179,14 +171,7 @@ export default function BenefitsForm () {
       {value: '5000', label: '$5,000'},
       {value: '10000', label: '$10,000'},
     ],
-    No: [{value: 'N/A', label: 'N/A'}],
-  };
-  const wellnessSpendingAccount = [
-    {value: 'Yes', label: 'Yes'},
-    {value: 'No', label: 'No'},
-  ];
-  const wellnessSpendingAnnualAmounts = {
-    Yes: [
+    'Wellness Spending Account': [
       {value: '300', label: '$300'},
       {value: '500', label: '$500'},
       {value: '1000', label: '$1,000'},
@@ -195,14 +180,7 @@ export default function BenefitsForm () {
       {value: '5000', label: '$5,000'},
       {value: '10000', label: '$10,000'},
     ],
-    No: [{value: 'N/A', label: 'N/A'}],
-  };
-  const flexAccountOptions = [
-    {value: 'Yes', label: 'Yes'},
-    {value: 'No', label: 'No'},
-  ];
-  const flexAnnualAmounts = {
-    Yes: [
+    'Flex Account': [
       {value: '300', label: '$300'},
       {value: '500', label: '$500'},
       {value: '1000', label: '$1,000'},
@@ -211,8 +189,18 @@ export default function BenefitsForm () {
       {value: '5000', label: '$5,000'},
       {value: '10000', label: '$10,000'},
     ],
-    No: [{value: 'N/A', label: 'N/A'}],
+    'Health & Wellness Spending Account': [
+      {value: '600', label: '$600'},
+      {value: '1000', label: '$1,000'},
+      {value: '2000', label: '$2,000'},
+      {value: '3000', label: '$3,000'},
+      {value: '4000', label: '$4,000'},
+      {value: '10000', label: '$10,000'},
+      {value: '20000', label: '$20,000'},
+    ],
+    'N/A': [{value: 'N/A', label: 'N/A'}],
   };
+
   //Does the company have prescription drug coverage?
   const drugsCoverageOption = [
     {value: 'Yes', label: 'Yes'},
@@ -276,12 +264,7 @@ export default function BenefitsForm () {
       insuranceCompany,
       spendingAccount,
       spendingAccountKind,
-      healthSpending,
-      healthSpendingAnnualAmount,
-      wellnessSpending,
-      wellnessSpendingAnnualAmount,
-      flexAccount,
-      flexAnnualAmount,
+      spendingAccountsAnnualAmount,
       drugsAnnualMax,
       coinsuranceDrugs,
       drugsAnnualMaxAmount,
@@ -356,23 +339,8 @@ export default function BenefitsForm () {
   const handleSpendingAccountKindsChange = selectedSpendingAccountKind => {
     setSpendingAccountKind (selectedSpendingAccountKind);
   };
-  const handleHealthSpendingChange = selectedHealthSpending => {
-    setHealthSpending (selectedHealthSpending);
-  };
-  const handleHealthSpendingAnnualAmountsChange = selectedHealthAnnualAmount => {
-    setHealthSpendingAnnualAmount (selectedHealthAnnualAmount);
-  };
-  const handleWellnessSpendingChange = selectedWellnessOption => {
-    setWellnessSpending (selectedWellnessOption);
-  };
-  const handleWellnessAnnualAmountsChange = selectedWellnessAmount => {
-    setWellnessSpendingAnnualAmount (selectedWellnessAmount);
-  };
-  const handleFlexAccountChange = selectedFlexOption => {
-    setFlexAccount (selectedFlexOption);
-  };
-  const handleFlexAnnualAmountsChange = selectedFlexAmount => {
-    setFlexAnnualAmount (selectedFlexAmount);
+  const handleSpendingAccountsAnnualAmountsChange = selectedSpendingAnnualAmount => {
+    setSpendingAccountsAnnualAmount (selectedSpendingAnnualAmount);
   };
   const handleDrugsCoverageChange = selectedDrugsCoverageOption => {
     setDrugsAnnualMax (selectedDrugsCoverageOption);
@@ -566,7 +534,17 @@ export default function BenefitsForm () {
               value={spendingAccountKind}
             />
           </div>}
+        {spendingAccountKind &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            <b>Spending account annual amount available?</b>
+            <Select
+              options={spendingAccountsAnnualAmounts[spendingAccountKind.value]}
+              onChange={handleSpendingAccountsAnnualAmountsChange}
+              value={spendingAccountsAnnualAmount}
+            />
+          </div>}
       </div>
+
       {/* Does the company have prescription drug coverage? */}
       <div>
         <div style={{width: 600, marginBottom: 20, margin: 20}}>

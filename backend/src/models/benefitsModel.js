@@ -21,19 +21,19 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
-  staggered: {
-    type: Object,
-    required: true,
-  },
-  staggeredServices: {
-    type: Object,
-    required: true,
-  },
   perVisitMax: {
     type: Object,
     required: true,
   },
   perVisitMaxAmount: {
+    type: Object,
+    required: true,
+  },
+  staggered: {
+    type: Object,
+    required: true,
+  },
+  staggeredServices: {
     type: Object,
     required: true,
   },
@@ -65,27 +65,7 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
-  healthSpending: {
-    type: Object,
-    required: true,
-  },
-  healthSpendingAnnualAmount: {
-    type: Object,
-    required: true,
-  },
-  wellnessSpending: {
-    type: Object,
-    required: true,
-  },
-  wellnessSpendingAnnualAmount: {
-    type: Object,
-    required: true,
-  },
-  flexAccount: {
-    type: Object,
-    required: true,
-  },
-  flexAnnualAmount: {
+  spendingAccountsAnnualAmount: {
     type: Object,
     required: true,
   },
