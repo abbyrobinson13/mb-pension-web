@@ -332,7 +332,6 @@ export default function BenefitsForm () {
   const handleInsuranceCompanyChange = selectedInsuranceCompanyOption => {
     setInsuranceCompany (selectedInsuranceCompanyOption);
   };
-  //TODO: Does the Company have a Health Spending account, Wellness spending account, or Flex account or none of the above?
   const handleSpendingAccountsChange = selectedSpendingAccount => {
     setSpendingAccount (selectedSpendingAccount);
   };
