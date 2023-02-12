@@ -15,8 +15,18 @@ function CompanyNavBar () {
         <li className="Nav-Page">
           <div className="dropdown">
             <NavLink to="/addbenefits">
-              <span> Add Benefits </span>
+              <span> Benefits </span>
             </NavLink>
+            <div className="dropdown-content">
+              <div className="first-dropdown">
+                <NavLink to="/addbenefits">Add Benefits</NavLink>
+              </div>
+              <div className="dropdown-content">
+              <div className="second-dropdown">
+                <NavLink to="/upload">Upload Document</NavLink>
+              </div>
+            </div>
+            </div>
           </div>
         </li>
         <li className="Nav-Page">
