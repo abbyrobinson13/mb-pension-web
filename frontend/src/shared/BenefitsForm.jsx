@@ -20,6 +20,7 @@ export default function BenefitsForm () {
   const [perVisitMaxServices, setPerVisitMaxServices] = useState ('');
   const [paramedDependent, setParamedDependent] = useState ('');
   const [familyOrEmployeeOnly, setFamilyOrEmployeeOnly] = useState ('');
+  const [insuranceCompany, setInsuranceCompany] = useState ('');
 
   //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
@@ -103,6 +104,15 @@ export default function BenefitsForm () {
     ],
     Yes: [{value: 'N/A', label: 'N/A'}],
   };
+  //Paramedical set of practitioners by insurance company
+  const insuranceCompanies = [
+    {value: 'Alberta Blue Cross', label: 'Alberta Blue Cross'},
+    {value: 'Canada Life', label: 'Canada Life'},
+    {value: 'Equitable Life', label: 'Equitable Life'},
+    {value: 'Manulife', label: 'Manulife'},
+    {value: 'RBC', label: 'RBC'},
+    {value: 'Sunlife', label: 'Sunlife'},
+  ];
 
   const handleSubmit = async e => {
     e.preventDefault ();
@@ -118,6 +128,7 @@ export default function BenefitsForm () {
       perVisitMaxServices,
       paramedDependent,
       familyOrEmployeeOnly,
+      insuranceCompany,
     };
 
     try {
@@ -170,6 +181,9 @@ export default function BenefitsForm () {
   };
   const handleFamilyOrEmployeeChange = selectedFamilyOrEmployeeOnly => {
     setFamilyOrEmployeeOnly (selectedFamilyOrEmployeeOnly);
+  };
+  const handleInsuranceCompanyChange = selectedInsuranceCompanyOption => {
+    setInsuranceCompany (selectedInsuranceCompanyOption);
   };
 
   return (
@@ -296,7 +310,17 @@ export default function BenefitsForm () {
             />
           </div>}
       </div>
-
+      {/*Paramedical set of practitioners by insurance carrier*/}
+      <div>
+        <div style={{width: 600, marginBottom: 20, margin: 20}}>
+          <b>Paramedical set of practitioners by insurance carrier</b>
+          <Select
+            options={insuranceCompanies}
+            onChange={handleInsuranceCompanyChange}
+            value={insuranceCompany}
+          />
+        </div>
+      </div>
       <Button
         type="submit"
         variant="contained"
