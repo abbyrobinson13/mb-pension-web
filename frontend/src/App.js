@@ -21,6 +21,7 @@ import PrivateRoute from './PrivateRoute.js';
 import CreateCompany from './components/CreateCompany.jsx';
 import AddContent from './components/AddContent.jsx';
 import BenefitsForm from './shared/BenefitsForm.jsx';
+import UploadForm from './shared/UploadForm.jsx';
 
 //router added at root level so in can be used in the entire application
 
@@ -43,6 +44,7 @@ function App () {
           <Route path="/employeeform" element={<EmployeeForm />} />
           <Route path="/adminhome" element={<AdminHome />} />
           <Route path="/addbenefits" element={<BenefitsForm />} />
+          <Route path="/upload" element={<UploadForm />} />
           <Route
             path="/companyhome"
             element={
