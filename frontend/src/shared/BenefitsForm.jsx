@@ -14,6 +14,9 @@ export default function BenefitsForm () {
     practitionerAnnualMaxAmount,
     setPractitionerAnnualMaxAmount,
   ] = useState ('');
+  const [staggered, setStaggered] = useState ('');
+  const [staggeredServices, setStaggeredServices] = useState ('');
+
   const [perVisitMax, setPerVisitMax] = useState ('');
   const [perVisitMaxAmount, setPerVisitMaxAmount] = useState ('');
   const [perVisitMaxToAllServices, setPerVisitMaxToAllServices] = useState ('');
@@ -61,6 +64,24 @@ export default function BenefitsForm () {
       {value: '1,000', label: '$1,000'},
       {value: '1,250', label: '$1,250'},
       {value: '1,500', label: '$1,500'},
+    ],
+  };
+  //Are there staggered maximums for any particular service?
+  const staggeredMaximums = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const staggeredMaxServices = {
+    No: [{value: 'N/A', label: 'N/A'}],
+    Yes: [
+      {value: 'Acupuncturist', label: 'Acupuncturist'},
+      {value: 'Audiologist', label: 'Audiologist'},
+      {value: 'Chiropractor', label: 'Chiropractor'},
+      {value: 'Dietician', label: 'Dietician'},
+      {value: 'Massage Therapist', label: 'Massage Therapist'},
+      {value: 'Osteopath', label: 'Osteopath'},
+      {value: 'Physiotherapist', label: 'Physiotherapist'},
+      {value: 'Psychologist', label: 'Psychologist'},
     ],
   };
   //Maximums Per Visit
@@ -172,6 +193,8 @@ export default function BenefitsForm () {
       practitionerAnnualMaxAmount,
       perVisitMax,
       perVisitMaxAmount,
+      staggered,
+      staggeredServices,
       perVisitMaxToAllServices,
       perVisitMaxServices,
       paramedDependent,
@@ -216,6 +239,13 @@ export default function BenefitsForm () {
   const handlePractAnnMaxAmountChange = selectedPractAnnMaxAmountOption => {
     setPractitionerAnnualMaxAmount (selectedPractAnnMaxAmountOption);
   };
+  const handleStaggeredChange = selectedStaggeredOption => {
+    setStaggered (selectedStaggeredOption);
+  };
+  const handleStaggeredServicesChange = selectedStaggeredServicesOptions => {
+    setStaggeredServices (selectedStaggeredServicesOptions);
+  };
+
   const handleMaxPerVisitChange = selectedMaxPerVisitOption => {
     setPerVisitMax (selectedMaxPerVisitOption);
   };
@@ -314,6 +344,26 @@ export default function BenefitsForm () {
             </div>}
         </div>
       </div>
+      {/* Are there staggered maximums for any particular service? */}
+      <div>
+        <div style={{width: 600, marginBottom: 20, margin: 20}}>
+          <b>Are there any staggered maximums for any particular service?</b>
+          <Select
+            options={staggeredMaximums}
+            onChange={handleStaggeredChange}
+            value={staggered}
+          />
+        </div>
+        {staggered &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            <b>Staggered Maximums for what services?</b>
+            <Select
+              options={staggeredMaxServices[staggered.value]}
+              onChange={handleStaggeredServicesChange}
+              value={staggeredServices}
+            />
+          </div>}
+      </div>
       {/* Maximums per Visit */}
       <div>
         <div style={{width: 600, marginBottom: 20, margin: 20}}>
@@ -401,7 +451,7 @@ export default function BenefitsForm () {
         </div>
         {drugsAnnualMax &&
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
-            What is the prescription drugs coinsurance level (%)?
+            <b>What is the prescription drugs coinsurance level (%)?</b>
             <Select
               options={drugsCoinsuranceLevel[drugsAnnualMax.value]}
               onChange={handleCoinsuranceDrugsChange}
@@ -410,7 +460,7 @@ export default function BenefitsForm () {
           </div>}
         {drugsAnnualMax &&
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
-            What is the prescription drugs annual maximum ($)?
+            <b>What is the prescription drugs annual maximum ($)?</b>
             <Select
               options={drugsAnnualMaximumOptions[drugsAnnualMax.value]}
               onChange={handleDrugsMaxAmountChange}
@@ -430,7 +480,7 @@ export default function BenefitsForm () {
         </div>
         {fertility &&
           <div style={{width: 600, marginBottom: 20, margin: 20}}>
-            What is the annual maximum for fertility ($)?
+            <b>What is the annual maximum for fertility ($)?</b>
             <Select
               options={fertilityAnnualMaximums[fertility.value]}
               onChange={handleFertilityAmountChange}
