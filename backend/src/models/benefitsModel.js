@@ -57,6 +57,38 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
+  spendingAccount: {
+    type: Object,
+    required: true,
+  },
+  spendingAccountKind: {
+    type: Object,
+    required: true,
+  },
+  healthSpending: {
+    type: Object,
+    required: true,
+  },
+  healthSpendingAnnualAmount: {
+    type: Object,
+    required: true,
+  },
+  wellnessSpending: {
+    type: Object,
+    required: true,
+  },
+  wellnessSpendingAnnualAmount: {
+    type: Object,
+    required: true,
+  },
+  flexAccount: {
+    type: Object,
+    required: true,
+  },
+  flexAnnualAmount: {
+    type: Object,
+    required: true,
+  },
   drugsAnnualMax: {
     type: Object,
     required: true,

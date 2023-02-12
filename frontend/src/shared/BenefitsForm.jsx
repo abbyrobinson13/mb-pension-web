@@ -16,7 +16,6 @@ export default function BenefitsForm () {
   ] = useState ('');
   const [staggered, setStaggered] = useState ('');
   const [staggeredServices, setStaggeredServices] = useState ('');
-
   const [perVisitMax, setPerVisitMax] = useState ('');
   const [perVisitMaxAmount, setPerVisitMaxAmount] = useState ('');
   const [perVisitMaxToAllServices, setPerVisitMaxToAllServices] = useState ('');
@@ -24,6 +23,20 @@ export default function BenefitsForm () {
   const [paramedDependent, setParamedDependent] = useState ('');
   const [familyOrEmployeeOnly, setFamilyOrEmployeeOnly] = useState ('');
   const [insuranceCompany, setInsuranceCompany] = useState ('');
+  const [spendingAccount, setSpendingAccount] = useState ('');
+  const [spendingAccountKind, setSpendingAccountKind] = useState ('');
+  const [healthSpending, setHealthSpending] = useState ('');
+  const [healthSpendingAnnualAmount, setHealthSpendingAnnualAmount] = useState (
+    ''
+  );
+  const [wellnessSpending, setWellnessSpending] = useState ('');
+  const [
+    wellnessSpendingAnnualAmount,
+    setWellnessSpendingAnnualAmount,
+  ] = useState ('');
+  const [flexAccount, setFlexAccount] = useState ('');
+  const [flexAnnualAmount, setFlexAnnualAmount] = useState ('');
+
   const [drugsAnnualMax, setDrugsAnnualMax] = useState ('');
   const [coinsuranceDrugs, setCoinsuranceDrugs] = useState ('');
   const [drugsAnnualMaxAmount, setDrugsAnnualMaxAmount] = useState ('');
@@ -139,6 +152,67 @@ export default function BenefitsForm () {
     {value: 'RBC', label: 'RBC'},
     {value: 'Sunlife', label: 'Sunlife'},
   ];
+  //Does the Company have a Health Spending Account, wellness spending account or flex account, or none of the above?
+  const spendingAccounts = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const spendingAccountKinds = {
+    Yes: [
+      {value: 'Health Spending Account', label: 'Health Spending Account'},
+      {value: 'Wellness Spending Account', label: 'Wellness Spending Account'},
+      {value: 'Flex Account', label: 'Flex Account'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
+  const healthSpendingAccount = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const healthSpendingAnnualAmounts = {
+    Yes: [
+      {value: '300', label: '$300'},
+      {value: '500', label: '$500'},
+      {value: '1000', label: '$1,000'},
+      {value: '1500', label: '$1,500'},
+      {value: '2000', label: '$2,000'},
+      {value: '5000', label: '$5,000'},
+      {value: '10000', label: '$10,000'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
+  const wellnessSpendingAccount = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const wellnessSpendingAnnualAmounts = {
+    Yes: [
+      {value: '300', label: '$300'},
+      {value: '500', label: '$500'},
+      {value: '1000', label: '$1,000'},
+      {value: '1500', label: '$1,500'},
+      {value: '2000', label: '$2,000'},
+      {value: '5000', label: '$5,000'},
+      {value: '10000', label: '$10,000'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
+  const flexAccountOptions = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const flexAnnualAmounts = {
+    Yes: [
+      {value: '300', label: '$300'},
+      {value: '500', label: '$500'},
+      {value: '1000', label: '$1,000'},
+      {value: '1500', label: '$1,500'},
+      {value: '2000', label: '$2,000'},
+      {value: '5000', label: '$5,000'},
+      {value: '10000', label: '$10,000'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
   //Does the company have prescription drug coverage?
   const drugsCoverageOption = [
     {value: 'Yes', label: 'Yes'},
@@ -200,6 +274,14 @@ export default function BenefitsForm () {
       paramedDependent,
       familyOrEmployeeOnly,
       insuranceCompany,
+      spendingAccount,
+      spendingAccountKind,
+      healthSpending,
+      healthSpendingAnnualAmount,
+      wellnessSpending,
+      wellnessSpendingAnnualAmount,
+      flexAccount,
+      flexAnnualAmount,
       drugsAnnualMax,
       coinsuranceDrugs,
       drugsAnnualMaxAmount,
@@ -268,6 +350,30 @@ export default function BenefitsForm () {
     setInsuranceCompany (selectedInsuranceCompanyOption);
   };
   //TODO: Does the Company have a Health Spending account, Wellness spending account, or Flex account or none of the above?
+  const handleSpendingAccountsChange = selectedSpendingAccount => {
+    setSpendingAccount (selectedSpendingAccount);
+  };
+  const handleSpendingAccountKindsChange = selectedSpendingAccountKind => {
+    setSpendingAccountKind (selectedSpendingAccountKind);
+  };
+  const handleHealthSpendingChange = selectedHealthSpending => {
+    setHealthSpending (selectedHealthSpending);
+  };
+  const handleHealthSpendingAnnualAmountsChange = selectedHealthAnnualAmount => {
+    setHealthSpendingAnnualAmount (selectedHealthAnnualAmount);
+  };
+  const handleWellnessSpendingChange = selectedWellnessOption => {
+    setWellnessSpending (selectedWellnessOption);
+  };
+  const handleWellnessAnnualAmountsChange = selectedWellnessAmount => {
+    setWellnessSpendingAnnualAmount (selectedWellnessAmount);
+  };
+  const handleFlexAccountChange = selectedFlexOption => {
+    setFlexAccount (selectedFlexOption);
+  };
+  const handleFlexAnnualAmountsChange = selectedFlexAmount => {
+    setFlexAnnualAmount (selectedFlexAmount);
+  };
   const handleDrugsCoverageChange = selectedDrugsCoverageOption => {
     setDrugsAnnualMax (selectedDrugsCoverageOption);
   };
@@ -438,6 +544,28 @@ export default function BenefitsForm () {
             value={insuranceCompany}
           />
         </div>
+      </div>
+      {/*Does the Company have a Health Spending Account, wellness spending account or flex account, or none of the above? */}
+      <div>
+        <div style={{width: 600, marginBottom: 20, margin: 20}}>
+          <b>
+            Does the Company have a Health Spending Account, wellness spending account or flex account, or none of the above?
+          </b>
+          <Select
+            options={spendingAccounts}
+            onChange={handleSpendingAccountsChange}
+            value={spendingAccount}
+          />
+        </div>
+        {spendingAccount &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            <b>What account does the Company have?</b>
+            <Select
+              options={spendingAccountKinds[spendingAccount.value]}
+              onChange={handleSpendingAccountKindsChange}
+              value={spendingAccountKind}
+            />
+          </div>}
       </div>
       {/* Does the company have prescription drug coverage? */}
       <div>
