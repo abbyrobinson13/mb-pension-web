@@ -49,6 +49,18 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
+  drugsAnnualMax: {
+    type: Object,
+    required: true,
+  },
+  coinsuranceDrugs: {
+    type: Object,
+    required: true,
+  },
+  drugsAnnualMaxAmount: {
+    type: Object,
+    required: true,
+  },
 });
 
 export const Benefits = mongoose.model ('Benefits', benefitsSchema);

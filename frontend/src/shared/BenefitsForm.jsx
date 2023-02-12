@@ -21,6 +21,9 @@ export default function BenefitsForm () {
   const [paramedDependent, setParamedDependent] = useState ('');
   const [familyOrEmployeeOnly, setFamilyOrEmployeeOnly] = useState ('');
   const [insuranceCompany, setInsuranceCompany] = useState ('');
+  const [drugsAnnualMax, setDrugsAnnualMax] = useState ('');
+  const [coinsuranceDrugs, setCoinsuranceDrugs] = useState ('');
+  const [drugsAnnualMaxAmount, setDrugsAnnualMaxAmount] = useState ('');
 
   //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
@@ -113,6 +116,34 @@ export default function BenefitsForm () {
     {value: 'RBC', label: 'RBC'},
     {value: 'Sunlife', label: 'Sunlife'},
   ];
+  //Does the company have prescription drug coverage?
+  const drugsCoverageOption = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const drugsCoinsuranceLevel = {
+    Yes: [
+      {value: '100', label: '100%'},
+      {value: '90', label: '90%'},
+      {value: '80', label: '80%'},
+      {value: '70', label: '70%'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
+  const drugsAnnualMaximumOptions = {
+    Yes: [
+      {value: '1,000', label: '$1,000'},
+      {value: '1,500', label: '$1,500'},
+      {value: '2,000', label: '$2,000'},
+      {value: '2,500', label: '$2,500'},
+      {value: '3,000', label: '$3,000'},
+      {value: '3,500', label: '$3,500'},
+      {value: '5,000', label: '$5,000'},
+      {value: '10,000', label: '$10,000'},
+      {value: 'unlimited', label: '$unlimited'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
 
   const handleSubmit = async e => {
     e.preventDefault ();
@@ -129,6 +160,9 @@ export default function BenefitsForm () {
       paramedDependent,
       familyOrEmployeeOnly,
       insuranceCompany,
+      drugsAnnualMax,
+      coinsuranceDrugs,
+      drugsAnnualMaxAmount,
     };
 
     try {
@@ -184,6 +218,16 @@ export default function BenefitsForm () {
   };
   const handleInsuranceCompanyChange = selectedInsuranceCompanyOption => {
     setInsuranceCompany (selectedInsuranceCompanyOption);
+  };
+  //TODO: Does the Company have a Health Spending account, Wellness spending account, or Flex account or none of the above?
+  const handleDrugsCoverageChange = selectedDrugsCoverageOption => {
+    setDrugsAnnualMax (selectedDrugsCoverageOption);
+  };
+  const handleCoinsuranceDrugsChange = selectedCoinsuranceDrugsOptions => {
+    setCoinsuranceDrugs (selectedCoinsuranceDrugsOptions);
+  };
+  const handleDrugsMaxAmountChange = selectedDrugsMaxAmountOption => {
+    setDrugsAnnualMaxAmount (selectedDrugsMaxAmountOption);
   };
 
   return (
@@ -321,6 +365,36 @@ export default function BenefitsForm () {
           />
         </div>
       </div>
+      {/* Does the company have prescription drug coverage? */}
+      <div>
+        <div style={{width: 600, marginBottom: 20, margin: 20}}>
+          <b>Does the company have prescription drug coverage?</b>
+          <Select
+            options={drugsCoverageOption}
+            onChange={handleDrugsCoverageChange}
+            value={drugsAnnualMax}
+          />
+        </div>
+        {drugsAnnualMax &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            What is the prescription drugs coinsurance level (%)?
+            <Select
+              options={drugsCoinsuranceLevel[drugsAnnualMax.value]}
+              onChange={handleCoinsuranceDrugsChange}
+              value={coinsuranceDrugs}
+            />
+          </div>}
+        {drugsAnnualMax &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            What is the prescription drugs annual maximum ($)?
+            <Select
+              options={drugsAnnualMaximumOptions[drugsAnnualMax.value]}
+              onChange={handleDrugsMaxAmountChange}
+              value={drugsAnnualMaxAmount}
+            />
+          </div>}
+      </div>
+
       <Button
         type="submit"
         variant="contained"
