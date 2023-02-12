@@ -24,6 +24,8 @@ export default function BenefitsForm () {
   const [drugsAnnualMax, setDrugsAnnualMax] = useState ('');
   const [coinsuranceDrugs, setCoinsuranceDrugs] = useState ('');
   const [drugsAnnualMaxAmount, setDrugsAnnualMaxAmount] = useState ('');
+  const [fertility, setFertility] = useState ('');
+  const [fertilityAmount, setFertilityAmount] = useState ('');
 
   //Does the company/ client have paramedical benefits available?
   const paramedicalOptions = [
@@ -144,6 +146,21 @@ export default function BenefitsForm () {
     ],
     No: [{value: 'N/A', label: 'N/A'}],
   };
+  //Is fertility coverage available?
+
+  const fertilityOptions = [
+    {value: 'Yes', label: 'Yes'},
+    {value: 'No', label: 'No'},
+  ];
+  const fertilityAnnualMaximums = {
+    Yes: [
+      {value: '2,500', label: '$2,500'},
+      {value: '3,000', label: '$3,000'},
+      {value: '10,000', label: '$10,000'},
+      {value: '15,000', label: '$15,000'},
+    ],
+    No: [{value: 'N/A', label: 'N/A'}],
+  };
 
   const handleSubmit = async e => {
     e.preventDefault ();
@@ -163,6 +180,7 @@ export default function BenefitsForm () {
       drugsAnnualMax,
       coinsuranceDrugs,
       drugsAnnualMaxAmount,
+      fertility,
     };
 
     try {
@@ -228,6 +246,12 @@ export default function BenefitsForm () {
   };
   const handleDrugsMaxAmountChange = selectedDrugsMaxAmountOption => {
     setDrugsAnnualMaxAmount (selectedDrugsMaxAmountOption);
+  };
+  const handleFertilityChange = selectedFertilityOption => {
+    setFertility (selectedFertilityOption);
+  };
+  const handleFertilityAmountChange = selectedFertilityAmountOption => {
+    setFertilityAmount (selectedFertilityAmountOption);
   };
 
   return (
@@ -391,6 +415,26 @@ export default function BenefitsForm () {
               options={drugsAnnualMaximumOptions[drugsAnnualMax.value]}
               onChange={handleDrugsMaxAmountChange}
               value={drugsAnnualMaxAmount}
+            />
+          </div>}
+      </div>
+      {/* Is fertility coverage available? */}
+      <div>
+        <div style={{width: 600, marginBottom: 20, margin: 20}}>
+          <b>Is fertility coverage available?</b>
+          <Select
+            options={fertilityOptions}
+            onChange={handleFertilityChange}
+            value={fertility}
+          />
+        </div>
+        {fertility &&
+          <div style={{width: 600, marginBottom: 20, margin: 20}}>
+            What is the annual maximum for fertility ($)?
+            <Select
+              options={fertilityAnnualMaximums[fertility.value]}
+              onChange={handleFertilityAmountChange}
+              value={fertilityAmount}
             />
           </div>}
       </div>

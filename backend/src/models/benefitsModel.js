@@ -61,6 +61,10 @@ const benefitsSchema = new mongoose.Schema ({
     type: Object,
     required: true,
   },
+  fertility: {
+    type: Object,
+    required: true,
+  },
 });
 
 export const Benefits = mongoose.model ('Benefits', benefitsSchema);
