@@ -321,7 +321,9 @@ export default function BenefitsForm () {
     setPerVisitMaxToAllServices (selectedPerVisitMaxToAllOption);
   };
   const handlePerVisitMaxServicesChoices = selectedPerVisitMaxServices => {
-    setPerVisitMaxServices (selectedPerVisitMaxServices);
+    if (selectedPerVisitMaxServices.length <= 3) {
+      setPerVisitMaxServices (selectedPerVisitMaxServices);
+    }
   };
   const handleParamedDependentsChange = selectedParamedDependentsOption => {
     setParamedDependent (selectedParamedDependentsOption);
@@ -479,6 +481,7 @@ export default function BenefitsForm () {
               }
               onChange={handlePerVisitMaxServicesChoices}
               value={perVisitMaxServices}
+              isMulti
             />
           </div>}
       </div>
