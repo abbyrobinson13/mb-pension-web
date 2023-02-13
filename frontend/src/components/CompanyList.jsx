@@ -127,7 +127,7 @@ function CompanyList() {
           <div>
             <h1>Company Name: {user.name}</h1>
             <h1>Company Email: {user.email}</h1>
-            <h1>Insurance Broker: {user.newBroker}</h1>
+            <h1>Insurance Broker: {user.broker}</h1>
             {/* <button
               onClick={() => {
                 updateUser(user.id, user.age);
