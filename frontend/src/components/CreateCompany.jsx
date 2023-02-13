@@ -1,93 +1,88 @@
 import React, { useState } from 'react';
-import { useRef } from 'react';
-import { signUp, db, logOut } from '../firebase-config.js';
-import { Link } from 'react-router-dom';
-import { Card, Button, Form } from 'react-bootstrap';
+import { signUp, db, signUpBroker } from '../firebase-config.js';
+import { collection } from 'firebase/firestore';
 
 function CreateCompany() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailBroker, setEmailBroker] = useState('');
-  const [passwordBroker, setPasswordBroker] = useState('');
+  const [newName, setNewName] = useState('');
+  const [password, setNewPassword] = useState('');
   const [error, seterror] = useState('');
+  const [brokerError, setBrokerError] = useState('');
+  const [email, setNewEmail] = useState('');
+  const [brokerEmail, setBrokerEmail] = useState('');
+  const [brokerPassword, setBrokerPassword] = useState('');
+  const [newBroker, setNewBroker] = useState('');
+  const [users, setUsers] = useState([]);
 
-  const handleSubmit = async (e) => {
+  const usersCollectionRef = collection(db, 'companies');
+
+  const createUser = async (e) => {
     e.preventDefault();
     if (password !== password) {
       seterror('Passwords do not match');
     } else {
-      setEmail('');
-      setPassword('');
-      const res = await signUp(email, password);
+      setNewEmail('');
+      setNewPassword('');
+      const res = await signUp(
+        email,
+        password,
+        newName,
+        newBroker,
+        brokerEmail,
+        brokerPassword
+      );
       if (res.error) seterror(res.error);
+    }
+    if (password !== password) {
+      seterror('Passwords do not match');
+    } else {
+      setBrokerEmail('');
+      setBrokerPassword('');
+      const res = await signUpBroker(brokerEmail, brokerPassword);
+      if (res.brokerError) setBrokerError(res.error);
     }
   };
 
-  // const handleSubmitBroker = async (e) => {
-  //   e.preventDefault();
-  //   if (password !== password) {
-  //     seterror('Passwords do not match');
-  //   } else {
-  //     setEmail('');
-  //     setPassword('');
-  //     const res = await signUpBroker(email, password);
-  //     if (res.error) seterror(res.error);
-  //   }
-  // };
-
   return (
-    <>
-      <h2>Sign Up - New Company</h2>
-      <div>
-        {error ? <div> {error} </div> : null}
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            placeholder="Your Email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Your Password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </>
+    <form>
+      <input
+        placeholder="Company Name"
+        onChange={(event) => {
+          setNewName(event.target.value);
+        }}
+      />
+      <input
+        placeholder="Company Email"
+        onChange={(event) => {
+          setNewEmail(event.target.value);
+        }}
+      />
+      <input
+        placeholder="Company Password"
+        onChange={(event) => {
+          setNewPassword(event.target.value);
+        }}
+      />
+      <input
+        placeholder="Insurance Broker Name"
+        onChange={(event) => {
+          setNewBroker(event.target.value);
+        }}
+      />
+      <input
+        placeholder="Insurance Broker Email"
+        onChange={(event) => {
+          setBrokerEmail(event.target.value);
+        }}
+      />
+      <input
+        placeholder="Insurance Broker Password"
+        onChange={(event) => {
+          setBrokerPassword(event.target.value);
+        }}
+      />
+      <button onClick={createUser}> Add New Company </button>
+    </form>
   );
 }
 
 export default CreateCompany;
-
-//Afsins create broker code
-{
-  /* <div>
-{error ? <div> {error} </div> : null}
-<form onSubmit={handleSubmitBroker}>
-  <input
-    type="email"
-    name="email"
-    value={emailBroker}
-    placeholder="Your Email"
-    required
-    onChange={(e) => setEmailBroker(e.target.value)}
-  />
-  <input
-    type="password"
-    name="password"
-    value={passwordBroker}
-    placeholder="Your Password"
-    required
-    onChange={(e) => setPasswordBroker(e.target.value)}
-  />
-  <button type="submit">Submit</button>
-</form>
-</div> */
-}
