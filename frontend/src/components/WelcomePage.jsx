@@ -35,10 +35,10 @@ function WelcomePage(props) {
           <img src="/images/brain.png" alt="brain image" />
         </Hero>
         <Form>
-          <Google>
+          {/* <Google>
             <img src="/images/google.svg" alt="google logo" />
             Sign in with Google
-          </Google>
+          </Google> */}
         </Form>
       </Section>
     </Container>
