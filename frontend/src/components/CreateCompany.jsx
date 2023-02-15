@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { signUp, db, signUpBroker } from '../firebase-config.js';
 import { collection } from 'firebase/firestore';
+import { LayoutAdminNavBar } from './AdminNavBar.jsx';
 
 function CreateCompany() {
   const [newName, setNewName] = useState('');
@@ -43,45 +44,47 @@ function CreateCompany() {
   };
 
   return (
-    <form>
-      <input
-        placeholder="Company Name"
-        onChange={(event) => {
-          setNewName(event.target.value);
-        }}
-      />
-      <input
-        placeholder="Company Email"
-        onChange={(event) => {
-          setNewEmail(event.target.value);
-        }}
-      />
-      <input
-        placeholder="Company Password"
-        onChange={(event) => {
-          setNewPassword(event.target.value);
-        }}
-      />
-      <input
-        placeholder="Insurance Broker Name"
-        onChange={(event) => {
-          setNewBroker(event.target.value);
-        }}
-      />
-      <input
-        placeholder="Insurance Broker Email"
-        onChange={(event) => {
-          setBrokerEmail(event.target.value);
-        }}
-      />
-      <input
-        placeholder="Insurance Broker Password"
-        onChange={(event) => {
-          setBrokerPassword(event.target.value);
-        }}
-      />
-      <button onClick={createUser}> Add New Company </button>
-    </form>
+    <LayoutAdminNavBar>
+      <form>
+        <input
+          placeholder="Company Name"
+          onChange={(event) => {
+            setNewName(event.target.value);
+          }}
+        />
+        <input
+          placeholder="Company Email"
+          onChange={(event) => {
+            setNewEmail(event.target.value);
+          }}
+        />
+        <input
+          placeholder="Company Password"
+          onChange={(event) => {
+            setNewPassword(event.target.value);
+          }}
+        />
+        <input
+          placeholder="Insurance Broker Name"
+          onChange={(event) => {
+            setNewBroker(event.target.value);
+          }}
+        />
+        <input
+          placeholder="Insurance Broker Email"
+          onChange={(event) => {
+            setBrokerEmail(event.target.value);
+          }}
+        />
+        <input
+          placeholder="Insurance Broker Password"
+          onChange={(event) => {
+            setBrokerPassword(event.target.value);
+          }}
+        />
+        <button onClick={createUser}> Add New Company </button>
+      </form>
+    </LayoutAdminNavBar>
   );
 }
 
