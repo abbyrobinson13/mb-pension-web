@@ -22,11 +22,16 @@ import CreateCompany from './components/CreateCompany.jsx';
 import AddContent from './components/AddContent.jsx';
 import BenefitsForm from './shared/BenefitsForm.jsx';
 import UploadForm from './shared/UploadForm.jsx';
+import Footer from './components/common/Footer.js';
+
+
+
 
 //router added at root level so in can be used in the entire application
 
 function App () {
   return (
+    <React.Fragment>
     <div className="App">
       <AuthProvider>
         <Routes>
@@ -69,6 +74,8 @@ function App () {
         </Routes>
       </AuthProvider>
     </div>
+    <Footer />
+    </React.Fragment>
   );
 }
 

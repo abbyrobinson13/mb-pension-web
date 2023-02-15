@@ -310,4 +310,13 @@ body {
 .submit {
   margin: 24px 0 16px;
 }
-
+footer {
+  width: 100%;
+  padding: 0.5em;
+  background-color: #9AC6DF;
+  color: white;
+  display: grid;
+  place-content: center;
+  position: fixed;
+  bottom: 0;
+}
