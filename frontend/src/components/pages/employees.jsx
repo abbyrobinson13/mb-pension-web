@@ -1,5 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import { LayoutCompanyNavBar } from '../CompanyNavBar';
+
+
 function Employees() {
   const [file, setFile] = useState();
   const [status, setStatus] = useState();
@@ -26,12 +29,13 @@ function Employees() {
     }
   };
   return (
+    <LayoutCompanyNavBar>
     <div>
-      <nav className="bg-dark navbar-dark navbar">
+      {/* <nav className="bg-dark navbar-dark navbar">
         <div className="row col-12 d-flex justify-content-center text-white">
           <h2>Upload CSV File</h2>
         </div>
-      </nav>
+      </nav> */}
       <input
         className="upload-csv"
         type="file"
@@ -49,6 +53,7 @@ function Employees() {
 
       <p className="uploadStatus">{status}</p>
     </div>
+    </LayoutCompanyNavBar>
   );
 }
 
