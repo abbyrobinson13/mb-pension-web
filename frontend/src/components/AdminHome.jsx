@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import AdminNavBar from './AdminNavBar.jsx';
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 
 function AdminHome() {
   //   const handleLogout = () => {
@@ -20,10 +22,21 @@ function AdminHome() {
   //     }
   //   }, []);
   return (
-    <div>
-      <AdminNavBar />
-      <h1>Admin Home Page</h1>
-      {/* <button onClick={handleLogout}>Log out</button> */}
+   
+    <div className="Admin-Container">
+      <h1>Admin Dashboard</h1>
+      <div className="Button-Container" >
+        <NavLink to="/companies" >
+          <span>View All Companies</span>
+        </NavLink>
+        <NavLink to="/createcompany">
+          <span> Add New Company/Broker </span>
+        </NavLink>
+        <NavLink to="/addcontent">
+          <span> Add Content </span>
+        </NavLink>
+        
+      </div>
     </div>
   );
 }

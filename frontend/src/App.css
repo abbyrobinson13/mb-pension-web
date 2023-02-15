@@ -320,3 +320,41 @@ footer {
   position: fixed;
   bottom: 0;
 }
+  .Admin-Container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    max-width: 1500px; /* adjust as needed */
+  margin: 0 auto;
+  display:flex;
+ 
+  }
+  
+  .Button-Container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+    justify-content: space-evenly;
+    width: 100%;
+    
+  }
+  
+  .Button-Container a {
+    font-size: 2rem;
+    padding: 20rem 2rem;
+    background-color:  #4a9ec2d6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .Button-Container a:hover {
+    background-color: #555;
+
+    }
+  
+
