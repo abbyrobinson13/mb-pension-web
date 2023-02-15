@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-function AdminNavBar () {
+export default function AdminNavBar () {
   return (
     <div className="Nav-Container">
       <ul className="Page-Container">
@@ -50,4 +50,12 @@ function AdminNavBar () {
   );
 }
 
-export default AdminNavBar;
+export const LayoutAdminNavBar = ({ children }) => {
+  return (
+    <div className="Layout-Container">
+      <AdminNavBar />
+      <div className="Content-Container">{children}</div>
+    </div>
+  );
+};
+
