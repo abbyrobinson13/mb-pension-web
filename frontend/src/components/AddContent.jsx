@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ContentForm from '../shared/ContentForm.jsx';
+import { LayoutAdminNavBar } from './AdminNavBar.jsx';
 
-function AddContent({}) {
+ function AddContent({}) {
   const [confirmSubmit, setConfirmSubmit] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async (content) => {
@@ -21,9 +22,11 @@ function AddContent({}) {
     console.log(newContent);
   };
   return (
+    <LayoutAdminNavBar>
     <div>
       <ContentForm handleSubmit={handleSubmit} />
     </div>
+    </LayoutAdminNavBar>
   );
 }
 
