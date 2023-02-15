@@ -61,7 +61,7 @@ export default function CompanyNavBar () {
 }
 
 
-export const LayoutCompanyNav = ({ children }) => {
+export const LayoutCompanyNavBar = ({ children }) => {
   return (
     <div className="Layout-Container">
       <CompanyNavBar />
