@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
+import { LayoutCompanyNavBar } from '../components/CompanyNavBar';
 
 const EmployeeForm = (props) => {
   const { employee, buttonText, handleSubmit } = props;
@@ -29,6 +30,7 @@ const EmployeeForm = (props) => {
   }, [employee]);
 
   return (
+    <LayoutCompanyNavBar>
     <div className="form-container">
       <form
         className="form"
@@ -150,6 +152,7 @@ const EmployeeForm = (props) => {
         </div>
       </form>
     </div>
+    </LayoutCompanyNavBar>
   );
 };
 export default EmployeeForm;
