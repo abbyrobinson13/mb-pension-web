@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-function CompanyNavBar () {
+export default function CompanyNavBar () {
   return (
     <div className="Nav-Container">
       <ul className="Page-Container">
@@ -60,4 +60,12 @@ function CompanyNavBar () {
   );
 }
 
-export default CompanyNavBar;
+
+export const LayoutCompanyNav = ({ children }) => {
+  return (
+    <div className="Layout-Container">
+      <CompanyNavBar />
+      <div className="Content-Container">{children}</div>
+    </div>
+  );
+};
