@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import Button from '@mui/material/Button';
 import '../App.css';
+import { LayoutCompanyNavBar } from '../components/CompanyNavBar';
+
 
 //Does the client have paramedical benefits available?
 
@@ -376,6 +378,7 @@ export default function BenefitsForm() {
   };
 
   return (
+    <LayoutCompanyNavBar>
     <form onSubmit={handleSubmit}>
       <label style={{ display: 'flex', margin: 20, justifyContent: 'center' }}>
         <h2>Benefit Booklet Form for Companies/Employees</h2>
@@ -632,5 +635,6 @@ export default function BenefitsForm() {
         SUBMIT
       </Button>
     </form>
+    </LayoutCompanyNavBar>
   );
 }
