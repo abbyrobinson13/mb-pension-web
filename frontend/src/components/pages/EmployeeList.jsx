@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import AuthContext from '../../AuthContext.js';
 import { db } from '../../firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
+import { LayoutCompanyNavBar } from '../CompanyNavBar.jsx';
 
 const EmployeeList = () => {
   const usersCollectionRef = collection(db, 'companies');
@@ -62,6 +63,7 @@ const EmployeeList = () => {
         <h1> loading ...</h1>
       ) : (
         <>
+        <LayoutCompanyNavBar>
           <div className="position-absolute mid-left">
             <Link to="/createnewemployee">
               <Button
@@ -147,6 +149,7 @@ const EmployeeList = () => {
                 })}
             </tbody>
           </Table>
+          </LayoutCompanyNavBar>
         </>
       )}
     </>
