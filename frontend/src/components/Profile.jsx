@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { LayoutCompanyNavBar } from './CompanyNavBar';
 import DisplayProfileInformation from './DisplayProfileInformation';
 import Leftside from './LeftsideProfile.jsx';
 
+
 function Profile() {
   return (
+    <LayoutCompanyNavBar>
     <Container>
       <Section>
         <h1>Profile:</h1>
@@ -14,6 +17,7 @@ function Profile() {
         <DisplayProfileInformation />
       </Layout>
     </Container>
+    </LayoutCompanyNavBar>
   );
 }
 
