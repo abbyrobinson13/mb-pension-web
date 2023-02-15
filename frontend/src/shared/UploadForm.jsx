@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { storage } from '../firebase-config.js';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { LayoutCompanyNavBar } from '../components/CompanyNavBar.jsx';
 
 function UploadForm() {
   // State to store uploaded file
@@ -39,11 +40,13 @@ function UploadForm() {
     );
   };
   return (
+    <LayoutCompanyNavBar>
     <div>
       <input type="file" onChange={handleChange} accept="/files/*" />
       <button onClick={handleUpload}>Upload to Firebase</button>
       <p>{percent} "% done"</p>
     </div>
+    </LayoutCompanyNavBar>
   );
 }
 export default UploadForm;
