@@ -22,16 +22,10 @@ function WelcomePage(props) {
           </div>
         </Box>
       </Paper>
-      <Hero style={{ flexDirection: 'column' }}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <img src="/images/brain.png" alt="brain image" />
-        </div>
+      <Hero >
+        
+          <img src="/images/mentalhealth.jpg" alt="brain image" />
+      
       </Hero>
     </Container>
   );
@@ -58,7 +52,7 @@ const Container = styled.div`
 const CompanyLogin = styled.a`
   box-shadow: inset 0 0 0 1px #0a66c2;
   color: #455a64;
-  border-radius: 2px;
+  border-radius: 30px;
   transition-duration: 167ms;
   font-size: 24px;
   font-weight: 600;
@@ -101,26 +95,41 @@ const Section = styled.section`
     min-height: 0px;
   }
 `;
+// const Hero = styled.div`
+//   width: 100%;
+//   height: 600px;
+//   background-color: #9ac6df;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+
+//   img {
+//     width: 400px;
+//     height: 450px;
+//     border-radius: 50%;
+//     margin-top: 50px;
+//     @media (max-width: 768px) {
+//       margin-top: 20px;
+//       object-fit: cover; 
+//     }
+//   }
+// `;
+
 const Hero = styled.div`
-  width: 100%;
-  height: 600px;
-  background-color: #9ac6df;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  background-color: #9ac6df;
+  height: 400px;
+  width: 100%;
 
   img {
-    width: 400px;
-    height: 370px;
-    border-radius: 50%;
-    margin-top: 50px;
-    @media (max-width: 768px) {
-      margin-top: 20px;
-    }
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 `;
-
 const Form = styled.div`
   margin-top: 100px;
   width: 408px;
