@@ -328,8 +328,11 @@ footer {
     align-items: center;
     max-width: 1500px; /* adjust as needed */
   margin: 0 auto;
-  display:flex;
+  
  
+  }
+  h1 {
+   padding: 50px
   }
   
   .Button-Container {
@@ -339,13 +342,13 @@ footer {
     margin-top: 1rem;
     justify-content: space-evenly;
     width: 100%;
-    
+    margin-top: 4rem;
   }
   
   .Button-Container a {
     font-size: 2rem;
-    padding: 20rem 2rem;
-    background-color:  #4a9ec2d6;
+    padding: 5rem 2rem;
+    background-color:#4a9ec2d6;
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
@@ -354,7 +357,16 @@ footer {
   
   .Button-Container a:hover {
     background-color: #555;
+    color: white;
+    transform-style: preserve-3d
 
     }
+    .Button-Container img {
+      max-width: 100%;
+      height: 100%;
+      object-fit:cover;
+    }
+    
+  
   
 
