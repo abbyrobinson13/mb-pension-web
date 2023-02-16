@@ -33,7 +33,6 @@ export default function Login() {
   };
 
   return (
-   <LayoutCompanyNavBar>
     <Grid container component="main" className="root-login">
       <Grid
         className="size-grid-logins"
@@ -89,6 +88,5 @@ export default function Login() {
         </div>
       </Grid>
     </Grid>
-    </LayoutCompanyNavBar>
   );
 }
