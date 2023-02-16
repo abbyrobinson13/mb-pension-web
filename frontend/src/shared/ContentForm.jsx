@@ -36,14 +36,14 @@ function ContentForm({ handleSubmit }) {
 
   const providers = {
     Practitioners: [
-      { value: 'acupuncture', label: 'Acupuncture' },
-      { value: 'audiology', label: 'Audiology' },
-      { value: 'chiropractor', label: 'Chiropractor' },
-      { value: 'dietician', label: 'Dietician' },
-      { value: 'message therapy', label: 'Message Therapy' },
-      { value: 'osteopathy', label: 'Osteopathy' },
-      { value: 'physiotherapy', label: 'Physiotherapy' },
-      { value: 'psychologist', label: 'Psychologist' }
+      { value: 'Acupuncture', label: 'Acupuncture' },
+      { value: 'Audiology', label: 'Audiology' },
+      { value: 'Chiropractor', label: 'Chiropractor' },
+      { value: 'Dietician', label: 'Dietician' },
+      { value: 'Message therapy', label: 'Message Therapy' },
+      { value: 'Osteopathy', label: 'Osteopathy' },
+      { value: 'Physiotherapy', label: 'Physiotherapy' },
+      { value: 'Psychologist', label: 'Psychologist' }
     ],
     SelfHelp: [{ value: 'N/A', label: 'N/A' }],
     Packages: [{ value: 'N/A', label: 'N/A' }],
