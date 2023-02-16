@@ -24,7 +24,9 @@ function AdminHome() {
   return (
    
     <div className="Admin-Container">
+    <nav>
       <h1>Admin Dashboard</h1>
+      </nav>
       <div className="Button-Container" >
         <NavLink to="/companies" >
       <img src="/images/ViewCompany.jpg" alt="Image 1" />
