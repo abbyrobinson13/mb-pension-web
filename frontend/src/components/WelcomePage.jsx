@@ -120,7 +120,6 @@ const Hero = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #9ac6df;
   height: 400px;
   width: 100%;
 
