@@ -274,14 +274,14 @@ body {
 }
 
 .root-login {
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  /* height: 100vh; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* background-size: cover; */
   /* background-color: #9AC6DF; */
-  opacity: 90px;
-  display: flex;
-  align-items: center;
+  /* opacity: 90px; */
+  /* display: flex; */
+  /* align-items: center; */
   justify-content: center;
 }
 
