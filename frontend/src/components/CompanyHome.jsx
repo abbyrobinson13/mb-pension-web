@@ -15,11 +15,11 @@ function CompanyHome() {
           <span>Benefits Form for Employees</span>
         </NavLink>
         <NavLink to="/upload">
-        <img src="/images/Add.jpg" alt="Image 2" />
-          <span> Upload Document </span>
+        <img src="/images/upload-document.jpg" alt="Image 2" />
+          <span> Upload a Document </span>
         </NavLink>
         <NavLink to="/employeelist">
-           <img src="/images/AddContent.jpg"  alt="Image 3" />
+           <img src="/images/add-employee.jpg"  alt="Image 3" />
           <span> Add Employee/ Display </span>
         </NavLink>      
       </div>
