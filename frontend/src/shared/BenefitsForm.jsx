@@ -490,7 +490,7 @@ export default function BenefitsForm() {
             value={perVisitMaxToAllServices}
           />
         </div>
-        {perVisitMaxToAllServices && (
+        {/* {perVisitMaxToAllServices && (
           <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
             <b>
               What paramedical services does the per visit maximum apply to? (up
@@ -505,7 +505,7 @@ export default function BenefitsForm() {
               isMulti
             />
           </div>
-        )}
+        )} */}
       </div>
       {/* Do paramedical benefits extend to all dependents? */}
       <div>
