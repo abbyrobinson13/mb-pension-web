@@ -90,10 +90,11 @@ nav * {
   font-size: calc(10px + 2.5vmin);
 }
 
-.active {
-  background-color: hsl(89, 59%, 30%);
+/* .active {
+  background-color: hsl(120, 1%, 25%);
+  color: black;
   box-shadow: 5px 5px 5px 5px hsl(27, 58%, 0%);
-}
+} */
 
 #Nav1 {
   flex: 0 1 35vw;
