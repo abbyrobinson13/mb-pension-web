@@ -29,15 +29,15 @@ function AdminHome() {
       </nav>
       <div className="Button-Container" >
         <NavLink to="/companies" >
-      <img src="/images/ViewCompany.jpg" alt="Image 1" />
+      {/* <img src="/images/ViewCompany.jpg" alt="Image 1" /> */}
           <span>View All Companies</span>
         </NavLink>
         <NavLink to="/createcompany">
-        <img src="/images/Add.jpg" alt="Image 2" />
+        {/* <img src="/images/Add.jpg" alt="Image 2" /> */}
           <span> Add New Company/Broker </span>
         </NavLink>
         <NavLink to="/addcontent">
-           <img src="/images/AddContent.jpg"  alt="Image 3" />
+           {/* <img src="/images/AddContent.jpg"  alt="Image 3" /> */}
           <span> Add Content </span>
         </NavLink>
         
