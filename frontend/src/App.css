@@ -320,6 +320,7 @@ footer {
   place-content: center;
   position: fixed;
   bottom: 0;
+  flex-shrink: 0;
 }
   .Admin-Container {
     display:flex;
