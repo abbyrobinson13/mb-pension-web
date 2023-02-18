@@ -5,12 +5,12 @@ export default function CompanyNavBar () {
   return (
     <div className="Nav-Container">
       <ul className="Page-Container">
-        <li className="Nav-Page">
+      <li className="Nav-Page">
           <div className="dropdown push">
-            <NavLink to="/">
-              <span> Home </span>
+            <NavLink to="/companyhome">
+              <span> Company Home </span>
             </NavLink>
-          </div>
+           </div>
         </li>
         <li className="Nav-Page">
           <div className="dropdown">
@@ -54,6 +54,13 @@ export default function CompanyNavBar () {
               <span> Profile </span>
             </NavLink>
           </div>
+        </li>
+        <li className="Nav-Page">
+          <div className="dropdown push">
+            <NavLink to="/">
+              <span> Log Out </span>
+            </NavLink>
+           </div>
         </li>
       </ul>
     </div>
