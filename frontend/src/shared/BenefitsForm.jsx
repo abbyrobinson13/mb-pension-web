@@ -631,7 +631,7 @@ export default function BenefitsForm() {
       <Button
         type="submit"
         variant="contained"
-        style={{ display: 'flex', margin: 20, width: 200 }}
+        style={{ display: 'flex', margin: 20, width: 200, backgroundColor: '#0F1A4D', textEmphasisColor: '#FAF5F3'  }}
       >
         SUBMIT
       </Button>
