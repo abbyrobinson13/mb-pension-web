@@ -19,7 +19,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -28,11 +28,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -75,58 +75,58 @@ nav * {
   height: 8vh;
   align-items: center;
   justify-content: space-between;
-  background-color: #4a9ec2d6;
-  color: hsl(255, 100%, 100%);
+  background-color: #0F1A4D;
+  color: #FAF5F3;
   font-size: 2vmin;
   padding-top: 1vh;
   padding-bottom: 1vh;
   margin-bottom: 20px;
 }
 
-.nav-title {
+/* .nav-title {
   position: relative;
   left: 10vw;
   font-weight: bold;
   font-size: calc(10px + 2.5vmin);
-}
+} */
 
 /* .active {
   background-color: hsl(120, 1%, 25%);
   color: black;
   box-shadow: 5px 5px 5px 5px hsl(27, 58%, 0%);
 } */
-
+/* 
 #Nav1 {
   flex: 0 1 35vw;
   display: flex;
   align-items: center;
   text-decoration: none;
-}
+} */
 
-#Nav1 a {
+/* #Nav1 a {
   text-decoration: inherit;
   color: inherit;
   font-size: calc(5px + 4vmin);
-}
+} */
 
-#Nav1 .active {
+/* #Nav1 .active {
   box-shadow: none;
   background-color: rgba(0, 0, 0, 0);
-}
+} */
 
-.logo-image {
+/* .logo-image {
   position: absolute;
   top: 0px;
   height: 12vh;
   width: 9vw;
   margin-top: -0.7vh;
-}
+} */
 
-#Nav1:hover {
+/* #Nav1:hover {
   color: (27, 34%, 60%);
-}
+} */
 
-#Nav3 {
+/* #Nav3 {
   width: 15vw;
 }
 
@@ -143,7 +143,7 @@ nav * {
 
 #Nav4:hover {
   color: hsl(30, 34%, 60%);
-}
+} */
 
 .Page-Container {
   display: flex;
@@ -159,7 +159,7 @@ nav * {
 }
 
 .Nav-Page:hover {
-  color: hsl(0, 0, 0, 0.6);
+  color: #FAF5F3;
 }
 
 .Nav-Page * {
@@ -167,9 +167,9 @@ nav * {
   margin-right: 7px;
 }
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
 .dropdown {
   position: relative;
@@ -183,15 +183,15 @@ nav * {
 }
 
 .Nav-Page a:hover {
-  color: rgba(0, 0, 0, 0.685);
+  color: #0F1A4D;
 }
 
 .dropdown-content {
   display: none;
 
   position: absolute;
-  background-color: #8fd4e7;
-  color: black;
+  background-color: #FAF5F3;
+  color: #0F1A4D;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.685);
   z-index: 1;
 }
@@ -314,7 +314,7 @@ body {
 footer {
   width: 100%;
   padding: 0.5em;
-  background-color: #9AC6DF;
+  background-color: #0F1A4D;
   color: white;
   display: grid;
   place-content: center;
@@ -349,7 +349,7 @@ footer {
   .Button-Container a {
     font-size: 2rem;
     padding: 5rem 2rem;
-    background-color: #555;
+    background-color: #E1705D;
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
@@ -359,7 +359,7 @@ footer {
   }
   
   .Button-Container a:hover {
-    background-color:#4a9ec2d6;
+    background-color:#0F1A4D;
     color: white;
     transform-style: preserve-3d
 
@@ -373,12 +373,13 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #4a9ec2d6;
-        color: #fff;
+        background-color: #0F1A4D;
+        color: #FAF5F3;
         width: 100vw;
         height: 60px;
         margin-left: 0; /* added to spread out to left side of page */
   margin-right: 0; /* added to spread out to right side of page */
+  margin-top: 0;
       }
       
       nav h1 {
@@ -391,3 +392,6 @@ footer {
   
   
 
+      @import "rsuite/dist/rsuite.css";
+
+      #root{ padding: 10px; }
