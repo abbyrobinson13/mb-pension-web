@@ -148,7 +148,7 @@ nav * {
 .Page-Container {
   display: flex;
   list-style: none;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 0;
   flex: 0 1 45vw;
 }
@@ -183,7 +183,7 @@ nav * {
 }
 
 .Nav-Page a:hover {
-  color: #0F1A4D;
+  color: #E1705D;
 }
 
 .dropdown-content {
@@ -192,7 +192,7 @@ nav * {
   position: absolute;
   background-color: #FAF5F3;
   color: #0F1A4D;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.685);
+  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.685); */
   z-index: 1;
 }
 
@@ -214,9 +214,13 @@ nav * {
 .dropdown-content .first-dropdown {
   border-top: 0;
 }
+.dropdown.push {
+  /* margin-left: auto; */
+  postion: relative;
+}
 
 .dropdown-content div:hover {
-  background-color: #6a8d96;
+  background-color: #FAF5F3;
 }
 
 .uploadStatus {
