@@ -7,13 +7,13 @@ export default function AdminNavBar () {
       <ul className="Page-Container">
         <li className="Nav-Page">
           <div className="dropdown push">
-            <NavLink to="/">
-              <span> Home </span>
+            <NavLink to="/adminhome">
+              <span>Home Admin </span>
             </NavLink>
           </div>
         </li>
         <li className="Nav-Page">
-          <div className="dropdown">
+          <div className="dropdown-content">
             <NavLink to="/companies">
               <span>View All Companies</span>
             </NavLink>
@@ -44,6 +44,13 @@ export default function AdminNavBar () {
               <span> Profile </span>
             </NavLink>
           </div>
+        </li>
+        <li className="Nav-Page">
+          <div className="dropdown push">
+            <NavLink to="/">
+              <span> Log Out </span>
+            </NavLink>
+           </div>
         </li>
       </ul>
     </div>
