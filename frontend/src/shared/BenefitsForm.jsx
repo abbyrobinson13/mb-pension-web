@@ -379,7 +379,7 @@ export default function BenefitsForm() {
 
   return (
     <LayoutCompanyNavBar>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}>
     <form onSubmit={handleSubmit}>
       <label style={{ display: 'flex', margin: 20, justifyContent: 'center' }}>
         <h2>Benefit Booklet Form for Companies/Employees</h2>
