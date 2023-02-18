@@ -386,7 +386,7 @@ export default function BenefitsForm() {
       </label>
       <div>
         <label>
-          <b>Add Company Name:</b>
+          <h6>Add Company Name:</h6>
           <input
             style={{ width: 700, height: 40, display: 'flex' }}
             onChange={(event) => setCompanyName(event.target.value)}
