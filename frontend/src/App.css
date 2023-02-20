@@ -411,15 +411,18 @@ nav {
   margin-left: 0; /* added to spread out to left side of page */
   margin-right: 0; /* added to spread out to right side of page */
   margin-top: 0;
-}
+      }
+      
+      nav h1 {
+        margin: 0;
+        padding: 0 20px;
+      }
+      
+    
+    
+  
+  
 
-nav h1 {
-  margin: 0;
-  padding: 0 20px;
-}
+      /* @import "rsuite/dist/rsuite.css"; */
 
-/* @import "rsuite/dist/rsuite.css"; */
-
-#root {
-  padding: 10px;
-}
+      /* #root{ padding: 10px; } */
