@@ -224,42 +224,30 @@ nav * {
 }
 
 .upload {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  /* width: 15.5vw;
-  height: 4vh; */
+  justify-self: center;
+  align-self: center;
+  margin-right: 30px;
+  margin-top: 20px;
   background-color: #e1705d;
   color: white;
-  padding-top: 6px;
+  padding-top: 8px;
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 5px;
-  border: 2px solid #0f1a4d;
-  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #0f1a4d;
+  font-size: 16px;
+}
+#h3-upload-csv {
+  color: black;
+}
+#h5-upload-csv {
+  color: black;
 }
 .uploadStatus {
-  display: flex;
   color: green;
   font-size: calc(10px + 2vmin);
 }
-
-/* .upload-csv {
-  margin: 50;
-  display: flex;
-  align-items: center;
-  width: 15.5vw;
-  height: 6vh;
-  background-color: #e1705d;
-  color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 0px;
-  border-radius: 5px;
-} */
 
 form-container {
   display: flex;
@@ -411,18 +399,13 @@ nav {
   margin-left: 0; /* added to spread out to left side of page */
   margin-right: 0; /* added to spread out to right side of page */
   margin-top: 0;
-      }
-      
-      nav h1 {
-        margin: 0;
-        padding: 0 20px;
-      }
-      
-    
-    
-  
-  
+}
 
-      /* @import "rsuite/dist/rsuite.css"; */
+nav h1 {
+  margin: 0;
+  padding: 0 20px;
+}
 
-      /* #root{ padding: 10px; } */
+/* @import "rsuite/dist/rsuite.css"; */
+
+/* #root{ padding: 10px; } */
