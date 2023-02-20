@@ -11,15 +11,15 @@ function CompanyHome() {
       </nav>
       <div className="Button-Container" >
         <NavLink to="/addbenefits" >
-      {/* <img src="../images/resized-benefits-for-employees.jpg" alt="man caring boxes of stress" />*/}
+      <img src="../images/benefits-for-employees.jpg" alt="man caring boxes of stress" />
           <span>Benefits Form for Employees</span>
         </NavLink>
         <NavLink to="/upload">
-        {/* <img src="/images/upload-document.jpg" alt="Image 2" /> */}
+        <img src="/images/upload-document.jpg" alt="Image 2" />
           <span> Upload a Document </span>
         </NavLink>
         <NavLink to="/employeelist">
-           {/* <img src="/images/add-employee.jpg"  alt="Image 3" /> */}
+           <img src="/images/add-employee.jpg"  alt="Image 3" />
           <span> Add Employee/ Display </span>
         </NavLink>      
       </div>
