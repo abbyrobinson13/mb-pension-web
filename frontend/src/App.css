@@ -75,8 +75,8 @@ nav * {
   height: 8vh;
   align-items: center;
   justify-content: space-between;
-  background-color: #0F1A4D;
-  color: #FAF5F3;
+  background-color: #0f1a4d;
+  color: #faf5f3;
   font-size: 2vmin;
   padding-top: 1vh;
   padding-bottom: 1vh;
@@ -159,7 +159,7 @@ nav * {
 }
 
 .Nav-Page:hover {
-  color: #FAF5F3;
+  color: #faf5f3;
 }
 
 .Nav-Page * {
@@ -183,15 +183,15 @@ nav * {
 }
 
 .Nav-Page a:hover {
-  color: #E1705D;
+  color: #e1705d;
 }
 
 .dropdown-content {
   display: none;
 
   position: absolute;
-  background-color: #FAF5F3;
-  color: #0F1A4D;
+  background-color: #faf5f3;
+  color: #0f1a4d;
   /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.685); */
   z-index: 1;
 }
@@ -220,17 +220,46 @@ nav * {
 }
 
 .dropdown-content div:hover {
-  background-color: #FAF5F3;
+  background-color: #faf5f3;
 }
 
+.upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  /* width: 15.5vw;
+  height: 4vh; */
+  background-color: #e1705d;
+  color: white;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 2px solid #0f1a4d;
+  font-size: 14px;
+}
 .uploadStatus {
-  color: greenyellow;
+  display: flex;
+  color: green;
   font-size: calc(10px + 2vmin);
 }
 
-employees upload csv file page .upload-csv {
+/* .upload-csv {
+  margin: 50;
+  display: flex;
+  align-items: center;
+  width: 15.5vw;
+  height: 6vh;
+  background-color: #e1705d;
   color: white;
-}
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 0px;
+  border-radius: 5px;
+} */
 
 form-container {
   display: flex;
@@ -318,7 +347,7 @@ body {
 footer {
   width: 100%;
   padding: 0.5em;
-  background-color: #0F1A4D;
+  background-color: #0f1a4d;
   color: white;
   display: grid;
   place-content: center;
@@ -326,77 +355,71 @@ footer {
   bottom: 0;
   flex-shrink: 0;
 }
-  .Admin-Container {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    max-width: 1500px; /* adjust as needed */
-  
-  margin: 0px auto 0;
-  
- 
-  }
-  h1 {
-   padding: 50px
-  }
-  
-  .Button-Container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-top: 4rem;
-  }
-  
-  .Button-Container a {
-    font-size: 2rem;
-    padding: 5rem 2rem;
-    background-color: #E1705D;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease-in-out;
-    margin-top: 100px;
-    height:  px;
-  }
-  
-  .Button-Container a:hover {
-    background-color:#0F1A4D;
-    color: white;
-    transform-style: preserve-3d
+.Admin-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  max-width: 1500px; /* adjust as needed */
 
-    }
-    .Button-Container img {
-      max-width: 100%;
-      height: 100%;
-      object-fit:cover;
-    }
-      nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #0F1A4D;
-        color: #FAF5F3;
-        width: 100vw;
-        height: 60px;
-        margin-left: 0; /* added to spread out to left side of page */
+  margin: 0px auto 0;
+}
+h1 {
+  padding: 50px;
+}
+
+.Button-Container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.Button-Container a {
+  font-size: 2rem;
+  padding: 5rem 2rem;
+  background-color: #e1705d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 100px;
+  height: px;
+}
+
+.Button-Container a:hover {
+  background-color: #0f1a4d;
+  color: white;
+  transform-style: preserve-3d;
+}
+.Button-Container img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f1a4d;
+  color: #faf5f3;
+  width: 100vw;
+  height: 60px;
+  margin-left: 0; /* added to spread out to left side of page */
   margin-right: 0; /* added to spread out to right side of page */
   margin-top: 0;
-      }
-      
-      nav h1 {
-        margin: 0;
-        padding: 0 20px;
-      }
-      
-    
-    
-  
-  
+}
 
-      /* @import "rsuite/dist/rsuite.css"; */
+nav h1 {
+  margin: 0;
+  padding: 0 20px;
+}
 
-      #root{ padding: 10px; }
+/* @import "rsuite/dist/rsuite.css"; */
+
+#root {
+  padding: 10px;
+}
