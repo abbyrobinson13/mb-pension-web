@@ -36,17 +36,20 @@ function Employees() {
           <h2>Upload CSV File</h2>
         </div>
       </nav> */}
+      
       <input
-        className="upload-csv"
+        className="upload"
         type="file"
         onChange={(e) => {
           setFile(e.target.files[0]);
         }}
-      />
+        />
+       
       <input
         id="upload"
+        className="upload"
         type="button"
-        value="Upload to Database"
+        value="Upload selected file to database "
         onClick={handleSubmit}
       />
       {status}
