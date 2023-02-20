@@ -12,7 +12,7 @@ function CompanyHome() {
       <div className="Button-Container" >
         <NavLink to="/addbenefits" >
       <img src="../images/notebook-plant.jpg" alt="notebook pencils and plant" />
-          <span>Benefits Form for Employees</span>
+          <span>Benefits Form</span>
         </NavLink>
         <NavLink to="/upload">
         <img src="/images/screen-upload.jpg" alt="Image 2" />
