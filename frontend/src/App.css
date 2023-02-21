@@ -79,8 +79,8 @@ nav * {
   color: #faf5f3;
   font-size: 2vmin;
   padding-top: 1vh;
-  padding-bottom: 1vh;
-  margin-bottom: 20px;
+  /* padding-bottom: 1vh; */
+  /* margin-bottom: 20px; */
 }
 
 /* .nav-title {
@@ -430,6 +430,8 @@ nav h1 {
 
 .form-container {
   flex: 1;
+  max-width: 800px;
+  text-align: center;
   background-color: #fff;
   padding: 2rem;
   border-radius: 5px;
@@ -439,10 +441,24 @@ nav h1 {
 .form-container h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  padding-left: 200px;
   margin-bottom: 1.5rem;
+}
+
+label, input {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 label {
