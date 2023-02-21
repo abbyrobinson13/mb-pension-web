@@ -379,13 +379,14 @@ export default function BenefitsForm() {
 
   return (
     <LayoutCompanyNavBar>
+      <div style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}>
     <form onSubmit={handleSubmit}>
       <label style={{ display: 'flex', margin: 20, justifyContent: 'center' }}>
         <h2>Benefit Booklet Form for Companies/Employees</h2>
       </label>
       <div>
         <label>
-          <b>Add Company Name:</b>
+          <h6>Add Company Name:</h6>
           <input
             style={{ width: 700, height: 40, display: 'flex' }}
             onChange={(event) => setCompanyName(event.target.value)}
@@ -395,7 +396,7 @@ export default function BenefitsForm() {
       </div>
       {/* Does the client have paramedical benefits available? */}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>Does the client have paramedical benefits available?</b>
           <Select
             options={paramedicalOptions}
@@ -404,7 +405,7 @@ export default function BenefitsForm() {
           />
         </div>
         {paramedical && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>What is the coinsurance level (%)?</b>
             <Select
               options={coinsuranceParamedicalOptions[paramedical.value]}
@@ -415,7 +416,7 @@ export default function BenefitsForm() {
         )}
         {/* How are the Annual Maximums Structured? */}
         <div>
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>Annual maximums Per Practitioner or Combined?</b>
             <Select
               options={practitionersAnnualMaximums}
@@ -424,7 +425,7 @@ export default function BenefitsForm() {
             />
           </div>
           {practitionerAnnualMax && (
-            <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
               <b>Practitioner's annual maximums ($)?</b>
               <Select
                 options={
@@ -439,7 +440,7 @@ export default function BenefitsForm() {
       </div>
       {/* Are there staggered maximums for any particular service? */}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>Are there any staggered maximums for any particular service?</b>
           <Select
             options={staggeredMaximums}
@@ -448,7 +449,7 @@ export default function BenefitsForm() {
           />
         </div>
         {staggered && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>Staggered Maximums for what services?</b>
             <Select
               options={staggeredMaxServices[staggered.value]}
@@ -461,7 +462,7 @@ export default function BenefitsForm() {
       </div>
       {/* Maximums per Visit */}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>Are there any maximums per visit?</b>
           <Select
             options={areMaxPerVisit}
@@ -470,7 +471,7 @@ export default function BenefitsForm() {
           />
         </div>
         {perVisitMax && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>What is the per visit maximum ($)?</b>
             <Select
               options={maxAmountPerVisit[perVisitMax.value]}
@@ -482,7 +483,7 @@ export default function BenefitsForm() {
       </div>
       {/* Does the per visit maximum apply to all services? */}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>Does the per visit maximum apply to all services?</b>
           <Select
             options={doesPerVisitMaxToAllServices}
@@ -509,7 +510,7 @@ export default function BenefitsForm() {
       </div>
       {/* Do paramedical benefits extend to all dependents? */}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>Do paramedical benefits extend to all dependents?</b>
           <Select
             options={paramedicalDependents}
@@ -518,7 +519,7 @@ export default function BenefitsForm() {
           />
         </div>
         {paramedDependent && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>Family maximum vs Employee only maximum?</b>
             <Select
               options={familyOrEmployeeMax[paramedDependent.value]}
@@ -530,7 +531,7 @@ export default function BenefitsForm() {
       </div>
       {/*Paramedical set of practitioners by insurance carrier*/}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>Paramedical set of practitioners by insurance carrier</b>
           <Select
             options={insuranceCompanies}
@@ -541,7 +542,7 @@ export default function BenefitsForm() {
       </div>
       {/*Does the Company have a Health Spending Account, wellness spending account or flex account, or none of the above? */}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>
             Does the Company have a Health Spending Account, wellness spending
             account or flex account, or none of the above?
@@ -553,7 +554,7 @@ export default function BenefitsForm() {
           />
         </div>
         {spendingAccount && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>What account does the Company have?</b>
             <Select
               options={spendingAccountKinds[spendingAccount.value]}
@@ -563,7 +564,7 @@ export default function BenefitsForm() {
           </div>
         )}
         {spendingAccountKind && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>Spending account annual amount available?</b>
             <Select
               options={spendingAccountsAnnualAmounts[spendingAccountKind.value]}
@@ -576,7 +577,7 @@ export default function BenefitsForm() {
 
       {/* Does the company have prescription drug coverage? */}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>Does the company have prescription drug coverage?</b>
           <Select
             options={drugsCoverageOption}
@@ -585,7 +586,7 @@ export default function BenefitsForm() {
           />
         </div>
         {drugsAnnualMax && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>What is the prescription drugs coinsurance level (%)?</b>
             <Select
               options={drugsCoinsuranceLevel[drugsAnnualMax.value]}
@@ -595,7 +596,7 @@ export default function BenefitsForm() {
           </div>
         )}
         {drugsAnnualMax && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>What is the prescription drugs annual maximum ($)?</b>
             <Select
               options={drugsAnnualMaximumOptions[drugsAnnualMax.value]}
@@ -607,7 +608,7 @@ export default function BenefitsForm() {
       </div>
       {/* Is fertility coverage available? */}
       <div>
-        <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
           <b>Is fertility coverage available?</b>
           <Select
             options={fertilityOptions}
@@ -616,7 +617,7 @@ export default function BenefitsForm() {
           />
         </div>
         {fertility && (
-          <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
+          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
             <b>What is the annual maximum for fertility ($)?</b>
             <Select
               options={fertilityAnnualMaximums[fertility.value]}
@@ -630,11 +631,12 @@ export default function BenefitsForm() {
       <Button
         type="submit"
         variant="contained"
-        style={{ display: 'flex', margin: 20, width: 200 }}
+        style={{ display: 'flex', margin: 20, width: 200, backgroundColor: '#0F1A4D', textEmphasisColor: '#FAF5F3'  }}
       >
         SUBMIT
       </Button>
     </form>
+    </div>
     </LayoutCompanyNavBar>
   );
 }

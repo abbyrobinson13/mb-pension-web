@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { signIn } from '../firebase-config.js';
 import { useNavigate } from 'react-router-dom';
-import { Avatar } from '@mui/material';
-import { Button } from '@mui/material';
+import { Avatar, Hidden } from '@mui/material';
+import Button from '@mui/material/Button';
 import { TextField } from '@mui/material';
 import FormControlLabel from '@mui/material';
 import Typography from '@mui/material';
@@ -36,19 +36,19 @@ export default function Login() {
     <Grid container component="main" className="root-login">
       <Grid
         className="size-grid-logins"
-        item
-        xs={12}
-        sm={8}
-        md={5}
+        // item
+        // xs={12}
+        // sm={8}
+        // md={5}
         component={Paper}
-        elevation={1}
-        square
+        elevation={10}
+        // square
       >
         <div className="paper-logins">
-          <Avatar className="avatar-logins">
+          <Avatar style={{backgroundColor: '#E1705D'}}>
             <LockIcon />
           </Avatar>
-          <h1>Sign In</h1>
+          <h1 className='h1-logins'>Sign In</h1>
           {error ? <div>{error}</div> : null}
           <form className="form-logins" noValidate onSubmit={handleSubmit}>
             <TextField
@@ -79,7 +79,7 @@ export default function Login() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              style={{backgroundColor: '#0F1A4D'}}
               onClick={handleSubmit}
             >
               Sign In

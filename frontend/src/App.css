@@ -19,7 +19,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -28,11 +28,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -75,58 +75,58 @@ nav * {
   height: 8vh;
   align-items: center;
   justify-content: space-between;
-  background-color: #4a9ec2d6;
-  color: hsl(255, 100%, 100%);
+  background-color: #0f1a4d;
+  color: #faf5f3;
   font-size: 2vmin;
   padding-top: 1vh;
   padding-bottom: 1vh;
   margin-bottom: 20px;
 }
 
-.nav-title {
+/* .nav-title {
   position: relative;
   left: 10vw;
   font-weight: bold;
   font-size: calc(10px + 2.5vmin);
-}
+} */
 
 /* .active {
   background-color: hsl(120, 1%, 25%);
   color: black;
   box-shadow: 5px 5px 5px 5px hsl(27, 58%, 0%);
 } */
-
+/* 
 #Nav1 {
   flex: 0 1 35vw;
   display: flex;
   align-items: center;
   text-decoration: none;
-}
+} */
 
-#Nav1 a {
+/* #Nav1 a {
   text-decoration: inherit;
   color: inherit;
   font-size: calc(5px + 4vmin);
-}
+} */
 
-#Nav1 .active {
+/* #Nav1 .active {
   box-shadow: none;
   background-color: rgba(0, 0, 0, 0);
-}
+} */
 
-.logo-image {
+/* .logo-image {
   position: absolute;
   top: 0px;
   height: 12vh;
   width: 9vw;
   margin-top: -0.7vh;
-}
+} */
 
-#Nav1:hover {
+/* #Nav1:hover {
   color: (27, 34%, 60%);
-}
+} */
 
-#Nav3 {
+/* #Nav3 {
   width: 15vw;
 }
 
@@ -143,12 +143,12 @@ nav * {
 
 #Nav4:hover {
   color: hsl(30, 34%, 60%);
-}
+} */
 
 .Page-Container {
   display: flex;
   list-style: none;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 0;
   flex: 0 1 45vw;
 }
@@ -159,7 +159,7 @@ nav * {
 }
 
 .Nav-Page:hover {
-  color: hsl(0, 0, 0, 0.6);
+  color: #faf5f3;
 }
 
 .Nav-Page * {
@@ -167,9 +167,9 @@ nav * {
   margin-right: 7px;
 }
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
 .dropdown {
   position: relative;
@@ -183,16 +183,16 @@ nav * {
 }
 
 .Nav-Page a:hover {
-  color: rgba(0, 0, 0, 0.685);
+  color: #e1705d;
 }
 
 .dropdown-content {
   display: none;
 
   position: absolute;
-  background-color: #8fd4e7;
-  color: black;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.685);
+  background-color: #faf5f3;
+  color: #0f1a4d;
+  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.685); */
   z-index: 1;
 }
 
@@ -214,18 +214,39 @@ nav * {
 .dropdown-content .first-dropdown {
   border-top: 0;
 }
+.dropdown.push {
+  /* margin-left: auto; */
+  postion: relative;
+}
 
 .dropdown-content div:hover {
-  background-color: #6a8d96;
+  background-color: #faf5f3;
 }
 
-.uploadStatus {
-  color: greenyellow;
-  font-size: calc(10px + 2vmin);
-}
-
-employees upload csv file page .upload-csv {
+.upload {
+  justify-self: center;
+  align-self: center;
+  margin-right: 30px;
+  margin-top: 20px;
+  background-color: #e1705d;
   color: white;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #0f1a4d;
+  font-size: 16px;
+}
+#h3-upload-csv {
+  color: black;
+}
+#h5-upload-csv {
+  color: black;
+}
+.uploadStatus {
+  color: green;
+  font-size: calc(10px + 2vmin);
 }
 
 form-container {
@@ -274,14 +295,14 @@ body {
 }
 
 .root-login {
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  /* height: 100vh; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* background-size: cover; */
   /* background-color: #9AC6DF; */
-  opacity: 90px;
-  display: flex;
-  align-items: center;
+  /* opacity: 90px; */
+  /* display: flex; */
+  /* align-items: center; */
   justify-content: center;
 }
 
@@ -314,82 +335,78 @@ body {
 footer {
   width: 100%;
   padding: 0.5em;
-  background-color: #9AC6DF;
+  background-color: #0f1a4d;
   color: white;
   display: grid;
   place-content: center;
   position: fixed;
   bottom: 0;
+  flex-shrink: 0;
 }
-  .Admin-Container {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    max-width: 1500px; /* adjust as needed */
-  
-  margin: 0px auto 0;
-  
- 
-  }
-  h1 {
-   padding: 50px
-  }
-  
-  .Button-Container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-top: 4rem;
-  }
-  
-  .Button-Container a {
-    font-size: 2rem;
-    padding: 5rem 2rem;
-    background-color: #555;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease-in-out;
-    margin-top: 100px;
-    height:  px;
-  }
-  
-  .Button-Container a:hover {
-    background-color:#4a9ec2d6;
-    color: white;
-    transform-style: preserve-3d
+.Admin-Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  max-width: 1500px; /* adjust as needed */
 
-    }
-    .Button-Container img {
-      max-width: 100%;
-      height: 100%;
-      object-fit:cover;
-    }
-      nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #4a9ec2d6;
-        color: #fff;
-        width: 100vw;
-        height: 60px;
-        margin-left: 0; /* added to spread out to left side of page */
+  margin: 0px auto 0;
+}
+h1 {
+  padding: 50px;
+}
+
+.Button-Container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.Button-Container a {
+  font-size: 2rem;
+  padding: 5rem 2rem;
+  background-color: #e1705d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 100px;
+  height: px;
+}
+
+.Button-Container a:hover {
+  background-color: #0f1a4d;
+  color: white;
+  transform-style: preserve-3d;
+}
+.Button-Container img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f1a4d;
+  color: #faf5f3;
+  width: 100vw;
+  height: 60px;
+  margin-left: 0; /* added to spread out to left side of page */
   margin-right: 0; /* added to spread out to right side of page */
-      }
-      
-      nav h1 {
-        margin: 0;
-        padding: 0 20px;
-      }
-      
-    
-    
-  
-  
+  margin-top: 0;
+}
+
+nav h1 {
+  margin: 0;
+  padding: 0 20px;
+}
+
+/* @import "rsuite/dist/rsuite.css"; */
 /* styling for the company registration page */
 
 .registration-page {

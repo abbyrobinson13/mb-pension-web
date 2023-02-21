@@ -2,12 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { LayoutCompanyNavBar } from '../CompanyNavBar';
 
-
 function Employees() {
   const [file, setFile] = useState();
   const [status, setStatus] = useState();
 
-  
   const handleSubmit = async () => {
     const data = new FormData();
     console.log(file);
@@ -30,29 +28,31 @@ function Employees() {
   };
   return (
     <LayoutCompanyNavBar>
-    <div>
-      {/* <nav className="bg-dark navbar-dark navbar">
-        <div className="row col-12 d-flex justify-content-center text-white">
-          <h2>Upload CSV File</h2>
+      <div>
+        <div >
+          <h3 id="h3-upload-csv"> Please use this page to add your employee information.</h3>
+          <h5 id="h5-upload-csv"> Once CSV file is selected, click "Upload" to proceed</h5>
         </div>
-      </nav> */}
-      <input
-        className="upload-csv"
-        type="file"
-        onChange={(e) => {
-          setFile(e.target.files[0]);
-        }}
-      />
-      <input
-        id="upload"
-        type="button"
-        value="Upload to Database"
-        onClick={handleSubmit}
-      />
-      {status}
 
-      <p className="uploadStatus">{status}</p>
-    </div>
+        <div>
+          <input
+            className="upload"
+            type="file"
+            onChange={(e) => {
+              setFile(e.target.files[0]);
+            }}
+          />
+
+          <input
+            className="upload"
+            type="button"
+            value="Upload to database "
+            onClick={handleSubmit}
+          />
+
+          <p className="uploadStatus">{status}</p>
+        </div>
+      </div>
     </LayoutCompanyNavBar>
   );
 }
