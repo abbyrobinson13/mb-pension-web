@@ -44,47 +44,64 @@ function CreateCompany() {
   };
 
   return (
-    <LayoutAdminNavBar>
-      <form>
-        <input
-          placeholder="Company Name"
-          onChange={(event) => {
-            setNewName(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Company Email"
-          onChange={(event) => {
-            setNewEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Company Password"
-          onChange={(event) => {
-            setNewPassword(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Insurance Broker Name"
-          onChange={(event) => {
-            setNewBroker(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Insurance Broker Email"
-          onChange={(event) => {
-            setBrokerEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Insurance Broker Password"
-          onChange={(event) => {
-            setBrokerPassword(event.target.value);
-          }}
-        />
-        <button onClick={createUser}> Add New Company </button>
-      </form>
-    </LayoutAdminNavBar>
+    <>
+      <LayoutAdminNavBar />
+      <div className="registration-page">
+        <div className="image-container">
+          <img src="path/to/image" alt="Registration" />
+        </div>
+        <div className="form-container">
+          <form>
+            <h2>Register</h2>
+            <input
+              placeholder="Company Name"
+              onChange={(event) => {
+                setNewName(event.target.value);
+              }}
+            />
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                placeholder="Company Email"
+                onChange={(event) => {
+                  setNewEmail(event.target.value);
+                }}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                placeholder="Company Password"
+                onChange={(event) => {
+                  setNewPassword(event.target.value);
+                }}
+              />
+            </div>
+            <input
+              placeholder="Insurance Broker Name"
+              onChange={(event) => {
+                setNewBroker(event.target.value);
+              }}
+            />
+            <input
+              placeholder="Insurance Broker Email"
+              onChange={(event) => {
+                setBrokerEmail(event.target.value);
+              }}
+            />
+            <input
+              placeholder="Insurance Broker Password"
+              onChange={(event) => {
+                setBrokerPassword(event.target.value);
+              }}
+            />
+            <div className="form-group">
+              <button onClick={createUser}> Add New Company </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
   );
 }
 
