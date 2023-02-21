@@ -216,7 +216,7 @@ nav * {
 }
 .dropdown.push {
   /* margin-left: auto; */
-  postion: relative;
+  position: relative;
 }
 
 .dropdown-content div:hover {
