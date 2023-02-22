@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import ContentForm from '../shared/ContentForm.jsx';
 import { LayoutAdminNavBar } from './AdminNavBar.jsx';
 
- function AddContent({}) {
+function AddContent({}) {
   const [confirmSubmit, setConfirmSubmit] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async (content) => {
     alert('Form submitted');
     setConfirmSubmit(true);
-    navigate('/');
+    navigate('/adminhome');
 
     const response = await fetch('/api/content', {
       method: 'POST',
@@ -23,9 +23,9 @@ import { LayoutAdminNavBar } from './AdminNavBar.jsx';
   };
   return (
     <LayoutAdminNavBar>
-    <div>
-      <ContentForm handleSubmit={handleSubmit} />
-    </div>
+      <div>
+        <ContentForm handleSubmit={handleSubmit} />
+      </div>
     </LayoutAdminNavBar>
   );
 }
