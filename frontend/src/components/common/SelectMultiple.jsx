@@ -37,7 +37,7 @@ export default function SelectMultiple({ selectedTitles, updateTags }) {
 
   return (
     <div>
-      <label>Select Risk Factors</label>
+      <label>Risk Factors</label>
       <Stack spacing={3} sx={{ width: 500 }}>
         <Autocomplete
           multiple
@@ -46,11 +46,7 @@ export default function SelectMultiple({ selectedTitles, updateTags }) {
           ListboxProps={{ sx: root }}
           getOptionLabel={(option) => option.title}
           renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Risk Factors"
-              placeholder="Please select symptoms"
-            />
+            <TextField {...params} placeholder="Please select symptoms" />
           )}
           onChange={handleChange}
         />
