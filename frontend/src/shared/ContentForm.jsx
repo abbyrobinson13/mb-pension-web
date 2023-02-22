@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 // import Select from '@mui/material/Select';
 import Select from 'react-select';
 import SelectMultiple from '../components/common/SelectMultiple.jsx';
+import { Button } from '@mui/material';
 
 function ContentForm({ handleSubmit }) {
   const [title, setTitle] = useState('');
@@ -81,6 +82,7 @@ function ContentForm({ handleSubmit }) {
 
   return (
     <div>
+      <h1>Add Content to Mobile App</h1>
       <form
         className="form"
         style={{
@@ -88,8 +90,9 @@ function ContentForm({ handleSubmit }) {
           alignItems: 'center',
           flexDirection: 'column',
           position: 'relative',
-          left: 400,
-          width: 700
+          left: 550,
+          width: 700,
+          marginBottom: 100
         }}
         onSubmit={(e) => {
           e.preventDefault();
@@ -171,9 +174,19 @@ function ContentForm({ handleSubmit }) {
         </div>
 
         <SelectMultiple tags={tags} updateTags={updateTags} />
-        <button style={{ margin: 40 }} type="submit">
+        <Button
+          variant="contained"
+          style={{
+            display: 'flex',
+            margin: 20,
+            width: 350,
+            backgroundColor: '#0F1A4D',
+            textEmphasisColor: '#FAF5F3'
+          }}
+          type="submit"
+        >
           Submit Content
-        </button>
+        </Button>
       </form>
     </div>
   );
