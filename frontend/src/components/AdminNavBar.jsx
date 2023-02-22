@@ -1,7 +1,7 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default function AdminNavBar () {
+export default function AdminNavBar() {
   return (
     <div className="Nav-Container">
       <ul className="Page-Container">
@@ -27,7 +27,7 @@ export default function AdminNavBar () {
         <li className="Nav-Page">
           <div className="dropdown">
             <NavLink to="/createcompany">
-              <span> Add New Company/Broker </span>
+              <span> Add New Company </span>
             </NavLink>
           </div>
         </li>
@@ -38,19 +38,13 @@ export default function AdminNavBar () {
             </NavLink>
           </div>
         </li>
-        <li className="Nav-Page">
-          <div className="dropdown">
-            <NavLink to="/profile">
-              <span> Profile </span>
-            </NavLink>
-          </div>
-        </li>
+
         <li className="Nav-Page">
           <div className="dropdown push">
             <NavLink to="/">
               <span> Log Out </span>
             </NavLink>
-           </div>
+          </div>
         </li>
       </ul>
     </div>
@@ -65,4 +59,3 @@ export const LayoutAdminNavBar = ({ children }) => {
     </div>
   );
 };
-
