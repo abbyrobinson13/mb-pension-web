@@ -87,43 +87,6 @@ function CompanyList() {
   return (
     <LayoutAdminNavBar>
       <div className="App">
-        <input
-          placeholder="Company Name"
-          onChange={(event) => {
-            setNewName(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Company Email"
-          onChange={(event) => {
-            setNewEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Company Password"
-          onChange={(event) => {
-            setNewPassword(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Insurance Broker Name"
-          onChange={(event) => {
-            setNewBroker(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Insurance Broker Email"
-          onChange={(event) => {
-            setBrokerEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Insurance Broker Password"
-          onChange={(event) => {
-            setBrokerPassword(event.target.value);
-          }}
-        />
-        <button onClick={createUser}> Add New Company </button>
         {users.map((user) => {
           return (
             <div>
