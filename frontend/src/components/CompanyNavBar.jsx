@@ -48,7 +48,13 @@ export default function CompanyNavBar() {
             </NavLink>
           </div>
         </li> */}
-
+        <li className="Nav-Page">
+          <div className="dropdown">
+            <NavLink to="/profile">
+              <span> Profile </span>
+            </NavLink>
+          </div>
+        </li>
         <li className="Nav-Page">
           <div className="dropdown push">
             <NavLink to="/">
