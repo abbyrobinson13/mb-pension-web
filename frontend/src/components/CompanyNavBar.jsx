@@ -1,16 +1,16 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default function CompanyNavBar () {
+export default function CompanyNavBar() {
   return (
     <div className="Nav-Container">
       <ul className="Page-Container">
-      <li className="Nav-Page">
+        <li className="Nav-Page">
           <div className="dropdown push">
             <NavLink to="/companyhome">
               <span> Company Home </span>
             </NavLink>
-           </div>
+          </div>
         </li>
         <li className="Nav-Page">
           <div className="dropdown">
@@ -22,10 +22,10 @@ export default function CompanyNavBar () {
                 <NavLink to="/addbenefits">Add Benefits</NavLink>
               </div>
               <div className="dropdown-content">
-              <div className="second-dropdown">
-                <NavLink to="/upload">Upload Document</NavLink>
+                <div className="second-dropdown">
+                  <NavLink to="/upload">Upload Document</NavLink>
+                </div>
               </div>
-            </div>
             </div>
           </div>
         </li>
@@ -48,25 +48,18 @@ export default function CompanyNavBar () {
             </NavLink>
           </div>
         </li> */}
-        <li className="Nav-Page">
-          <div className="dropdown">
-            <NavLink to="/profile">
-              <span> Profile </span>
-            </NavLink>
-          </div>
-        </li>
+
         <li className="Nav-Page">
           <div className="dropdown push">
             <NavLink to="/">
               <span> Log Out </span>
             </NavLink>
-           </div>
+          </div>
         </li>
       </ul>
     </div>
   );
 }
-
 
 export const LayoutCompanyNavBar = ({ children }) => {
   return (
