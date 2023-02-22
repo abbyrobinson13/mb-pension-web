@@ -9,6 +9,7 @@ import {
   deleteDoc
 } from 'firebase/firestore';
 import { signUp, signUpBroker } from '../firebase-config';
+import styled from 'styled-components';
 import { LayoutAdminNavBar } from './AdminNavBar';
 
 function CompanyList() {
@@ -86,33 +87,67 @@ function CompanyList() {
 
   return (
     <LayoutAdminNavBar>
-      <div className="App">
+      <CompanyListContainer>
         {users.map((user) => {
           return (
             <div>
-              <h1>Company Name: {user.name}</h1>
-              <h1>Company Email: {user.email}</h1>
-              <h1>Insurance Broker: {user.broker}</h1>
-              {/* <button
-              onClick={() => {
-                updateUser(user.id, user.age);
-              }}
-            >
-              Increase Age
-            </button> */}
-              <button
-                onClick={() => {
-                  deleteUser(user.id);
-                }}
-              >
-                Delete User
-              </button>
+              <CompanyCard key={user.name}>
+                <CompanyName>{user.name}</CompanyName>
+                <CompanyDescription>{user.email}</CompanyDescription>
+                <CardButtons>Details</CardButtons>
+                <CardButtons
+                  onClick={() => {
+                    deleteUser(user.id);
+                  }}
+                >
+                  Delete
+                </CardButtons>
+              </CompanyCard>
             </div>
           );
         })}
-      </div>
+      </CompanyListContainer>
     </LayoutAdminNavBar>
   );
 }
 
 export default CompanyList;
+
+const CompanyCard = styled.div`
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 400px;
+`;
+
+const CompanyListContainer = styled.div`
+  display: flex;
+  flexdirection: column;
+  justify-content: center;
+`;
+
+const CompanyName = styled.h2`
+  font-size: 24px;
+  margin-bottom: 10px;
+`;
+
+const CompanyDescription = styled.p`
+  font-size: 16px;
+  margin-bottom: 20px;
+`;
+
+const CardButtons = styled.button`
+  background-color: #0f1a4d;
+  color: white;
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
