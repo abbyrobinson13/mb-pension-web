@@ -484,7 +484,7 @@ input[type="password"]:focus {
   border-color: #6c63ff;
 }
 
-button[type="submit"] {
+/* button[type="submit"] {
   display: block;
   width: 100%;
   padding: 0.5rem;
@@ -495,7 +495,7 @@ button[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-}
+} */
 
 button[type="submit"]:hover {
   background-color: #574fe6;
