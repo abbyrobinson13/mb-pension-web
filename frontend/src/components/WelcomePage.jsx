@@ -18,7 +18,7 @@ function WelcomePage(props) {
           </div>
           <div className="dropdown">
             <NavLink to="/login">
-              <button className ="welcomeButton">Company \Log In</button>
+              <button className ="welcomeButton">Company LogIn</button>
             </NavLink>
           </div>
         </Box>
