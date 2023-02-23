@@ -224,25 +224,25 @@ nav * {
 }
 
 .upload {
-  justify-self: center;
-  align-self: center;
-  margin-right: 30px;
-  margin-top: 20px;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 15px;
   background-color: #e1705d;
   color: white;
-  padding-top: 8px;
+  padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 4px;
-  border: 1px solid #0f1a4d;
+  border: 1.5px solid #0f1a4d;
   font-size: 16px;
+  width: auto;
 }
 #h3-upload-csv {
-  color: black;
+  color: #0f1a4d;
 }
 #h5-upload-csv {
-  color: black;
+  color: #0f1a4d;
 }
 .uploadStatus {
   color: green;
@@ -454,7 +454,8 @@ nav h1 {
   margin-bottom: 1.5rem;
 }
 
-label, input {
+label,
+input {
   display: block;
   width: 100%;
   text-align: left;
@@ -467,8 +468,8 @@ label {
   margin-bottom: 0.5rem;
 }
 
-input[type="email"],
-input[type="password"] {
+input[type='email'],
+input[type='password'] {
   display: block;
   width: 100%;
   padding: 0.5rem;
@@ -478,13 +479,13 @@ input[type="password"] {
   transition: border-color 0.2s ease-in-out;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus {
+input[type='email']:focus,
+input[type='password']:focus {
   outline: none;
   border-color: #6c63ff;
 }
 
-button[type="submit"] {
+button[type='submit'] {
   display: block;
   width: 100%;
   padding: 0.5rem;
@@ -497,6 +498,6 @@ button[type="submit"] {
   transition: background-color 0.2s ease-in-out;
 }
 
-button[type="submit"]:hover {
+button[type='submit']:hover {
   background-color: #574fe6;
 }
