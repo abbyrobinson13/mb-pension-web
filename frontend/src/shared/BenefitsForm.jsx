@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import '../App.css';
 import { LayoutCompanyNavBar } from '../components/CompanyNavBar';
 
-
 //Does the client have paramedical benefits available?
 
 export default function BenefitsForm() {
@@ -147,7 +146,7 @@ export default function BenefitsForm() {
         'Osteopath',
         'Podiatrist',
         'Psychologist',
-        'Speech Therapist'
+        'Speech Therapy'
       ],
       label: 'Equitable Life'
     },
@@ -379,119 +378,125 @@ export default function BenefitsForm() {
 
   return (
     <LayoutCompanyNavBar>
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}>
-    <form onSubmit={handleSubmit}>
-      <label style={{ display: 'flex', margin: 20, justifyContent: 'center' }}>
-        <h2>Benefit Booklet Form for Companies/Employees</h2>
-      </label>
-      <div>
-        <label>
-          <h6>Add Company Name:</h6>
-          <input
-            style={{ width: 700, height: 40, display: 'flex' }}
-            onChange={(event) => setCompanyName(event.target.value)}
-            value={companyName}
-          />
-        </label>
-      </div>
-      {/* Does the client have paramedical benefits available? */}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>Does the client have paramedical benefits available?</b>
-          <Select
-            options={paramedicalOptions}
-            onChange={handleParamedicalChange}
-            value={paramedical}
-          />
-        </div>
-        {paramedical && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>What is the coinsurance level (%)?</b>
-            <Select
-              options={coinsuranceParamedicalOptions[paramedical.value]}
-              onChange={handleCoinsuranceParamedicalChange}
-              value={coinsuranceParamedical}
-            />
+      <div
+        style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}
+      >
+        <form onSubmit={handleSubmit}>
+          <label
+            style={{ display: 'flex', margin: 20, justifyContent: 'center' }}
+          >
+            <h2>Benefit Booklet Form for Companies/Employees</h2>
+          </label>
+          <div>
+            <label>
+              <h6>Add Company Name:</h6>
+              <input
+                style={{ width: 700, height: 40, display: 'flex' }}
+                onChange={(event) => setCompanyName(event.target.value)}
+                value={companyName}
+              />
+            </label>
           </div>
-        )}
-        {/* How are the Annual Maximums Structured? */}
-        <div>
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>Annual maximums Per Practitioner or Combined?</b>
-            <Select
-              options={practitionersAnnualMaximums}
-              onChange={handlePractAnnualMaxChange}
-              value={practitionerAnnualMax}
-            />
-          </div>
-          {practitionerAnnualMax && (
+          {/* Does the client have paramedical benefits available? */}
+          <div>
             <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-              <b>Practitioner's annual maximums ($)?</b>
+              <b>Does the client have paramedical benefits available?</b>
               <Select
-                options={
-                  practitionersAnnualMaxAmounts[practitionerAnnualMax.value]
-                }
-                onChange={handlePractAnnMaxAmountChange}
-                value={practitionerAnnualMaxAmount}
+                options={paramedicalOptions}
+                onChange={handleParamedicalChange}
+                value={paramedical}
               />
             </div>
-          )}
-        </div>
-      </div>
-      {/* Are there staggered maximums for any particular service? */}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>Are there any staggered maximums for any particular service?</b>
-          <Select
-            options={staggeredMaximums}
-            onChange={handleStaggeredChange}
-            value={staggered}
-          />
-        </div>
-        {staggered && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>Staggered Maximums for what services?</b>
-            <Select
-              options={staggeredMaxServices[staggered.value]}
-              onChange={handleStaggeredServicesChange}
-              value={staggeredServices}
-              isMulti
-            />
+            {paramedical && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>What is the coinsurance level (%)?</b>
+                <Select
+                  options={coinsuranceParamedicalOptions[paramedical.value]}
+                  onChange={handleCoinsuranceParamedicalChange}
+                  value={coinsuranceParamedical}
+                />
+              </div>
+            )}
+            {/* How are the Annual Maximums Structured? */}
+            <div>
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>Annual maximums Per Practitioner or Combined?</b>
+                <Select
+                  options={practitionersAnnualMaximums}
+                  onChange={handlePractAnnualMaxChange}
+                  value={practitionerAnnualMax}
+                />
+              </div>
+              {practitionerAnnualMax && (
+                <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                  <b>Practitioner's annual maximums ($)?</b>
+                  <Select
+                    options={
+                      practitionersAnnualMaxAmounts[practitionerAnnualMax.value]
+                    }
+                    onChange={handlePractAnnMaxAmountChange}
+                    value={practitionerAnnualMaxAmount}
+                  />
+                </div>
+              )}
+            </div>
           </div>
-        )}
-      </div>
-      {/* Maximums per Visit */}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>Are there any maximums per visit?</b>
-          <Select
-            options={areMaxPerVisit}
-            onChange={handleMaxPerVisitChange}
-            value={perVisitMax}
-          />
-        </div>
-        {perVisitMax && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>What is the per visit maximum ($)?</b>
-            <Select
-              options={maxAmountPerVisit[perVisitMax.value]}
-              onChange={handlePerVisitMaxAmountChange}
-              value={perVisitMaxAmount}
-            />
+          {/* Are there staggered maximums for any particular service? */}
+          <div>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+              <b>
+                Are there any staggered maximums for any particular service?
+              </b>
+              <Select
+                options={staggeredMaximums}
+                onChange={handleStaggeredChange}
+                value={staggered}
+              />
+            </div>
+            {staggered && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>Staggered Maximums for what services?</b>
+                <Select
+                  options={staggeredMaxServices[staggered.value]}
+                  onChange={handleStaggeredServicesChange}
+                  value={staggeredServices}
+                  isMulti
+                />
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      {/* Does the per visit maximum apply to all services? */}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>Does the per visit maximum apply to all services?</b>
-          <Select
-            options={doesPerVisitMaxToAllServices}
-            onChange={handlePerVisitMaxToAllChange}
-            value={perVisitMaxToAllServices}
-          />
-        </div>
-        {/* {perVisitMaxToAllServices && (
+          {/* Maximums per Visit */}
+          <div>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+              <b>Are there any maximums per visit?</b>
+              <Select
+                options={areMaxPerVisit}
+                onChange={handleMaxPerVisitChange}
+                value={perVisitMax}
+              />
+            </div>
+            {perVisitMax && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>What is the per visit maximum ($)?</b>
+                <Select
+                  options={maxAmountPerVisit[perVisitMax.value]}
+                  onChange={handlePerVisitMaxAmountChange}
+                  value={perVisitMaxAmount}
+                />
+              </div>
+            )}
+          </div>
+          {/* Does the per visit maximum apply to all services? */}
+          <div>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+              <b>Does the per visit maximum apply to all services?</b>
+              <Select
+                options={doesPerVisitMaxToAllServices}
+                onChange={handlePerVisitMaxToAllChange}
+                value={perVisitMaxToAllServices}
+              />
+            </div>
+            {/* {perVisitMaxToAllServices && (
           <div style={{ width: 600, marginBottom: 20, margin: 20 }}>
             <b>
               What paramedical services does the per visit maximum apply to? (up
@@ -507,136 +512,144 @@ export default function BenefitsForm() {
             />
           </div>
         )} */}
-      </div>
-      {/* Do paramedical benefits extend to all dependents? */}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>Do paramedical benefits extend to all dependents?</b>
-          <Select
-            options={paramedicalDependents}
-            onChange={handleParamedDependentsChange}
-            value={paramedDependent}
-          />
-        </div>
-        {paramedDependent && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>Family maximum vs Employee only maximum?</b>
-            <Select
-              options={familyOrEmployeeMax[paramedDependent.value]}
-              onChange={handleFamilyOrEmployeeChange}
-              value={familyOrEmployeeOnly}
-            />
           </div>
-        )}
-      </div>
-      {/*Paramedical set of practitioners by insurance carrier*/}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>Paramedical set of practitioners by insurance carrier</b>
-          <Select
-            options={insuranceCompanies}
-            onChange={handleInsuranceCompanyChange}
-            value={insuranceCompany}
-          />
-        </div>
-      </div>
-      {/*Does the Company have a Health Spending Account, wellness spending account or flex account, or none of the above? */}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>
-            Does the Company have a Health Spending Account, wellness spending
-            account or flex account, or none of the above?
-          </b>
-          <Select
-            options={spendingAccounts}
-            onChange={handleSpendingAccountsChange}
-            value={spendingAccount}
-          />
-        </div>
-        {spendingAccount && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>What account does the Company have?</b>
-            <Select
-              options={spendingAccountKinds[spendingAccount.value]}
-              onChange={handleSpendingAccountKindsChange}
-              value={spendingAccountKind}
-            />
+          {/* Do paramedical benefits extend to all dependents? */}
+          <div>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+              <b>Do paramedical benefits extend to all dependents?</b>
+              <Select
+                options={paramedicalDependents}
+                onChange={handleParamedDependentsChange}
+                value={paramedDependent}
+              />
+            </div>
+            {paramedDependent && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>Family maximum vs Employee only maximum?</b>
+                <Select
+                  options={familyOrEmployeeMax[paramedDependent.value]}
+                  onChange={handleFamilyOrEmployeeChange}
+                  value={familyOrEmployeeOnly}
+                />
+              </div>
+            )}
           </div>
-        )}
-        {spendingAccountKind && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>Spending account annual amount available?</b>
-            <Select
-              options={spendingAccountsAnnualAmounts[spendingAccountKind.value]}
-              onChange={handleSpendingAccountsAnnualAmountsChange}
-              value={spendingAccountsAnnualAmount}
-            />
+          {/*Paramedical set of practitioners by insurance carrier*/}
+          <div>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+              <b>Paramedical set of practitioners by insurance carrier</b>
+              <Select
+                options={insuranceCompanies}
+                onChange={handleInsuranceCompanyChange}
+                value={insuranceCompany}
+              />
+            </div>
           </div>
-        )}
-      </div>
+          {/*Does the Company have a Health Spending Account, wellness spending account or flex account, or none of the above? */}
+          <div>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+              <b>
+                Does the Company have a Health Spending Account, wellness
+                spending account or flex account, or none of the above?
+              </b>
+              <Select
+                options={spendingAccounts}
+                onChange={handleSpendingAccountsChange}
+                value={spendingAccount}
+              />
+            </div>
+            {spendingAccount && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>What account does the Company have?</b>
+                <Select
+                  options={spendingAccountKinds[spendingAccount.value]}
+                  onChange={handleSpendingAccountKindsChange}
+                  value={spendingAccountKind}
+                />
+              </div>
+            )}
+            {spendingAccountKind && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>Spending account annual amount available?</b>
+                <Select
+                  options={
+                    spendingAccountsAnnualAmounts[spendingAccountKind.value]
+                  }
+                  onChange={handleSpendingAccountsAnnualAmountsChange}
+                  value={spendingAccountsAnnualAmount}
+                />
+              </div>
+            )}
+          </div>
 
-      {/* Does the company have prescription drug coverage? */}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>Does the company have prescription drug coverage?</b>
-          <Select
-            options={drugsCoverageOption}
-            onChange={handleDrugsCoverageChange}
-            value={drugsAnnualMax}
-          />
-        </div>
-        {drugsAnnualMax && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>What is the prescription drugs coinsurance level (%)?</b>
-            <Select
-              options={drugsCoinsuranceLevel[drugsAnnualMax.value]}
-              onChange={handleCoinsuranceDrugsChange}
-              value={coinsuranceDrugs}
-            />
+          {/* Does the company have prescription drug coverage? */}
+          <div>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+              <b>Does the company have prescription drug coverage?</b>
+              <Select
+                options={drugsCoverageOption}
+                onChange={handleDrugsCoverageChange}
+                value={drugsAnnualMax}
+              />
+            </div>
+            {drugsAnnualMax && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>What is the prescription drugs coinsurance level (%)?</b>
+                <Select
+                  options={drugsCoinsuranceLevel[drugsAnnualMax.value]}
+                  onChange={handleCoinsuranceDrugsChange}
+                  value={coinsuranceDrugs}
+                />
+              </div>
+            )}
+            {drugsAnnualMax && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>What is the prescription drugs annual maximum ($)?</b>
+                <Select
+                  options={drugsAnnualMaximumOptions[drugsAnnualMax.value]}
+                  onChange={handleDrugsMaxAmountChange}
+                  value={drugsAnnualMaxAmount}
+                />
+              </div>
+            )}
           </div>
-        )}
-        {drugsAnnualMax && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>What is the prescription drugs annual maximum ($)?</b>
-            <Select
-              options={drugsAnnualMaximumOptions[drugsAnnualMax.value]}
-              onChange={handleDrugsMaxAmountChange}
-              value={drugsAnnualMaxAmount}
-            />
+          {/* Is fertility coverage available? */}
+          <div>
+            <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+              <b>Is fertility coverage available?</b>
+              <Select
+                options={fertilityOptions}
+                onChange={handleFertilityChange}
+                value={fertility}
+              />
+            </div>
+            {fertility && (
+              <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
+                <b>What is the annual maximum for fertility ($)?</b>
+                <Select
+                  options={fertilityAnnualMaximums[fertility.value]}
+                  onChange={handleFertilityAmountChange}
+                  value={fertilityAmount}
+                />
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      {/* Is fertility coverage available? */}
-      <div>
-        <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-          <b>Is fertility coverage available?</b>
-          <Select
-            options={fertilityOptions}
-            onChange={handleFertilityChange}
-            value={fertility}
-          />
-        </div>
-        {fertility && (
-          <div style={{ width: 700, marginBottom: 20, margin: 20 }}>
-            <b>What is the annual maximum for fertility ($)?</b>
-            <Select
-              options={fertilityAnnualMaximums[fertility.value]}
-              onChange={handleFertilityAmountChange}
-              value={fertilityAmount}
-            />
-          </div>
-        )}
-      </div>
 
-      <Button
-        type="submit"
-        variant="contained"
-        style={{ display: 'flex', margin: 20, width: 200, backgroundColor: '#0F1A4D', textEmphasisColor: '#FAF5F3'  }}
-      >
-        SUBMIT
-      </Button>
-    </form>
-    </div>
+          <Button
+            type="submit"
+            variant="contained"
+            style={{
+              display: 'flex',
+              margin: 20,
+              width: 200,
+              backgroundColor: '#0F1A4D',
+              textEmphasisColor: '#FAF5F3'
+            }}
+          >
+            SUBMIT
+          </Button>
+        </form>
+      </div>
     </LayoutCompanyNavBar>
   );
 }
