@@ -13,12 +13,12 @@ function WelcomePage(props) {
         <Box p={2}>
           <div className="dropdown">
             <NavLink to="/adminhome">
-              <button className ="welcomeButton">Admin Log In</button>
+              <button className ="welcomeButton">Admin Login</button>
             </NavLink>
           </div>
           <div className="dropdown">
             <NavLink to="/login">
-              <button className ="welcomeButton">Company LogIn</button>
+              <button className ="welcomeButton">Company Login</button>
             </NavLink>
           </div>
         </Box>
