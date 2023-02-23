@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import { Button } from '@mui/material';
 
 function WelcomePage(props) {
   return (
@@ -12,12 +13,12 @@ function WelcomePage(props) {
         <Box p={2}>
           <div className="dropdown">
             <NavLink to="/adminhome">
-              <CompanyLogin>Admin Log In</CompanyLogin>
+              <button className ="welcomeButton">Admin Log In</button>
             </NavLink>
           </div>
           <div className="dropdown">
             <NavLink to="/login">
-              <CompanyLogin>Company/Broker Log In</CompanyLogin>
+              <button className ="welcomeButton">Company Log In</button>
             </NavLink>
           </div>
         </Box>
